@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>404 - Page Not Found | Photography Portfolio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        .error-bg {
+            background-image: linear-gradient(rgba(21, 23, 25, 0.85), rgba(21, 23, 25, 0.95)), url('assets/images/img_3.webp');
+            background-size: cover;
+            background-position: center;
+        }
+    </style>
+</head>
+<body class="bg-[#151719] text-white flex flex-col min-h-screen">
+
+    <!-- Main Content Area (No Header or Footer) -->
+    <main class="flex-grow flex items-center justify-center error-bg p-6">
+        <div class="container mx-auto text-center relative z-10 flex flex-col items-center">
+            
+            <!-- 404 Code with GSAP Animation hook -->
+            <div id="error-404" class="relative inline-block mb-2">
+                <h1 class="text-[8rem] md:text-[14rem] font-black leading-none tracking-tighter text-transparent bg-clip-text bg-gradient-to-b from-white to-gray-600 drop-shadow-2xl">404</h1>
+                <!-- Camera Focus Icon Overlay -->
+                <div id="focus-box" class="absolute inset-0 border-2 border-[#d6a87c]/30 rounded-lg hidden md:block m-4 pointer-events-none">
+                    <div class="absolute top-0 left-0 w-8 h-8 border-t-4 border-l-4 border-[#d6a87c] -mt-2 -ml-2"></div>
+                    <div class="absolute top-0 right-0 w-8 h-8 border-t-4 border-r-4 border-[#d6a87c] -mt-2 -mr-2"></div>
+                    <div class="absolute bottom-0 left-0 w-8 h-8 border-b-4 border-l-4 border-[#d6a87c] -mb-2 -ml-2"></div>
+                    <div class="absolute bottom-0 right-0 w-8 h-8 border-b-4 border-r-4 border-[#d6a87c] -mb-2 -mr-2"></div>
+                </div>
+            </div>
+            
+            <h2 id="error-title" class="text-3xl md:text-5xl font-bold mb-6 tracking-tight text-white">Oops! Lost Focus.</h2>
+            <p id="error-desc" class="text-lg text-gray-300 max-w-lg mx-auto mb-10 leading-relaxed">The frame you're looking for seems to be missing from our gallery. It might have been moved or never existed.</p>
+            
+            <!-- Navigation Buttons -->
+            <div id="error-btns" class="flex flex-col sm:flex-row gap-5">
+                <!-- Go Previous Button -->
+                <button onclick="window.history.back()" class="inline-flex items-center justify-center border-2 border-gray-500 text-gray-300 font-bold px-8 py-4 rounded-full hover:border-white hover:text-white transition duration-300 group">
+                    <i class="fas fa-arrow-left mr-3 group-hover:-translate-x-1 transition-transform"></i> Go Previous
+                </button>
+                
+                <!-- Back to Home Button -->
+                <a href="index.html" class="inline-flex items-center justify-center bg-[#d6a87c] text-white font-bold px-8 py-4 rounded-full hover:bg-white hover:text-black transition duration-300 group shadow-lg shadow-[#d6a87c]/20 hover:shadow-white/20">
+                    <i class="fas fa-home mr-3 group-hover:scale-110 transition-transform"></i> Back to Home
+                </a>
+            </div>
+
+        </div>
+    </main>
+
+    <!-- JavaScript for Animations -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script>
+        // GSAP Custom Animations for 404
+        document.addEventListener('DOMContentLoaded', () => {
+            if(window.gsap) {
+                const tl = gsap.timeline();
+                
+                // Entrance animation
+                tl.from("#error-404", { y: -50, opacity: 0, duration: 1, ease: "bounce.out" })
+                  .from("#error-title", { y: 20, opacity: 0, duration: 0.8 }, "-=0.5")
+                  .from("#error-desc", { y: 20, opacity: 0, duration: 0.8 }, "-=0.6")
+                  .from("#error-btns", { scale: 0.8, opacity: 0, duration: 0.8, ease: "back.out(1.7)" }, "-=0.5");
+                
+                // Continuous 'searching' focus animation
+                gsap.to("#focus-box", {
+                    scale: 1.05,
+                    opacity: 0.5,
+                    duration: 1.5,
+                    repeat: -1,
+                    yoyo: true,
+                    ease: "sine.inOut"
+                });
+            }
+        });
+    </script>
+</body>
+</html>
+
+
+
+
+
+
+
+

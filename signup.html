@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up - Photography Portfolio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+        
+        body { font-family: 'Inter', sans-serif; }
+        
+        .accent-color { color: #d6a87c; }
+        .accent-bg { background-color: #d6a87c; }
+        
+        .bg-image {
+            background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.6)), url('assets/images/img_50.webp');
+            background-size: cover;
+            background-position: center;
+        }
+
+        /* Custom Checkbox */
+        input[type="checkbox"]:checked {
+            background-color: #151719;
+            border-color: #151719;
+        }
+    </style>
+</head>
+<body class="bg-white text-gray-800 h-screen overflow-hidden flex flex-row-reverse">
+
+    <!-- Right Side: Image / Branding (Reversed for visual difference from login) -->
+    <div class="hidden lg:flex lg:w-1/2 bg-image relative items-center justify-center">
+        <div class="absolute top-8 right-8">
+            <div class="text-2xl font-bold tracking-tight flex items-center text-white">
+                <img src="assets/images/logo.webp" alt="Stackly" class="h-8 md:h-10 w-auto">
+            </div>
+        </div>
+        <div class="text-center text-white p-12 max-w-lg z-10 form-animate-right">
+            <h1 class="text-5xl font-bold mb-6 leading-tight">Join the Community</h1>
+            <p class="text-lg text-gray-300 leading-relaxed">Create an account to track your sessions, review your galleries, and save your favorite photographs.</p>
+        </div>
+    </div>
+
+    <!-- Left Side: Signup Form -->
+    <div class="w-full lg:w-1/2 flex items-center justify-center p-8 overflow-y-auto relative bg-white">
+        
+        <!-- Back to Home Button -->
+        <a href="index.html" class="absolute top-8 left-8 text-sm font-semibold text-gray-500 hover:text-gray-900 transition flex items-center">
+            <i class="fas fa-arrow-left mr-2"></i> Back to Home
+        </a>
+
+        <div class="w-full max-w-md form-animate-left my-auto py-12">
+            <!-- Mobile Branding (Hidden on Desktop) -->
+            <div class="lg:hidden text-2xl font-bold tracking-tight flex items-center text-gray-900 mb-8 justify-center">
+                <img src="assets/images/logo.webp" alt="Stackly" class="h-8 md:h-10 w-auto">
+            </div>
+
+            <h2 class="text-3xl font-bold text-gray-900 mb-2">Create an Account</h2>
+            <p class="text-gray-500 mb-8">Sign up below to get started.</p>
+
+            <form id="signupForm" class="space-y-4">
+                
+                <!-- Role Selector -->
+                <div class="flex bg-[#faf9f8] p-1.5 rounded-lg mb-6 border border-gray-100">
+                    <label class="flex-1 text-center cursor-pointer">
+                        <input type="radio" name="role" value="user" class="peer hidden" required checked>
+                        <div class="py-2 rounded-md peer-checked:bg-white peer-checked:shadow-sm text-sm font-semibold text-gray-500 peer-checked:text-gray-900 transition-all duration-300">Client / User</div>
+                    </label>
+                    <label class="flex-1 text-center cursor-pointer">
+                        <input type="radio" name="role" value="admin" class="peer hidden" required>
+                        <div class="py-2 rounded-md peer-checked:bg-white peer-checked:shadow-sm text-sm font-semibold text-gray-500 peer-checked:text-gray-900 transition-all duration-300">Admin</div>
+                    </label>
+                </div>
+
+                <!-- Username Input -->
+                <div>
+                    <label class="block text-sm font-semibold text-gray-900 mb-1.5">Username</label>
+                    <input type="text" id="username" name="username" required placeholder="johndoe123" class="w-full bg-[#faf9f8] border border-gray-200 text-gray-900 px-4 py-3 rounded-lg focus:outline-none focus:border-gray-900 focus:bg-white transition">
+                </div>
+
+                <!-- Email Input -->
+                <div>
+                    <label class="block text-sm font-semibold text-gray-900 mb-1.5">Email Address</label>
+                    <input type="email" id="email" name="email" required placeholder="name@example.com" class="w-full bg-[#faf9f8] border border-gray-200 text-gray-900 px-4 py-3 rounded-lg focus:outline-none focus:border-gray-900 focus:bg-white transition">
+                </div>
+
+                <!-- Password Input -->
+                <div class="grid grid-cols-1 gap-4 sm:grid-cols-2">
+                    <div>
+                        <label class="block text-sm font-semibold text-gray-900 mb-1.5">Password</label>
+                        <div class="relative">
+                            <input type="password" id="password" name="password" required placeholder="••••••••" class="w-full bg-[#faf9f8] border border-gray-200 text-gray-900 px-4 py-3 rounded-lg focus:outline-none focus:border-gray-900 focus:bg-white transition pr-10">
+                            <button type="button" id="togglePassword" class="absolute inset-y-0 right-0 px-3 flex items-center text-gray-400 hover:text-gray-600 transition focus:outline-none">
+                                <i class="far fa-eye" id="eyeIcon1"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <div>
+                        <label class="block text-sm font-semibold text-gray-900 mb-1.5">Confirm Password</label>
+                        <div class="relative">
+                            <input type="password" id="confirmPassword" name="confirmPassword" required placeholder="••••••••" class="w-full bg-[#faf9f8] border border-gray-200 text-gray-900 px-4 py-3 rounded-lg focus:outline-none focus:border-gray-900 focus:bg-white transition pr-10">
+                            <button type="button" id="toggleConfirmPassword" class="absolute inset-y-0 right-0 px-3 flex items-center text-gray-400 hover:text-gray-600 transition focus:outline-none">
+                                <i class="far fa-eye" id="eyeIcon2"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Terms and Privacy Policy -->
+                <div class="pt-2">
+                    <label class="flex items-start cursor-pointer">
+                        <input type="checkbox" name="terms" required class="mt-1 w-4 h-4 rounded border-gray-300 text-gray-900 focus:ring-gray-900 cursor-pointer accent-gray-900">
+                        <span class="ml-2 text-sm text-gray-600 font-medium leading-relaxed">
+                            I accept the <a href="404.html" class="text-gray-900 font-bold hover:text-[#d6a87c] transition">Privacy Policy</a> and <a href="404.html" class="text-gray-900 font-bold hover:text-[#d6a87c] transition">Terms & Conditions</a>.
+                        </span>
+                    </label>
+                </div>
+
+                <!-- Register Button -->
+                <button type="submit" class="w-full bg-gray-900 text-white font-bold py-3.5 rounded-lg hover:bg-[#d6a87c] hover:text-black transition-colors shadow-lg mt-4 block text-center">
+                    Register Account
+                </button>
+            </form>
+
+            <p class="text-center mt-6 text-sm text-gray-600 font-medium pb-8">
+                Already have an account? <a href="login.html" class="text-gray-900 font-bold hover:text-[#d6a87c] transition">Log in</a>
+            </p>
+        </div>
+    </div>
+
+    <!-- GSAP Animations -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script>
+        // Password Visibility Toggles
+        const setupEyeToggle = (toggleBtnId, inputId, iconId) => {
+            const toggleBtn = document.getElementById(toggleBtnId);
+            const input = document.getElementById(inputId);
+            const icon = document.getElementById(iconId);
+
+            toggleBtn.addEventListener('click', () => {
+                const type = input.getAttribute('type') === 'password' ? 'text' : 'password';
+                input.setAttribute('type', type);
+                icon.classList.toggle('fa-eye');
+                icon.classList.toggle('fa-eye-slash');
+            });
+        }
+
+        setupEyeToggle('togglePassword', 'password', 'eyeIcon1');
+        setupEyeToggle('toggleConfirmPassword', 'confirmPassword', 'eyeIcon2');
+
+        // Form Validation & Redirection
+        const signupForm = document.getElementById('signupForm');
+        const passwordInput = document.getElementById('password');
+        const confirmPasswordInput = document.getElementById('confirmPassword');
+
+        signupForm.addEventListener('submit', function(e) {
+            // First let native required validation run automatically
+            
+            // Custom check for matching passwords using native setCustomValidity
+            if (passwordInput.value !== confirmPasswordInput.value) {
+                confirmPasswordInput.setCustomValidity("Passwords do not match");
+                confirmPasswordInput.reportValidity();
+                e.preventDefault(); // Stop submission
+                return;
+            } else {
+                confirmPasswordInput.setCustomValidity(""); // clear error
+            }
+
+            e.preventDefault(); // Prevent page reload to handle client-side redirect
+            
+            // Redirect to login upon successful registration
+            window.location.href = 'login.html';
+        });
+
+        // Clear custom validity message upon typing
+        confirmPasswordInput.addEventListener('input', () => {
+            confirmPasswordInput.setCustomValidity("");
+        });
+
+        // Page Load Animations
+        document.addEventListener("DOMContentLoaded", () => {
+            if(window.gsap) {
+                // Notice the animation directions are swapped to match the reversed layout
+                gsap.from(".form-animate-right", { x: 50, opacity: 0, duration: 1, ease: "power3.out" });
+                gsap.from(".form-animate-left", { y: 30, opacity: 0, duration: 1, delay: 0.2, ease: "power3.out" });
+            }
+        });
+    </script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+

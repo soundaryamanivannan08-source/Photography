@@ -1,0 +1,705 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Services - Photography Portfolio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+        
+        body { font-family: 'Inter', sans-serif; }
+        
+        .hero-bg {
+            background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.7)), url('assets/images/img_50.webp');
+            background-size: cover; background-position: center;
+        }
+        .cta-bg {
+            background-image: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), url('assets/images/img_34.webp');
+            background-size: cover; background-position: center; background-attachment: fixed;
+        }
+        
+        .accent-color { color: #d6a87c; }
+        .accent-bg { background-color: #d6a87c; }
+        .accent-border { border-color: #d6a87c; }
+        
+        details > summary { list-style: none; }
+        details > summary::-webkit-details-marker { display: none; }
+    </style>
+<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+</head>
+<body class="bg-[#faf9f8] text-gray-800">
+
+    <!-- Hero Section -->
+    <section class="hero-bg min-h-[80vh] relative flex flex-col text-white">
+        <!-- Header/Navigation -->
+    <header class="fixed w-full top-0 left-0 z-50 bg-[#151719]/90 backdrop-blur-md border-b border-white/10 transition-all duration-300">
+<!-- Navigation -->
+        <nav class="container mx-auto px-6 py-6 flex justify-between items-center z-10 text-white">
+            <!-- Left: Logo -->
+            <div class="text-2xl font-bold tracking-tight flex items-center w-1/4">
+                <img src="assets/images/logo.webp" alt="Stackly" class="h-8 md:h-10 w-auto">
+            </div>
+            
+            <!-- Center: Desktop Menu -->
+            <div class="hidden md:flex flex-1 justify-center space-x-8 items-center text-sm font-medium">
+                <a href="index.html" class="text-gray-300 hover:text-[#d6a87c] transition">Home</a>
+                <a href="about.html" class="text-gray-300 hover:text-[#d6a87c] transition">About</a>
+                <a href="service.html" class="border-b-2 accent-border accent-color pb-1">Service</a>
+                <a href="blog.html" class="text-gray-300 hover:text-[#d6a87c] transition">Blog</a>
+                <a href="contact.html" class="text-gray-300 hover:text-[#d6a87c] transition">Contact</a>
+            </div>
+
+            <!-- Right: Login & Mobile Toggle -->
+            <div class="w-1/4 flex justify-end items-center">
+                <a href="login.html" class="hidden md:inline-block border border-white text-white px-6 py-2 rounded-full hover:border-[#d6a87c] hover:text-[#d6a87c] transition text-sm font-medium">Login</a>
+                <button id="mobile-menu-btn" class="md:hidden text-white focus:outline-none ml-4">
+                    <i class="fas fa-bars text-2xl"></i>
+                </button>
+            </div>
+        </nav>
+
+        <!-- Mobile Menu Dropdown -->
+                <div id="mobile-menu" class="hidden md:hidden absolute top-full left-0 w-full h-[calc(100vh-73px)] bg-black/95 backdrop-blur-2xl border-t border-white/10 flex flex-col justify-center items-center z-40">
+            <div class="flex flex-col px-6 py-4 space-y-8 text-center text-xl w-full mb-20">
+                <a href="index.html" class="text-gray-300 hover:text-white transition font-medium">Home</a>
+                <a href="about.html" class="text-gray-300 hover:text-white transition font-medium">About</a>
+                <a href="service.html" class="accent-color font-medium">Service</a>
+                <a href="blog.html" class="text-gray-300 hover:text-white transition font-medium">Blog</a>
+                <a href="contact.html" class="text-gray-300 hover:text-white transition font-medium">Contact</a>
+                <a href="login.html" class="border border-white text-white px-8 py-3 mx-auto rounded-full hover:border-[#d6a87c] hover:text-[#d6a87c] transition inline-block mt-4">Login</a>
+        </div>
+        </div>
+    </header>
+
+        <!-- Hero Content -->
+        <div class="container mx-auto px-6 flex-grow flex flex-col justify-center pb-20 pt-24">
+            <div class="max-w-2xl">
+                <div class="flex items-center gap-4 mb-6">
+                    <p class="text-xs tracking-[0.2em] font-semibold text-gray-300 uppercase">My Services</p>
+                    <div class="w-12 h-[1px] accent-bg"></div>
+                </div>
+                <h1 class="text-5xl md:text-6xl font-bold leading-tight mb-6">Professional Photography Services for Every Moment</h1>
+                <p class="text-lg text-gray-300 mb-10 max-w-lg leading-relaxed">From breathtaking landscapes to heartfelt celebrations, I offer a range of photography services designed to capture your unique story with creativity and passion.</p>
+                <a href="404.html" class="inline-flex items-center accent-bg text-black font-semibold px-8 py-3 rounded-full hover:opacity-90 transition shadow-lg">
+                    Book a Session <i class="fas fa-arrow-right ml-3"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- What I Offer Section -->
+    <section class="py-24 bg-white">
+        <div class="container mx-auto px-6" data-aos="fade-up">
+            <div class="flex flex-col lg:flex-row gap-16 lg:gap-12 items-start">
+                <!-- Left: Title & Text -->
+                <div class="w-full lg:w-1/3 flex flex-col lg:sticky lg:top-32">
+                    <div class="flex items-center gap-4 mb-4">
+                        <p class="text-xs tracking-[0.2em] font-semibold text-gray-500 uppercase">Our Services</p>
+                        <div class="w-12 h-[1px] accent-bg"></div>
+                    </div>
+                    <h2 class="text-4xl font-bold text-gray-900 mb-6">What I Offer</h2>
+                    <p class="text-gray-600 leading-relaxed">
+                        Explore my range of photography services, crafted to bring your vision to life with creativity, professionalism, and attention to detail.
+                    </p>
+                </div>
+
+                <!-- Right: Grid of Services -->
+                <div class="w-full lg:w-2/3">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                        <!-- Service 1 -->
+                        <div class="bg-[#fcfbf9] rounded-xl overflow-hidden border border-gray-100 shadow-sm hover:shadow-xl hover:-translate-y-2 transition-all duration-300 group cursor-pointer flex flex-col">
+                            <div class="h-48 overflow-hidden">
+                                <img src="assets/images/img_29.webp" alt="Wedding" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+                            </div>
+                            <div class="p-6 relative flex flex-col flex-grow">
+                                <i class="fas fa-ring text-2xl text-gray-900 mb-4"></i>
+                                <h3 class="text-xl font-bold text-gray-900 mb-2 group-hover:text-[#d6a87c] transition-colors">Wedding Photography</h3>
+                                <p class="text-sm text-gray-600 flex-grow">Beautiful, timeless captures of your special day.</p>
+                                <i class="fas fa-arrow-right text-gray-400 absolute bottom-6 right-6 group-hover:text-[#d6a87c] group-hover:translate-x-1 transition-all"></i>
+                            </div>
+                        </div>
+
+                        <!-- Service 2 -->
+                        <div class="bg-[#fcfbf9] rounded-xl overflow-hidden border border-gray-100 shadow-sm hover:shadow-xl hover:-translate-y-2 transition-all duration-300 group cursor-pointer flex flex-col">
+                            <div class="h-48 overflow-hidden">
+                                <img src="assets/images/img_45.webp" alt="Portrait" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+                            </div>
+                            <div class="p-6 relative flex flex-col flex-grow">
+                                <i class="far fa-user text-2xl text-gray-900 mb-4"></i>
+                                <h3 class="text-xl font-bold text-gray-900 mb-2 group-hover:text-[#d6a87c] transition-colors">Portrait Photography</h3>
+                                <p class="text-sm text-gray-600 flex-grow">Authentic portraits that showcase your true self.</p>
+                                <i class="fas fa-arrow-right text-gray-400 absolute bottom-6 right-6 group-hover:text-[#d6a87c] group-hover:translate-x-1 transition-all"></i>
+                            </div>
+                        </div>
+
+                        <!-- Service 3 -->
+                        <div class="bg-[#fcfbf9] rounded-xl overflow-hidden border border-gray-100 shadow-sm hover:shadow-xl hover:-translate-y-2 transition-all duration-300 group cursor-pointer flex flex-col">
+                            <div class="h-48 overflow-hidden">
+                                <img src="assets/images/img_40.webp" alt="Wildlife" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+                            </div>
+                            <div class="p-6 relative flex flex-col flex-grow">
+                                <i class="fas fa-paw text-2xl text-gray-900 mb-4"></i>
+                                <h3 class="text-xl font-bold text-gray-900 mb-2 group-hover:text-[#d6a87c] transition-colors">Wildlife Photography</h3>
+                                <p class="text-sm text-gray-600 flex-grow">Raw and powerful moments from the wild.</p>
+                                <i class="fas fa-arrow-right text-gray-400 absolute bottom-6 right-6 group-hover:text-[#d6a87c] group-hover:translate-x-1 transition-all"></i>
+                            </div>
+                        </div>
+
+                        <!-- Service 4 -->
+                        <div class="bg-[#fcfbf9] rounded-xl overflow-hidden border border-gray-100 shadow-sm hover:shadow-xl hover:-translate-y-2 transition-all duration-300 group cursor-pointer flex flex-col">
+                            <div class="h-48 overflow-hidden">
+                                <img src="assets/images/img_16.webp" alt="Travel" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+                            </div>
+                            <div class="p-6 relative flex flex-col flex-grow">
+                                <i class="fas fa-mountain text-2xl text-gray-900 mb-4"></i>
+                                <h3 class="text-xl font-bold text-gray-900 mb-2 group-hover:text-[#d6a87c] transition-colors">Travel Photography</h3>
+                                <p class="text-sm text-gray-600 flex-grow">Explore the world through vibrant visuals.</p>
+                                <i class="fas fa-arrow-right text-gray-400 absolute bottom-6 right-6 group-hover:text-[#d6a87c] group-hover:translate-x-1 transition-all"></i>
+                            </div>
+                        </div>
+
+                        <!-- Service 5 -->
+                        <div class="bg-[#fcfbf9] rounded-xl overflow-hidden border border-gray-100 shadow-sm hover:shadow-xl hover:-translate-y-2 transition-all duration-300 group cursor-pointer flex flex-col">
+                            <div class="h-48 overflow-hidden">
+                                <img src="assets/images/fashion.webp" alt="Fashion" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+                            </div>
+                            <div class="p-6 relative flex flex-col flex-grow">
+                                <i class="fas fa-tshirt text-2xl text-gray-900 mb-4"></i>
+                                <h3 class="text-xl font-bold text-gray-900 mb-2 group-hover:text-[#d6a87c] transition-colors">Fashion Photography</h3>
+                                <p class="text-sm text-gray-600 flex-grow">Stylish, bold and elegant visuals for your brand.</p>
+                                <i class="fas fa-arrow-right text-gray-400 absolute bottom-6 right-6 group-hover:text-[#d6a87c] group-hover:translate-x-1 transition-all"></i>
+                            </div>
+                        </div>
+
+                        <!-- Service 6 -->
+                        <div class="bg-[#fcfbf9] rounded-xl overflow-hidden border border-gray-100 shadow-sm hover:shadow-xl hover:-translate-y-2 transition-all duration-300 group cursor-pointer flex flex-col">
+                            <div class="h-48 overflow-hidden">
+                                <img src="assets/images/img_37.webp" alt="Commercial" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+                            </div>
+                            <div class="p-6 relative flex flex-col flex-grow">
+                                <i class="fas fa-camera text-2xl text-gray-900 mb-4"></i>
+                                <h3 class="text-xl font-bold text-gray-900 mb-2 group-hover:text-[#d6a87c] transition-colors">Commercial Photography</h3>
+                                <p class="text-sm text-gray-600 flex-grow">High-quality images for business and brands.</p>
+                                <i class="fas fa-arrow-right text-gray-400 absolute bottom-6 right-6 group-hover:text-[#d6a87c] group-hover:translate-x-1 transition-all"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+        <!-- Features Guarantee Section -->
+    <section class="py-16 bg-[#f7f5f2] border-y border-[#eeebe5] overflow-hidden">
+        <div class="container mx-auto px-6">
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 divide-y sm:divide-y-0 sm:divide-x divide-gray-300 text-center">
+                <div class="pt-6 sm:pt-0 sm:px-4 group cursor-pointer" data-aos="fade-up" data-aos-delay="100">
+                    <i class="fas fa-camera text-2xl accent-color mb-4 group-hover:-translate-y-2 group-hover:scale-125 transition-transform duration-300"></i>
+                    <h4 class="font-bold text-gray-900 mb-2 group-hover:text-[#d6a87c] transition-colors duration-300">High Quality Output</h4>
+                    <p class="text-xs text-gray-600">Professional grade images<br>with stunning clarity.</p>
+                </div>
+                <div class="pt-6 sm:pt-0 sm:px-4 group cursor-pointer" data-aos="fade-up" data-aos-delay="200">
+                    <i class="far fa-clock text-2xl accent-color mb-4 group-hover:-translate-y-2 group-hover:scale-125 transition-transform duration-300"></i>
+                    <h4 class="font-bold text-gray-900 mb-2 group-hover:text-[#d6a87c] transition-colors duration-300">On-Time Delivery</h4>
+                    <p class="text-xs text-gray-600">Your moments, delivered<br>as promised.</p>
+                </div>
+                <div class="pt-6 sm:pt-0 sm:px-4 group cursor-pointer" data-aos="fade-up" data-aos-delay="300">
+                    <i class="fas fa-shield-alt text-2xl accent-color mb-4 group-hover:-translate-y-2 group-hover:scale-125 transition-transform duration-300"></i>
+                    <h4 class="font-bold text-gray-900 mb-2 group-hover:text-[#d6a87c] transition-colors duration-300">100% Satisfaction</h4>
+                    <p class="text-xs text-gray-600">Your happiness is<br>my priority.</p>
+                </div>
+                <div class="pt-6 sm:pt-0 sm:px-4 group cursor-pointer" data-aos="fade-up" data-aos-delay="400">
+                    <i class="far fa-heart text-2xl accent-color mb-4 group-hover:-translate-y-2 group-hover:scale-125 transition-transform duration-300"></i>
+                    <h4 class="font-bold text-gray-900 mb-2 group-hover:text-[#d6a87c] transition-colors duration-300">Personalized Approach</h4>
+                    <p class="text-xs text-gray-600">Every project is unique,<br>just like you.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Packages Section -->
+    <section class="py-24 bg-white">
+        <div class="container mx-auto px-6" data-aos="fade-up">
+            <div class="text-center mb-16">
+                <p class="text-xs tracking-[0.2em] font-semibold text-gray-500 mb-3 uppercase">Invest in Memories</p>
+                <h2 class="text-4xl font-bold text-gray-900">Pricing Packages</h2>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto items-center">
+                <!-- Basic Card -->
+                <div class="bg-[#fcfbf9] border border-gray-100 rounded-2xl p-8 text-center shadow-sm hover:shadow-xl transition-all duration-300">
+                    <h3 class="text-2xl font-bold text-gray-900 mb-2">Basic</h3>
+                    <p class="text-gray-500 text-sm mb-6">Perfect for small sessions</p>
+                    <div class="text-4xl font-bold text-gray-900 mb-8">$299</div>
+                    <ul class="text-gray-600 space-y-4 mb-8 text-sm">
+                        <li><i class="fas fa-check text-green-500 mr-2"></i> 2 Hours Coverage</li>
+                        <li><i class="fas fa-check text-green-500 mr-2"></i> 50 Edited Photos</li>
+                        <li><i class="fas fa-times text-gray-300 mr-2"></i> No Drone Coverage</li>
+                        <li><i class="fas fa-times text-gray-300 mr-2"></i> Online Gallery Only</li>
+                    </ul>
+                    <a href="404.html" class="block w-full py-3 rounded-full border border-gray-900 text-gray-900 font-bold hover:bg-gray-900 hover:text-white transition">Choose Basic</a>
+                </div>
+
+                <!-- Premium Card -->
+                <div class="bg-gray-900 text-white rounded-2xl p-10 text-center shadow-2xl transform md:-translate-y-4 relative">
+                    <div class="absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
+                        <span class="accent-bg text-gray-900 text-xs font-bold uppercase tracking-wider py-1 px-4 rounded-full shadow-md">Most Popular</span>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-2">Premium</h3>
+                    <p class="text-gray-400 text-sm mb-6">Ideal for events & weddings</p>
+                    <div class="text-5xl font-bold accent-color mb-8">$899</div>
+                    <ul class="text-gray-300 space-y-4 mb-8 text-sm">
+                        <li><i class="fas fa-check accent-color mr-2"></i> 5 Hours Coverage</li>
+                        <li><i class="fas fa-check accent-color mr-2"></i> 150 Edited Photos</li>
+                        <li><i class="fas fa-check accent-color mr-2"></i> Drone Coverage Included</li>
+                        <li><i class="fas fa-check accent-color mr-2"></i> Online Gallery & USB</li>
+                    </ul>
+                    <a href="404.html" class="block w-full py-3 rounded-full accent-bg text-gray-900 font-bold hover:opacity-90 transition">Choose Premium</a>
+                </div>
+
+                <!-- Luxury Card -->
+                <div class="bg-[#fcfbf9] border border-gray-100 rounded-2xl p-8 text-center shadow-sm hover:shadow-xl transition-all duration-300">
+                    <h3 class="text-2xl font-bold text-gray-900 mb-2">Luxury</h3>
+                    <p class="text-gray-500 text-sm mb-6">The ultimate experience</p>
+                    <div class="text-4xl font-bold text-gray-900 mb-8">$1,499</div>
+                    <ul class="text-gray-600 space-y-4 mb-8 text-sm">
+                        <li><i class="fas fa-check text-green-500 mr-2"></i> Full Day Coverage</li>
+                        <li><i class="fas fa-check text-green-500 mr-2"></i> Unlimited Photos</li>
+                        <li><i class="fas fa-check text-green-500 mr-2"></i> Drone Coverage Included</li>
+                        <li><i class="fas fa-check text-green-500 mr-2"></i> Premium Physical Album</li>
+                    </ul>
+                    <a href="404.html" class="block w-full py-3 rounded-full border border-gray-900 text-gray-900 font-bold hover:bg-gray-900 hover:text-white transition">Choose Luxury</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Photography Process Section -->
+    <section class="py-24 bg-[#151719] text-white">
+        <div class="container mx-auto px-6" data-aos="fade-up">
+            <div class="text-center mb-16">
+                <p class="text-xs tracking-[0.2em] font-semibold text-gray-400 mb-3 uppercase">How We Work</p>
+                <h2 class="text-4xl font-bold">Photography Process</h2>
+            </div>
+
+            <div class="flex flex-col md:flex-row justify-between items-start relative max-w-6xl mx-auto gap-8 md:gap-0">
+                <!-- Line connector for desktop -->
+                <div class="hidden md:block absolute top-8 left-12 right-12 h-[2px] bg-gray-700 z-0"></div>
+                
+                <!-- Steps -->
+                <div class="relative z-10 flex flex-col items-center text-center w-full md:w-1/5 px-2 group">
+                    <div class="w-16 h-16 rounded-full bg-gray-900 border-2 border-gray-700 flex items-center justify-center text-xl mb-6 group-hover:border-[#d6a87c] group-hover:text-[#d6a87c] transition-colors duration-300">1</div>
+                    <h3 class="text-lg font-bold mb-2">Consultation</h3>
+                    <p class="text-xs text-gray-400">Understanding your vision.</p>
+                </div>
+                
+                <div class="relative z-10 flex flex-col items-center text-center w-full md:w-1/5 px-2 group">
+                    <div class="w-16 h-16 rounded-full bg-gray-900 border-2 border-gray-700 flex items-center justify-center text-xl mb-6 group-hover:border-[#d6a87c] group-hover:text-[#d6a87c] transition-colors duration-300">2</div>
+                    <h3 class="text-lg font-bold mb-2">Planning</h3>
+                    <p class="text-xs text-gray-400">Location and timeline setup.</p>
+                </div>
+
+                <div class="relative z-10 flex flex-col items-center text-center w-full md:w-1/5 px-2 group">
+                    <div class="w-16 h-16 rounded-full bg-gray-900 border-2 border-gray-700 flex items-center justify-center text-xl mb-6 group-hover:border-[#d6a87c] group-hover:text-[#d6a87c] transition-colors duration-300">3</div>
+                    <h3 class="text-lg font-bold mb-2">Photoshoot</h3>
+                    <p class="text-xs text-gray-400">Capturing the magic.</p>
+                </div>
+
+                <div class="relative z-10 flex flex-col items-center text-center w-full md:w-1/5 px-2 group">
+                    <div class="w-16 h-16 rounded-full bg-gray-900 border-2 border-gray-700 flex items-center justify-center text-xl mb-6 group-hover:border-[#d6a87c] group-hover:text-[#d6a87c] transition-colors duration-300">4</div>
+                    <h3 class="text-lg font-bold mb-2">Editing</h3>
+                    <p class="text-xs text-gray-400">Professional retouching.</p>
+                </div>
+
+                <div class="relative z-10 flex flex-col items-center text-center w-full md:w-1/5 px-2 group">
+                    <div class="w-16 h-16 rounded-full bg-gray-900 border-2 border-gray-700 flex items-center justify-center text-xl mb-6 group-hover:border-[#d6a87c] group-hover:text-[#d6a87c] transition-colors duration-300">5</div>
+                    <h3 class="text-lg font-bold mb-2">Final Delivery</h3>
+                    <p class="text-xs text-gray-400">Handing over the memories.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Choose Me Section -->
+    <section class="py-24 bg-[#f9f8f6]">
+        <div class="container mx-auto px-6" data-aos="fade-up">
+            <div class="text-center mb-16">
+                <p class="text-xs tracking-[0.2em] font-semibold text-gray-500 mb-3 uppercase">Advantages</p>
+                <h2 class="text-4xl font-bold text-gray-900">Why Choose Me</h2>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
+                <div class="bg-white p-8 rounded-xl shadow-sm hover:shadow-md transition">
+                    <i class="fas fa-eye text-3xl accent-color mb-4"></i>
+                    <h4 class="text-xl font-bold text-gray-900 mb-2">Creative Vision</h4>
+                    <p class="text-gray-600 text-sm">A unique artistic eye that finds the extraordinary in ordinary moments.</p>
+                </div>
+                <div class="bg-white p-8 rounded-xl shadow-sm hover:shadow-md transition">
+                    <i class="fas fa-camera-retro text-3xl accent-color mb-4"></i>
+                    <h4 class="text-xl font-bold text-gray-900 mb-2">Professional Equipment</h4>
+                    <p class="text-gray-600 text-sm">State-of-the-art cameras and lighting to ensure perfect shots every time.</p>
+                </div>
+                <div class="bg-white p-8 rounded-xl shadow-sm hover:shadow-md transition">
+                    <i class="fas fa-shipping-fast text-3xl accent-color mb-4"></i>
+                    <h4 class="text-xl font-bold text-gray-900 mb-2">Fast Delivery</h4>
+                    <p class="text-gray-600 text-sm">Quick and efficient turnaround without compromising on image quality.</p>
+                </div>
+                <div class="bg-white p-8 rounded-xl shadow-sm hover:shadow-md transition">
+                    <i class="fas fa-image text-3xl accent-color mb-4"></i>
+                    <h4 class="text-xl font-bold text-gray-900 mb-2">High-Resolution Images</h4>
+                    <p class="text-gray-600 text-sm">Crystal clear, print-ready files perfect for albums or wall art.</p>
+                </div>
+                <div class="bg-white p-8 rounded-xl shadow-sm hover:shadow-md transition">
+                    <i class="fas fa-user-friends text-3xl accent-color mb-4"></i>
+                    <h4 class="text-xl font-bold text-gray-900 mb-2">Personalized Experience</h4>
+                    <p class="text-gray-600 text-sm">Tailored sessions designed to bring out your true, authentic personality.</p>
+                </div>
+                <div class="bg-white p-8 rounded-xl shadow-sm hover:shadow-md transition">
+                    <i class="fas fa-heart text-3xl accent-color mb-4"></i>
+                    <h4 class="text-xl font-bold text-gray-900 mb-2">100% Client Satisfaction</h4>
+                    <p class="text-gray-600 text-sm">A dedicated approach ensuring you absolutely love the final gallery.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Portfolio Preview Section -->
+    <section class="py-24 bg-white">
+        <div class="container mx-auto px-6" data-aos="fade-up">
+            <div class="flex justify-between items-end mb-12">
+                <div>
+                    <p class="text-xs tracking-[0.2em] font-semibold text-gray-500 mb-3 uppercase">Gallery</p>
+                    <h2 class="text-4xl font-bold text-gray-900">Portfolio Preview</h2>
+                </div>
+                <a href="404.html" class="hidden md:inline-block font-medium text-gray-900 border-b border-gray-900 pb-1 hover:text-gray-500 transition">View Full Portfolio</a>
+            </div>
+            
+            <div class="grid grid-cols-2 md:grid-cols-3 gap-4">
+                <div class="group relative overflow-hidden rounded-lg aspect-square">
+                    <img src="assets/images/img_29.webp" alt="Weddings" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                    <div class="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                        <span class="text-white text-xl font-bold tracking-wider uppercase">Weddings</span>
+                    </div>
+                </div>
+                <div class="group relative overflow-hidden rounded-lg aspect-square">
+                    <img src="assets/images/Portraits.webp" alt="Portraits" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                    <div class="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                        <span class="text-white text-xl font-bold tracking-wider uppercase">Portraits</span>
+                    </div>
+                </div>
+                <div class="group relative overflow-hidden rounded-lg aspect-square">
+                    <img src="assets/images/img_13.webp" alt="Nature" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                    <div class="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                        <span class="text-white text-xl font-bold tracking-wider uppercase">Nature</span>
+                    </div>
+                </div>
+                <div class="group relative overflow-hidden rounded-lg aspect-square">
+                    <img src="assets/images/fashion.2.webp" alt="Fashion" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                    <div class="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                        <span class="text-white text-xl font-bold tracking-wider uppercase">Fashion</span>
+                    </div>
+                </div>
+                <div class="group relative overflow-hidden rounded-lg aspect-square">
+                    <img src="assets/images/event.webp" alt="Events" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                    <div class="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                        <span class="text-white text-xl font-bold tracking-wider uppercase">Events</span>
+                    </div>
+                </div>
+                <div class="group relative overflow-hidden rounded-lg aspect-square">
+                    <img src="assets/images/img_22.webp" alt="Commercial" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                    <div class="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                        <span class="text-white text-xl font-bold tracking-wider uppercase">Commercial</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="mt-8 text-center md:hidden">
+                <a href="404.html" class="inline-block font-medium text-gray-900 border-b border-gray-900 pb-1">View Full Portfolio</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="py-24 bg-[#f9f8f6]">
+        <div class="container mx-auto px-6" data-aos="fade-up">
+            <div class="text-center mb-16">
+                <p class="text-xs tracking-[0.2em] font-semibold text-gray-500 mb-3 uppercase">Client Stories</p>
+                <h2 class="text-4xl font-bold text-gray-900">Testimonials</h2>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Review 1 -->
+                <div class="group bg-white p-8 rounded-xl shadow-sm hover:shadow-xl hover:-translate-y-2 transition-all duration-300 relative overflow-hidden border border-transparent hover:border-gray-100">
+                    <i class="fas fa-quote-right absolute -bottom-4 -right-4 text-7xl text-gray-50 opacity-50 group-hover:scale-125 group-hover:text-gray-100 transition-all duration-500 z-0"></i>
+                    <div class="relative z-10">
+                        <div class="text-yellow-400 mb-4 text-sm group-hover:scale-105 origin-left transition-transform duration-300">
+                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                        </div>
+                        <p class="text-gray-600 mb-6 italic">"Absolutely phenomenal work. Captured our wedding day perfectly. The photos are stunning and we barely noticed the camera."</p>
+                        <div class="flex items-center">
+                            <img src="assets/images/img_19.webp" alt="Client" class="w-12 h-12 rounded-full object-cover mr-4">
+                            <div>
+                                <h4 class="font-bold text-gray-900">Sarah Jenkins</h4>
+                                <p class="text-xs text-gray-500">Wedding Client</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Review 2 -->
+                <div class="group bg-white p-8 rounded-xl shadow-sm hover:shadow-xl hover:-translate-y-2 transition-all duration-300 relative overflow-hidden border border-transparent hover:border-gray-100">
+                    <i class="fas fa-quote-right absolute -bottom-4 -right-4 text-7xl text-gray-50 opacity-50 group-hover:scale-125 group-hover:text-gray-100 transition-all duration-500 z-0"></i>
+                    <div class="relative z-10">
+                        <div class="text-yellow-400 mb-4 text-sm group-hover:scale-105 origin-left transition-transform duration-300">
+                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                        </div>
+                        <p class="text-gray-600 mb-6 italic">"Professional, creative, and easy to work with. The commercial shots for our new product line exceeded all expectations."</p>
+                        <div class="flex items-center">
+                            <img src="assets/images/img_26.webp" alt="Client" class="w-12 h-12 rounded-full object-cover mr-4">
+                            <div>
+                                <h4 class="font-bold text-gray-900">Mark Thompson</h4>
+                                <p class="text-xs text-gray-500">Business Owner</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Review 3 -->
+                <div class="group bg-white p-8 rounded-xl shadow-sm hover:shadow-xl hover:-translate-y-2 transition-all duration-300 relative overflow-hidden border border-transparent hover:border-gray-100">
+                    <i class="fas fa-quote-right absolute -bottom-4 -right-4 text-7xl text-gray-50 opacity-50 group-hover:scale-125 group-hover:text-gray-100 transition-all duration-500 z-0"></i>
+                    <div class="relative z-10">
+                        <div class="text-yellow-400 mb-4 text-sm group-hover:scale-105 origin-left transition-transform duration-300">
+                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                        </div>
+                        <p class="text-gray-600 mb-6 italic">"The family portrait session was so fun and relaxed. We ended up with natural, beautiful photos that we'll cherish forever."</p>
+                        <div class="flex items-center">
+                            <img src="assets/images/img_1.webp" alt="Client" class="w-12 h-12 rounded-full object-cover mr-4">
+                            <div>
+                                <h4 class="font-bold text-gray-900">Emily Chen</h4>
+                                <p class="text-xs text-gray-500">Portrait Client</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="py-24 bg-white">
+        <div class="container mx-auto px-6 max-w-4xl">
+            <div class="text-center mb-16">
+                <p class="text-xs tracking-[0.2em] font-semibold text-gray-500 mb-3 uppercase">Got Questions?</p>
+                <h2 class="text-4xl font-bold text-gray-900">FAQ Section</h2>
+            </div>
+            
+            <div class="space-y-2">
+                <details class="group bg-[#fcfbf9] border border-gray-100 rounded-lg p-6 [&_summary::-webkit-details-marker]:hidden">
+                    <summary class="flex justify-between items-center font-bold cursor-pointer text-gray-900">
+                        <span>How do I book a session?</span>
+                        <span class="transition duration-300 group-open:rotate-180">
+                            <i class="fas fa-chevron-down text-gray-400"></i>
+                        </span>
+                    </summary>
+                    <div class="text-gray-600 mt-4 text-sm leading-relaxed">
+                        Booking is simple! Just head over to our Contact page, fill out the inquiry form, and we will get back to you within 24 hours to schedule a quick consultation.
+                    </div>
+                </details>
+                
+                <details class="group bg-[#fcfbf9] border border-gray-100 rounded-lg p-6 [&_summary::-webkit-details-marker]:hidden">
+                    <summary class="flex justify-between items-center font-bold cursor-pointer text-gray-900">
+                        <span>How long is the delivery time?</span>
+                        <span class="transition duration-300 group-open:rotate-180">
+                            <i class="fas fa-chevron-down text-gray-400"></i>
+                        </span>
+                    </summary>
+                    <div class="text-gray-600 mt-4 text-sm leading-relaxed">
+                        For standard portrait sessions, delivery takes around 1-2 weeks. For weddings and large events, you can expect your fully edited gallery within 4-6 weeks.
+                    </div>
+                </details>
+                
+                <details class="group bg-[#fcfbf9] border border-gray-100 rounded-lg p-6 [&_summary::-webkit-details-marker]:hidden">
+                    <summary class="flex justify-between items-center font-bold cursor-pointer text-gray-900">
+                        <span>Do you travel for shoots?</span>
+                        <span class="transition duration-300 group-open:rotate-180">
+                            <i class="fas fa-chevron-down text-gray-400"></i>
+                        </span>
+                    </summary>
+                    <div class="text-gray-600 mt-4 text-sm leading-relaxed">
+                        Absolutely! We love traveling for destination weddings and commercial shoots. Travel fees are calculated based on the destination and will be included in your custom quote.
+                    </div>
+                </details>
+                
+                <details class="group bg-[#fcfbf9] border border-gray-100 rounded-lg p-6 [&_summary::-webkit-details-marker]:hidden">
+                    <summary class="flex justify-between items-center font-bold cursor-pointer text-gray-900">
+                        <span>What equipment do you use?</span>
+                        <span class="transition duration-300 group-open:rotate-180">
+                            <i class="fas fa-chevron-down text-gray-400"></i>
+                        </span>
+                    </summary>
+                    <div class="text-gray-600 mt-4 text-sm leading-relaxed">
+                        We shoot exclusively with high-end full-frame cameras (Canon EOS R5) paired with premium prime lenses to ensure the highest resolution and stunning low-light performance.
+                    </div>
+                </details>
+                
+                <details class="group bg-[#fcfbf9] border border-gray-100 rounded-lg p-6 [&_summary::-webkit-details-marker]:hidden">
+                    <summary class="flex justify-between items-center font-bold cursor-pointer text-gray-900">
+                        <span>Can I customize a package?</span>
+                        <span class="transition duration-300 group-open:rotate-180">
+                            <i class="fas fa-chevron-down text-gray-400"></i>
+                        </span>
+                    </summary>
+                    <div class="text-gray-600 mt-4 text-sm leading-relaxed">
+                        Yes! While our standard packages cover most needs, we are more than happy to build a custom package tailored specifically to your event's unique requirements.
+                    </div>
+                </details>
+            </div>
+        </div>
+    </section>
+
+    <!-- Call to Action Section -->
+    <section class="cta-bg py-24 relative text-white">
+        <div class="container mx-auto px-6 relative z-10 flex flex-col justify-center">
+            <div class="max-w-xl">
+                <div class="flex items-center gap-4 mb-6">
+                    <p class="text-xs tracking-[0.2em] font-semibold text-gray-300 uppercase">Let's Work Together</p>
+                    <div class="w-12 h-[1px] accent-bg"></div>
+                </div>
+                <h2 class="text-4xl md:text-5xl font-bold leading-tight mb-6">Ready to Capture<br>Your Special Moments?</h2>
+                <p class="text-lg text-gray-300 mb-10 leading-relaxed">Whether it's a wedding, a brand, or a personal project, I'm here to bring your vision to life.</p>
+                <a href="404.html" class="inline-flex items-center accent-bg text-black font-semibold px-8 py-3 rounded-full hover:opacity-90 transition shadow-lg">
+                    Get in Touch <i class="fas fa-arrow-right ml-3"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-[#151719] text-white pt-16 pb-8 border-t border-gray-800">
+        <div class="container mx-auto px-6" data-aos="fade-up">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-12">
+                <!-- Column 1: Brand -->
+                <div>
+                    <div class="text-3xl font-bold tracking-tight flex items-center mb-6 text-white">
+                        <img src="assets/images/logo.webp" alt="Stackly" class="h-8 md:h-10 w-auto">
+                    </div>
+                    <p class="text-gray-400 text-sm mb-6 leading-relaxed">
+                        Capturing life, one frame at a time.
+                    </p>
+                     <div class="flex space-x-3">
+                        <a href="404.html" class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center text-gray-300 hover:bg-[#d6a87c] hover:text-white transition"><i class="fab fa-facebook-f"></i></a>
+                        <a href="404.html" class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center text-gray-300 hover:bg-[#d6a87c] hover:text-white transition"><i class="fab fa-twitter"></i></a>
+                        <a href="404.html" class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center text-gray-300 hover:bg-[#d6a87c] hover:text-white transition"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+
+                <!-- Column 2: Quick Links -->
+                <div>
+                    <h4 class="text-sm font-bold mb-6 text-white">Quick Links</h4>
+                    <ul class="space-y-3 text-sm text-gray-400">
+                        <li><a href="index.html" class="hover:text-[#d6a87c] transition">Home</a></li>
+                        <li><a href="about.html" class="hover:text-[#d6a87c] transition">About</a></li>
+                        <li><a href="service.html" class="accent-color transition">Service</a></li>
+                        <li><a href="blog.html" class="hover:text-[#d6a87c] transition">Blog</a></li>
+                        <li><a href="contact.html" class="hover:text-[#d6a87c] transition">Contact</a></li>
+                    </ul>
+                </div>
+
+                <!-- Column 3: Services -->
+                <div>
+                    <h4 class="text-sm font-bold mb-6 text-white">Services</h4>
+                    <ul class="space-y-3 text-sm text-gray-400">
+                        <li><a href="404.html" class="hover:text-[#d6a87c] transition">Wedding Photography</a></li>
+                        <li><a href="404.html" class="hover:text-[#d6a87c] transition">Portrait Sessions</a></li>
+                        <li><a href="404.html" class="hover:text-[#d6a87c] transition">Landscape Photography</a></li>
+                        <li><a href="404.html" class="hover:text-[#d6a87c] transition">Event Coverage</a></li>
+                        <li><a href="404.html" class="hover:text-[#d6a87c] transition">Commercial Photography</a></li>
+                    </ul>
+                </div>
+
+                <!-- Column 4: Contact Info -->
+                <div>
+                    <h4 class="text-sm font-bold mb-6 text-white">Contact Info</h4>
+                    <ul class="space-y-4 text-sm text-gray-400">
+                        <li class="flex items-start">
+                            <i class="fas fa-map-marker-alt mt-1 mr-3 text-gray-300"></i>
+                            <span>MMR Complex, Chinna Thirupathi,<br>near Chinna Muniyappan Kovil,<br>Salem, Tamil Nadu 636008</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-phone-alt mr-3 text-gray-300"></i>
+                            <span>+91 98765 43210</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-envelope mr-3 text-gray-300"></i>
+                            <span>info@stackly.com</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-800 pt-8 flex flex-col md:flex-row justify-between items-center text-xs text-gray-500">
+                <p>&copy; 2025 Stackly. All rights reserved.</p>
+                <div class="mt-4 md:mt-0 flex space-x-4">
+                    <a href="404.html" class="hover:text-[#d6a87c] transition">Privacy Policy</a>
+                    <span>|</span>
+                    <a href="404.html" class="hover:text-[#d6a87c] transition">Terms & Conditions</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script>
+        // Mobile Menu
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+                mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+            const icon = mobileMenuBtn.querySelector('i');
+            if (icon) {
+                if (mobileMenu.classList.contains('hidden')) {
+                    icon.classList.remove('fa-times');
+                    icon.classList.add('fa-bars');
+                } else {
+                    icon.classList.remove('fa-bars');
+                    icon.classList.add('fa-times');
+                }
+            }
+        });
+    </script>
+    <!-- GSAP & AOS Animations -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script>
+        AOS.init({ duration: 800, once: true, offset: 50 });
+        document.addEventListener('DOMContentLoaded', () => {
+            if(window.gsap) {
+                gsap.from(".hero-bg h1", {y: 50, opacity: 0, duration: 1, delay: 0.2});
+                gsap.from(".hero-bg p", {y: 30, opacity: 0, duration: 1, delay: 0.4});
+                gsap.from(".hero-bg a.inline-flex", {y: 20, opacity: 0, duration: 1, delay: 0.6});
+            }
+        });
+    </script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

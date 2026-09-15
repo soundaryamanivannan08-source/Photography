@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - Photography Portfolio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+        
+        body { font-family: 'Inter', sans-serif; }
+        
+        .accent-color { color: #d6a87c; }
+        .accent-bg { background-color: #d6a87c; }
+        .accent-border { border-color: #d6a87c; }
+        
+        .bg-image {
+            background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.7)), url('assets/images/img_18.webp');
+            background-size: cover;
+            background-position: center;
+        }
+
+        /* Custom Checkbox */
+        input[type="checkbox"]:checked {
+            background-color: #151719;
+            border-color: #151719;
+        }
+    </style>
+</head>
+<body class="bg-white text-gray-800 h-screen overflow-hidden flex">
+
+    <!-- Left Side: Image / Branding -->
+    <div class="hidden lg:flex lg:w-1/2 bg-image relative items-center justify-center">
+        <div class="absolute top-8 left-8">
+            <div class="text-2xl font-bold tracking-tight flex items-center text-white">
+                <img src="assets/images/logo.webp" alt="Stackly" class="h-8 md:h-10 w-auto">
+            </div>
+        </div>
+        <div class="text-center text-white p-12 max-w-lg z-10 form-animate-left">
+            <h1 class="text-5xl font-bold mb-6 leading-tight">Welcome Back</h1>
+            <p class="text-lg text-gray-300 leading-relaxed">Log in to access your personalized photography dashboard, view your recent galleries, and manage your bookings.</p>
+        </div>
+    </div>
+
+            <!-- Right Side: Login Form -->
+    <div class="w-full lg:w-1/2 flex flex-col items-center justify-center p-6 sm:p-8 md:p-12 overflow-y-auto relative bg-white min-h-screen lg:min-h-0 py-10 lg:py-8">
+        
+        <!-- Back to Home Button (Desktop: absolute, Mobile: normal flow) -->
+        <div class="w-full max-w-md flex justify-end lg:absolute lg:top-8 lg:right-8 lg:w-auto mb-6 lg:mb-0 lg:block z-20">
+            <a href="index.html" class="text-sm font-semibold text-gray-500 hover:text-gray-900 transition flex items-center bg-gray-50 lg:bg-transparent px-4 py-2 lg:p-0 rounded-full lg:rounded-none shadow-sm lg:shadow-none inline-flex">
+                <i class="fas fa-arrow-left mr-2"></i> Back to Home
+            </a>
+        </div>
+
+        <div class="w-full max-w-md form-animate-right">
+            <!-- Mobile Branding (Hidden on Desktop) -->
+            <div class="lg:hidden text-3xl font-bold tracking-tight flex items-center text-gray-900 mb-8 justify-center">
+                <img src="assets/images/logo.webp" alt="Stackly" class="h-8 md:h-10 w-auto">
+            </div>
+
+            <h2 class="text-3xl sm:text-4xl font-bold text-gray-900 mb-2 text-center lg:text-left">Login to Your Account</h2>
+            <p class="text-gray-500 mb-8 text-center lg:text-left">Please enter your details to sign in.</p>
+
+            <form id="loginForm" class="space-y-5">
+                
+                <!-- Role Selector -->
+                <div class="flex bg-[#faf9f8] p-1.5 rounded-lg mb-6 border border-gray-100">
+                    <label class="flex-1 text-center cursor-pointer">
+                        <input type="radio" name="role" value="user" class="peer hidden" required checked>
+                        <div class="py-2.5 rounded-md peer-checked:bg-white peer-checked:shadow-sm text-sm font-semibold text-gray-500 peer-checked:text-gray-900 transition-all duration-300">Client / User</div>
+                    </label>
+                    <label class="flex-1 text-center cursor-pointer">
+                        <input type="radio" name="role" value="admin" class="peer hidden" required>
+                        <div class="py-2.5 rounded-md peer-checked:bg-white peer-checked:shadow-sm text-sm font-semibold text-gray-500 peer-checked:text-gray-900 transition-all duration-300">Admin</div>
+                    </label>
+                </div>
+
+                <!-- Email Input -->
+                <div>
+                    <label class="block text-sm font-semibold text-gray-900 mb-2">Email Address</label>
+                    <input type="email" placeholder="name@example.com" class="w-full bg-[#faf9f8] border border-gray-200 text-gray-900 px-4 py-3.5 rounded-lg focus:outline-none focus:border-gray-900 focus:bg-white transition" required>
+                </div>
+
+                <!-- Password Input -->
+                <div>
+                    <label class="block text-sm font-semibold text-gray-900 mb-2">Password</label>
+                    <div class="relative">
+                        <input type="password" id="password" placeholder="&bull;&bull;&bull;&bull;&bull;&bull;&bull;&bull;" class="w-full bg-[#faf9f8] border border-gray-200 text-gray-900 px-4 py-3.5 rounded-lg focus:outline-none focus:border-gray-900 focus:bg-white transition font-mono tracking-widest text-lg placeholder:tracking-normal placeholder:font-sans placeholder:text-base" required>
+                        <button type="button" id="togglePassword" class="absolute inset-y-0 right-0 pr-4 flex items-center text-gray-400 hover:text-gray-900 transition">
+                            <i class="far fa-eye" id="eyeIcon"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Remember Me & Forgot Password -->
+                <div class="flex flex-col sm:flex-row items-center justify-between pt-2 gap-4 sm:gap-0">
+                    <label class="flex items-center cursor-pointer self-start sm:self-auto">
+                        <input type="checkbox" name="remember" class="w-4 h-4 rounded border-gray-300 text-gray-900 focus:ring-gray-900 cursor-pointer accent-gray-900">
+                        <span class="ml-2 text-sm text-gray-600 font-medium">Remember me</span>
+                    </label>
+                    <a href="404.html" class="text-sm font-semibold text-gray-900 hover:text-[#d6a87c] transition self-start sm:self-auto">Forgot Password?</a>
+                </div>
+
+                <!-- Login Button -->
+                <button type="submit" class="w-full bg-gray-900 text-white font-bold py-4 rounded-lg hover:bg-[#d6a87c] hover:text-black transition-colors shadow-lg mt-4">
+                    Sign In
+                </button>
+            </form>
+
+            <p class="text-center text-sm text-gray-500 mt-8">
+                Don't have an account? <a href="signup.html" class="font-bold text-gray-900 hover:text-[#d6a87c] transition underline decoration-2 underline-offset-4">Create one</a>
+            </p>
+        </div>
+    </div>
+
+    <!-- GSAP Animations -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script>
+        // Password Visibility Toggle
+        const togglePassword = document.getElementById('togglePassword');
+        const password = document.getElementById('password');
+        const eyeIcon = document.getElementById('eyeIcon');
+
+        togglePassword.addEventListener('click', () => {
+            const type = password.getAttribute('type') === 'password' ? 'text' : 'password';
+            password.setAttribute('type', type);
+            eyeIcon.classList.toggle('fa-eye');
+            eyeIcon.classList.toggle('fa-eye-slash');
+        });
+
+        // Native Form Validation & Redirection
+        document.getElementById('loginForm').addEventListener('submit', function(e) {
+            e.preventDefault(); // Prevent page reload
+            
+            // Get selected role
+            const role = document.querySelector('input[name="role"]:checked').value;
+            
+            // Redirect based on role
+            if (role === 'admin') {
+                window.location.href = 'admin-dashboard.html';
+            } else {
+                window.location.href = 'user-dashboard.html';
+            }
+        });
+
+        // Page Load Animations
+        document.addEventListener("DOMContentLoaded", () => {
+            if(window.gsap) {
+                gsap.from(".form-animate-left", { x: -50, opacity: 0, duration: 1, ease: "power3.out" });
+                gsap.from(".form-animate-right", { y: 30, opacity: 0, duration: 1, delay: 0.2, ease: "power3.out" });
+            }
+        });
+    </script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+

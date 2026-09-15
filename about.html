@@ -1,0 +1,679 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Me - Photography Portfolio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Caveat:wght@600&display=swap');
+        
+        body { font-family: 'Inter', sans-serif; }
+        .font-script { font-family: 'Caveat', cursive; }
+        
+        .hero-bg {
+            background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.6)), url('assets/images/img_3.webp');
+            background-size: cover; background-position: center;
+        }
+        .cta-bg {
+            background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.8)), url('assets/images/img_8.webp');
+            background-size: cover; background-position: center; background-attachment: fixed;
+        }
+        
+        .accent-color { color: #d6a87c; }
+        .accent-bg { background-color: #d6a87c; }
+        .accent-border { border-color: #d6a87c; }
+        .accent-bg-hover:hover { background-color: #c4966a; }
+    </style>
+<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+</head>
+<body class="bg-[#faf9f8] text-gray-800">
+
+    <!-- Hero Section -->
+    <section class="hero-bg min-h-screen relative flex flex-col text-white">
+        <!-- Header/Navigation -->
+    <header class="fixed w-full top-0 left-0 z-50 bg-[#151719]/90 backdrop-blur-md border-b border-white/10 transition-all duration-300">
+<!-- Navigation -->
+        <nav class="container mx-auto px-6 py-6 flex justify-between items-center z-10 text-white">
+            <!-- Left: Logo -->
+            <div class="text-2xl font-bold tracking-tight flex items-center w-1/4">
+                <img src="assets/images/logo.webp" alt="Stackly" class="h-8 md:h-10 w-auto">
+            </div>
+            
+            <!-- Center: Desktop Menu -->
+            <div class="hidden md:flex flex-1 justify-center space-x-8 items-center text-sm font-medium">
+                <a href="index.html" class="text-gray-300 hover:text-[#d6a87c] transition">Home</a>
+                <a href="about.html" class="border-b-2 accent-border accent-color pb-1">About</a>
+                <a href="service.html" class="text-gray-300 hover:text-[#d6a87c] transition">Service</a>
+                <a href="blog.html" class="text-gray-300 hover:text-[#d6a87c] transition">Blog</a>
+                <a href="contact.html" class="text-gray-300 hover:text-[#d6a87c] transition">Contact</a>
+            </div>
+
+            <!-- Right: Login & Mobile Toggle -->
+            <div class="w-1/4 flex justify-end items-center">
+                <a href="login.html" class="hidden md:inline-block border border-white text-white px-6 py-2 rounded-full hover:border-[#d6a87c] hover:text-[#d6a87c] transition text-sm font-medium">Login</a>
+                <button id="mobile-menu-btn" class="md:hidden text-white focus:outline-none ml-4">
+                    <i class="fas fa-bars text-2xl"></i>
+                </button>
+            </div>
+        </nav>
+
+        <!-- Mobile Menu Dropdown -->
+                <div id="mobile-menu" class="hidden md:hidden absolute top-full left-0 w-full h-[calc(100vh-73px)] bg-black/95 backdrop-blur-2xl border-t border-white/10 flex flex-col justify-center items-center z-40">
+            <div class="flex flex-col px-6 py-4 space-y-8 text-center text-xl w-full mb-20">
+                <a href="index.html" class="text-gray-300 hover:text-white transition font-medium">Home</a>
+                <a href="about.html" class="accent-color font-medium">About</a>
+                <a href="service.html" class="text-gray-300 hover:text-white transition font-medium">Service</a>
+                <a href="blog.html" class="text-gray-300 hover:text-white transition font-medium">Blog</a>
+                <a href="login.html" class="text-gray-300 hover:text-white transition font-medium">Contact</a>
+            </div>
+        </div>
+    </header>
+
+        <!-- Hero Content -->
+        <div class="container mx-auto px-6 flex-grow flex flex-col justify-center pb-20 pt-24">
+            <div class="max-w-2xl">
+                <div class="flex items-center gap-4 mb-6">
+                    <p class="text-xs tracking-[0.2em] font-semibold text-gray-300 uppercase">Discover</p>
+                    <div class="w-12 h-[1px] bg-gray-400"></div>
+                </div>
+                <h1 class="text-5xl md:text-6xl font-bold leading-tight mb-6">The Story Behind the Lens</h1>
+                <p class="text-lg text-gray-300 mb-10 max-w-xl leading-relaxed">A passionate photographer capturing real moments, beautiful places, and authentic stories around the world.</p>               <div class="flex flex-wrap gap-4">                    <a href="404.html" class="inline-flex items-center justify-center bg-[#d6a87c] text-white px-8 py-3 rounded-full hover:bg-white hover:text-gray-900 transition-colors font-medium shadow-lg hover:shadow-xl">View My Work</a>                    <a href="404.html" class="inline-flex items-center justify-center border border-white text-white px-8 py-3 rounded-full hover:bg-white hover:text-gray-900 transition-colors font-medium">Book a Session</a>                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 1. My Story & Timeline -->
+    <section class="py-24 bg-white overflow-hidden">
+        <div class="container mx-auto px-6" data-aos="fade-up">
+            <div class="flex flex-col lg:flex-row gap-16">
+                <!-- Image side -->
+                <div class="w-full lg:w-5/12 relative max-w-md mx-auto lg:mx-0">
+                    
+                    <div class="relative z-10 aspect-[3/4] overflow-hidden shadow-xl rounded-lg">
+                        <img src="Assest/photos.webp" alt="Photographer Portrait" class="w-full h-full object-cover">
+                    </div>
+                </div>
+
+                <!-- Text & Timeline side -->
+                <div class="w-full lg:w-7/12">
+                    <h2 class="text-4xl font-bold text-gray-900 mb-6">My Personal Journey</h2>
+                    <p class="text-gray-600 mb-6 leading-relaxed">
+                        My passion for photography ignited during a backpacking trip across Europe. What started as a simple hobby quickly transformed into a profound desire to freeze fleeting moments in time. I've spent the last decade honing my craft, moving from amateur landscapes to professional editorial and wedding photography.
+                    </p>
+                    <p class="text-gray-600 mb-12 leading-relaxed">
+                        I believe in the power of visual storytelling. Every photograph should evoke an emotion and tell a narrative without a single word. My goal is to capture authenticity�the raw, unfiltered beauty of life.
+                    </p>
+
+                    <h3 class="text-2xl font-bold text-gray-900 mb-6">Experience Highlights</h3>
+                    <!-- Timeline -->
+                    <div class="border-l-2 accent-border pl-6 space-y-8 relative">
+                        <div class="relative">
+                            <div class="absolute -left-[31px] top-1.5 w-4 h-4 rounded-full accent-bg border-4 border-white"></div>
+                            <h4 class="text-lg font-bold text-gray-900">Started Professional Career</h4>
+                            <span class="text-sm text-gray-500">2013</span>
+                            <p class="text-gray-600 text-sm mt-2">Transitioned from enthusiast to full-time freelance photographer.</p>
+                        </div>
+                        <div class="relative">
+                            <div class="absolute -left-[31px] top-1.5 w-4 h-4 rounded-full accent-bg border-4 border-white"></div>
+                            <h4 class="text-lg font-bold text-gray-900">National Geographic Feature</h4>
+                            <span class="text-sm text-gray-500">2017</span>
+                            <p class="text-gray-600 text-sm mt-2">First major publication for a wildlife documentary series in Kenya.</p>
+                        </div>
+                        <div class="relative">
+                            <div class="absolute -left-[31px] top-1.5 w-4 h-4 rounded-full accent-bg border-4 border-white"></div>
+                            <h4 class="text-lg font-bold text-gray-900">Opened Stackly Studio</h4>
+                            <span class="text-sm text-gray-500">2021</span>
+                            <p class="text-gray-600 text-sm mt-2">Launched a dedicated creative space for commercial and portrait shoots.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 2. Mission & Vision -->
+    <section class="py-24 bg-[#f9f8f6]">
+        <div class="container mx-auto px-6" data-aos="fade-up">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+                <!-- Mission Card -->
+                <div class="bg-white p-12 rounded-2xl shadow-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-2 border border-gray-100 group">
+                    <div class="w-16 h-16 rounded-full bg-[#fcf9f4] flex items-center justify-center accent-color mb-8 text-3xl group-hover:scale-110 transition-transform">
+                        <i class="fas fa-bullseye"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-gray-900 mb-4">My Mission</h3>
+                    <p class="text-gray-600 leading-relaxed">
+                        To provide clients with timeless, striking imagery that captures the essence of their most cherished moments. I strive to make every photoshoot a comfortable, enjoyable experience that yields authentic results.
+                    </p>
+                </div>
+                <!-- Vision Card -->
+                <div class="bg-white p-12 rounded-2xl shadow-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-2 border border-gray-100 group">
+                    <div class="w-16 h-16 rounded-full bg-[#fcf9f4] flex items-center justify-center accent-color mb-8 text-3xl group-hover:scale-110 transition-transform">
+                        <i class="far fa-eye"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-gray-900 mb-4">My Vision</h3>
+                    <p class="text-gray-600 leading-relaxed">
+                        To push the boundaries of visual storytelling and become a globally recognized name in fine-art and documentary photography, inspiring others to see the world from a different perspective.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 3. Statistics -->
+    <section class="py-20 bg-gray-900 text-white relative">
+        <div class="absolute inset-0 bg-[url('assets/images/img_2.webp')] bg-cover bg-center opacity-10"></div>
+        <div class="container mx-auto px-6 relative z-10">
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center divide-x divide-gray-800">
+                <div class="px-4">
+                    <i class="fas fa-camera text-3xl accent-color mb-4"></i>
+                    <div class="text-4xl md:text-5xl font-bold mb-2"><span class="counter" data-target="800">0</span>+</div>
+                    <div class="text-sm text-gray-400 uppercase tracking-widest font-semibold">Photoshoots</div>
+                </div>
+                <div class="px-4">
+                    <i class="far fa-smile text-3xl accent-color mb-4"></i>
+                    <div class="text-4xl md:text-5xl font-bold mb-2"><span class="counter" data-target="500">0</span>+</div>
+                    <div class="text-sm text-gray-400 uppercase tracking-widest font-semibold">Happy Clients</div>
+                </div>
+                <div class="px-4">
+                    <i class="fas fa-trophy text-3xl accent-color mb-4"></i>
+                    <div class="text-4xl md:text-5xl font-bold mb-2"><span class="counter" data-target="25">0</span>+</div>
+                    <div class="text-sm text-gray-400 uppercase tracking-widest font-semibold">Awards</div>
+                </div>
+                <div class="px-4">
+                    <i class="fas fa-globe-americas text-3xl accent-color mb-4"></i>
+                    <div class="text-4xl md:text-5xl font-bold mb-2"><span class="counter" data-target="15">0</span>+</div>
+                    <div class="text-sm text-gray-400 uppercase tracking-widest font-semibold">Countries</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 4. My Expertise -->
+    <section class="py-24 bg-white">
+        <div class="container mx-auto px-6" data-aos="fade-up">
+            <div class="text-center mb-16">
+                <p class="text-xs tracking-[0.2em] font-semibold text-gray-500 mb-3 uppercase">Specializations</p>
+                <h2 class="text-4xl font-bold text-gray-900">My Expertise</h2>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Expertise 1 -->
+                <div class="group p-8 border border-gray-100 rounded-xl hover:shadow-xl hover:-translate-y-2 transition-all duration-300 bg-[#fcfbf9]">
+                    <i class="fas fa-ring text-3xl accent-color mb-6 group-hover:scale-125 transition-transform origin-left"></i>
+                    <h3 class="text-xl font-bold text-gray-900 mb-3">Wedding Photography</h3>
+                    <p class="text-gray-600">Capturing the magic, emotion, and intricate details of your special day with a timeless editorial style.</p>
+                </div>
+                <!-- Expertise 2 -->
+                <div class="group p-8 border border-gray-100 rounded-xl hover:shadow-xl hover:-translate-y-2 transition-all duration-300 bg-[#fcfbf9]">
+                    <i class="fas fa-user text-3xl accent-color mb-6 group-hover:scale-125 transition-transform origin-left"></i>
+                    <h3 class="text-xl font-bold text-gray-900 mb-3">Portrait Photography</h3>
+                    <p class="text-gray-600">Professional headshots, family portraits, and creative individual sessions tailored to your personality.</p>
+                </div>
+                <!-- Expertise 3 -->
+                <div class="group p-8 border border-gray-100 rounded-xl hover:shadow-xl hover:-translate-y-2 transition-all duration-300 bg-[#fcfbf9]">
+                    <i class="fas fa-paw text-3xl accent-color mb-6 group-hover:scale-125 transition-transform origin-left"></i>
+                    <h3 class="text-xl font-bold text-gray-900 mb-3">Wildlife Photography</h3>
+                    <p class="text-gray-600">Documenting the raw beauty of the natural world and exotic wildlife in their natural habitats.</p>
+                </div>
+                <!-- Expertise 4 -->
+                <div class="group p-8 border border-gray-100 rounded-xl hover:shadow-xl hover:-translate-y-2 transition-all duration-300 bg-[#fcfbf9]">
+                    <i class="fas fa-plane text-3xl accent-color mb-6 group-hover:scale-125 transition-transform origin-left"></i>
+                    <h3 class="text-xl font-bold text-gray-900 mb-3">Travel Photography</h3>
+                    <p class="text-gray-600">Visual narratives of diverse cultures, stunning landscapes, and breathtaking architecture globally.</p>
+                </div>
+                <!-- Expertise 5 -->
+                <div class="group p-8 border border-gray-100 rounded-xl hover:shadow-xl hover:-translate-y-2 transition-all duration-300 bg-[#fcfbf9]">
+                    <i class="fas fa-tshirt text-3xl accent-color mb-6 group-hover:scale-125 transition-transform origin-left"></i>
+                    <h3 class="text-xl font-bold text-gray-900 mb-3">Fashion Photography</h3>
+                    <p class="text-gray-600">High-end editorial and catalog shoots highlighting style, texture, and brand aesthetics.</p>
+                </div>
+                <!-- Expertise 6 -->
+                <div class="group p-8 border border-gray-100 rounded-xl hover:shadow-xl hover:-translate-y-2 transition-all duration-300 bg-[#fcfbf9]">
+                    <i class="fas fa-building text-3xl accent-color mb-6 group-hover:scale-125 transition-transform origin-left"></i>
+                    <h3 class="text-xl font-bold text-gray-900 mb-3">Commercial Photography</h3>
+                    <p class="text-gray-600">High-quality product, architecture, and brand imagery designed to elevate your business marketing.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 5. My Photography Process -->
+    <section class="py-24 bg-[#151719] text-white overflow-hidden">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16" data-aos="fade-up">
+                <p class="text-xs tracking-[0.2em] font-semibold text-[#d6a87c] mb-3 uppercase">How We Work</p>
+                <h2 class="text-4xl font-bold">My Photography Process</h2>
+            </div>
+
+            <div class="flex flex-col md:flex-row justify-between items-start relative max-w-5xl mx-auto gap-8 md:gap-0">
+                <!-- Line connector for desktop with gradient -->
+                <div class="hidden md:block absolute top-8 left-12 right-12 h-[2px] bg-gradient-to-r from-gray-800 via-gray-600 to-gray-800 z-0 opacity-50" data-aos="fade-in" data-aos-delay="300"></div>
+                
+                <!-- Step 1 -->
+                <div class="relative z-10 flex flex-col items-center text-center w-full md:w-1/4 px-4 group cursor-pointer" data-aos="fade-up" data-aos-delay="100">
+                    <div class="w-16 h-16 rounded-full bg-gray-900 border-2 border-gray-700 flex items-center justify-center text-xl font-bold mb-6 group-hover:bg-[#d6a87c] group-hover:border-[#d6a87c] group-hover:text-white group-hover:scale-110 group-hover:shadow-[0_0_20px_rgba(214,168,124,0.5)] transition-all duration-300">
+                        1
+                    </div>
+                    <h3 class="text-lg font-bold mb-2 group-hover:text-[#d6a87c] transition-colors duration-300">Consultation</h3>
+                    <p class="text-sm text-gray-400 group-hover:text-gray-300 transition-colors duration-300">Discussing your vision, requirements, and visual style preferences.</p>
+                </div>
+                
+                <!-- Step 2 -->
+                <div class="relative z-10 flex flex-col items-center text-center w-full md:w-1/4 px-4 group cursor-pointer" data-aos="fade-up" data-aos-delay="200">
+                    <div class="w-16 h-16 rounded-full bg-gray-900 border-2 border-gray-700 flex items-center justify-center text-xl font-bold mb-6 group-hover:bg-[#d6a87c] group-hover:border-[#d6a87c] group-hover:text-white group-hover:scale-110 group-hover:shadow-[0_0_20px_rgba(214,168,124,0.5)] transition-all duration-300">
+                        2
+                    </div>
+                    <h3 class="text-lg font-bold mb-2 group-hover:text-[#d6a87c] transition-colors duration-300">Planning</h3>
+                    <p class="text-sm text-gray-400 group-hover:text-gray-300 transition-colors duration-300">Scouting locations, finalizing timelines, and preparing the equipment.</p>
+                </div>
+
+                <!-- Step 3 -->
+                <div class="relative z-10 flex flex-col items-center text-center w-full md:w-1/4 px-4 group cursor-pointer" data-aos="fade-up" data-aos-delay="300">
+                    <div class="w-16 h-16 rounded-full bg-gray-900 border-2 border-gray-700 flex items-center justify-center text-xl font-bold mb-6 group-hover:bg-[#d6a87c] group-hover:border-[#d6a87c] group-hover:text-white group-hover:scale-110 group-hover:shadow-[0_0_20px_rgba(214,168,124,0.5)] transition-all duration-300">
+                        3
+                    </div>
+                    <h3 class="text-lg font-bold mb-2 group-hover:text-[#d6a87c] transition-colors duration-300">Photoshoot</h3>
+                    <p class="text-sm text-gray-400 group-hover:text-gray-300 transition-colors duration-300">Executing the plan and capturing natural, authentic moments.</p>
+                </div>
+
+                <!-- Step 4 -->
+                <div class="relative z-10 flex flex-col items-center text-center w-full md:w-1/4 px-4 group cursor-pointer" data-aos="fade-up" data-aos-delay="400">
+                    <div class="w-16 h-16 rounded-full bg-gray-900 border-2 border-gray-700 flex items-center justify-center text-xl font-bold mb-6 group-hover:bg-[#d6a87c] group-hover:border-[#d6a87c] group-hover:text-white group-hover:scale-110 group-hover:shadow-[0_0_20px_rgba(214,168,124,0.5)] transition-all duration-300">
+                        4
+                    </div>
+                    <h3 class="text-lg font-bold mb-2 group-hover:text-[#d6a87c] transition-colors duration-300">Editing & Delivery</h3>
+                    <p class="text-sm text-gray-400 group-hover:text-gray-300 transition-colors duration-300">Professional retouching, color grading, and final gallery delivery.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 6. Equipment I Use -->
+    <section class="py-24 bg-[#f9f8f6]">
+        <div class="container mx-auto px-6" data-aos="fade-up">
+            <div class="text-center mb-16">
+                <p class="text-xs tracking-[0.2em] font-semibold text-gray-500 mb-3 uppercase">The Gear</p>
+                <h2 class="text-4xl font-bold text-gray-900">Equipment I Use</h2>
+            </div>
+            
+            <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6 max-w-6xl mx-auto">
+                <div class="bg-white p-6 rounded-xl shadow-sm text-center border border-gray-100 hover:shadow-md transition">
+                    <i class="fas fa-camera-retro text-4xl accent-color mb-4"></i>
+                    <h4 class="font-bold text-gray-900">Camera Bodies</h4>
+                    <p class="text-xs text-gray-500 mt-2">Canon EOS R5 & R6</p>
+                </div>
+                <div class="bg-white p-6 rounded-xl shadow-sm text-center border border-gray-100 hover:shadow-md transition">
+                    <i class="fas fa-bullseye text-4xl accent-color mb-4"></i>
+                    <h4 class="font-bold text-gray-900">Prime Lenses</h4>
+                    <p class="text-xs text-gray-500 mt-2">RF 50mm, 85mm, 35mm</p>
+                </div>
+                <div class="bg-white p-6 rounded-xl shadow-sm text-center border border-gray-100 hover:shadow-md transition">
+                    <i class="fas fa-helicopter text-4xl accent-color mb-4"></i>
+                    <h4 class="font-bold text-gray-900">Drones</h4>
+                    <p class="text-xs text-gray-500 mt-2">DJI Mavic 3 Pro</p>
+                </div>
+                <div class="bg-white p-6 rounded-xl shadow-sm text-center border border-gray-100 hover:shadow-md transition">
+                    <i class="fas fa-lightbulb text-4xl accent-color mb-4"></i>
+                    <h4 class="font-bold text-gray-900">Lighting</h4>
+                    <p class="text-xs text-gray-500 mt-2">Profoto Strobes & Modifiers</p>
+                </div>
+                <div class="bg-white p-6 rounded-xl shadow-sm text-center border border-gray-100 hover:shadow-md transition col-span-2 md:col-span-1 lg:col-span-1">
+                    <i class="fas fa-laptop-code text-4xl accent-color mb-4"></i>
+                    <h4 class="font-bold text-gray-900">Editing Software</h4>
+                    <p class="text-xs text-gray-500 mt-2">Lightroom & Photoshop</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+        <!-- 7. Why Choose Me -->
+    <section class="py-24 bg-white overflow-hidden">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16" data-aos="fade-up">
+                <p class="text-xs tracking-[0.2em] font-semibold text-gray-500 mb-3 uppercase">Advantages</p>
+                <h2 class="text-4xl font-bold text-gray-900">Why Choose Me</h2>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="flex items-start group p-6 rounded-xl hover:bg-gray-50 hover:shadow-lg transition-all duration-300 border border-transparent hover:border-gray-100 cursor-default" data-aos="fade-up" data-aos-delay="100">
+                    <div class="bg-orange-50 w-12 h-12 rounded-full flex items-center justify-center shrink-0 mr-4 group-hover:bg-[#d6a87c] transition-colors duration-300">
+                        <i class="fas fa-paint-brush text-xl accent-color group-hover:text-white group-hover:scale-125 group-hover:-translate-y-1 transition-all duration-300"></i>
+                    </div>
+                    <div>
+                        <h4 class="text-xl font-bold text-gray-900 mb-2 group-hover:text-[#d6a87c] transition-colors duration-300">Creative Vision</h4>
+                        <p class="text-gray-600">A unique artistic eye that finds the extraordinary in ordinary moments.</p>
+                    </div>
+                </div>
+                <div class="flex items-start group p-6 rounded-xl hover:bg-gray-50 hover:shadow-lg transition-all duration-300 border border-transparent hover:border-gray-100 cursor-default" data-aos="fade-up" data-aos-delay="200">
+                    <div class="bg-orange-50 w-12 h-12 rounded-full flex items-center justify-center shrink-0 mr-4 group-hover:bg-[#d6a87c] transition-colors duration-300">
+                        <i class="fas fa-sliders-h text-xl accent-color group-hover:text-white group-hover:scale-125 group-hover:-translate-y-1 transition-all duration-300"></i>
+                    </div>
+                    <div>
+                        <h4 class="text-xl font-bold text-gray-900 mb-2 group-hover:text-[#d6a87c] transition-colors duration-300">Natural Editing</h4>
+                        <p class="text-gray-600">True-to-life colors with a cinematic touch, preserving the authenticity of the scene.</p>
+                    </div>
+                </div>
+                <div class="flex items-start group p-6 rounded-xl hover:bg-gray-50 hover:shadow-lg transition-all duration-300 border border-transparent hover:border-gray-100 cursor-default" data-aos="fade-up" data-aos-delay="300">
+                    <div class="bg-orange-50 w-12 h-12 rounded-full flex items-center justify-center shrink-0 mr-4 group-hover:bg-[#d6a87c] transition-colors duration-300">
+                        <i class="fas fa-shipping-fast text-xl accent-color group-hover:text-white group-hover:scale-125 group-hover:-translate-y-1 transition-all duration-300"></i>
+                    </div>
+                    <div>
+                        <h4 class="text-xl font-bold text-gray-900 mb-2 group-hover:text-[#d6a87c] transition-colors duration-300">Fast Delivery</h4>
+                        <p class="text-gray-600">Quick turnaround times without ever compromising on image quality.</p>
+                    </div>
+                </div>
+                <div class="flex items-start group p-6 rounded-xl hover:bg-gray-50 hover:shadow-lg transition-all duration-300 border border-transparent hover:border-gray-100 cursor-default" data-aos="fade-up" data-aos-delay="400">
+                    <div class="bg-orange-50 w-12 h-12 rounded-full flex items-center justify-center shrink-0 mr-4 group-hover:bg-[#d6a87c] transition-colors duration-300">
+                        <i class="fas fa-briefcase text-xl accent-color group-hover:text-white group-hover:scale-125 group-hover:-translate-y-1 transition-all duration-300"></i>
+                    </div>
+                    <div>
+                        <h4 class="text-xl font-bold text-gray-900 mb-2 group-hover:text-[#d6a87c] transition-colors duration-300">Professional Experience</h4>
+                        <p class="text-gray-600">Over a decade of industry experience handling diverse lighting and scenarios.</p>
+                    </div>
+                </div>
+                <div class="flex items-start group p-6 rounded-xl hover:bg-gray-50 hover:shadow-lg transition-all duration-300 border border-transparent hover:border-gray-100 cursor-default" data-aos="fade-up" data-aos-delay="500">
+                    <div class="bg-orange-50 w-12 h-12 rounded-full flex items-center justify-center shrink-0 mr-4 group-hover:bg-[#d6a87c] transition-colors duration-300">
+                        <i class="far fa-star text-xl accent-color group-hover:text-white group-hover:scale-125 group-hover:-translate-y-1 transition-all duration-300"></i>
+                    </div>
+                    <div>
+                        <h4 class="text-xl font-bold text-gray-900 mb-2 group-hover:text-[#d6a87c] transition-colors duration-300">Premium Quality</h4>
+                        <p class="text-gray-600">Delivering high-resolution, print-ready masterpieces crafted with top-tier gear.</p>
+                    </div>
+                </div>
+                <div class="flex items-start group p-6 rounded-xl hover:bg-gray-50 hover:shadow-lg transition-all duration-300 border border-transparent hover:border-gray-100 cursor-default" data-aos="fade-up" data-aos-delay="600">
+                    <div class="bg-orange-50 w-12 h-12 rounded-full flex items-center justify-center shrink-0 mr-4 group-hover:bg-[#d6a87c] transition-colors duration-300">
+                        <i class="far fa-comments text-xl accent-color group-hover:text-white group-hover:scale-125 group-hover:-translate-y-1 transition-all duration-300"></i>
+                    </div>
+                    <div>
+                        <h4 class="text-xl font-bold text-gray-900 mb-2 group-hover:text-[#d6a87c] transition-colors duration-300">Friendly Communication</h4>
+                        <p class="text-gray-600">A relaxed, communicative approach that puts you completely at ease.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 8. Client Testimonials -->
+    <section class="py-24 bg-[#f9f8f6]">
+        <div class="container mx-auto px-6" data-aos="fade-up">
+            <div class="text-center mb-16">
+                <p class="text-xs tracking-[0.2em] font-semibold text-gray-500 mb-3 uppercase">Kind Words</p>
+                <h2 class="text-4xl font-bold text-gray-900">Client Testimonials</h2>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Review 1 -->
+                <div class="group bg-white p-8 rounded-xl shadow-sm hover:shadow-xl hover:-translate-y-2 transition-all duration-300 relative overflow-hidden border border-transparent hover:border-gray-100">
+                    <i class="fas fa-quote-right absolute -bottom-4 -right-4 text-7xl text-gray-50 opacity-50 group-hover:scale-125 group-hover:text-gray-100 transition-all duration-500 z-0"></i>
+                    <div class="relative z-10">
+                        <div class="text-yellow-400 mb-4 text-sm">
+                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                        </div>
+                        <p class="text-gray-600 mb-6 italic">"Absolutely phenomenal work. Captured our wedding day perfectly. The photos are stunning and we barely noticed the camera."</p>
+                        <div class="flex items-center">
+                            <img src="assets/images/img_19.webp" alt="Client" class="w-12 h-12 rounded-full object-cover mr-4">
+                            <div>
+                                <h4 class="font-bold text-gray-900">Sarah Jenkins</h4>
+                                <p class="text-xs text-gray-500">Wedding Client</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Review 2 -->
+                <div class="group bg-white p-8 rounded-xl shadow-sm hover:shadow-xl hover:-translate-y-2 transition-all duration-300 relative overflow-hidden border border-transparent hover:border-gray-100">
+                    <i class="fas fa-quote-right absolute -bottom-4 -right-4 text-7xl text-gray-50 opacity-50 group-hover:scale-125 group-hover:text-gray-100 transition-all duration-500 z-0"></i>
+                    <div class="relative z-10">
+                        <div class="text-yellow-400 mb-4 text-sm">
+                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                        </div>
+                        <p class="text-gray-600 mb-6 italic">"Professional, creative, and easy to work with. The commercial shots for our new product line exceeded all expectations."</p>
+                        <div class="flex items-center">
+                            <img src="assets/images/img_26.webp" alt="Client" class="w-12 h-12 rounded-full object-cover mr-4">
+                            <div>
+                                <h4 class="font-bold text-gray-900">Mark Thompson</h4>
+                                <p class="text-xs text-gray-500">Business Owner</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Review 3 -->
+                <div class="group bg-white p-8 rounded-xl shadow-sm hover:shadow-xl hover:-translate-y-2 transition-all duration-300 relative overflow-hidden border border-transparent hover:border-gray-100">
+                    <i class="fas fa-quote-right absolute -bottom-4 -right-4 text-7xl text-gray-50 opacity-50 group-hover:scale-125 group-hover:text-gray-100 transition-all duration-500 z-0"></i>
+                    <div class="relative z-10">
+                        <div class="text-yellow-400 mb-4 text-sm">
+                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
+                        </div>
+                        <p class="text-gray-600 mb-6 italic">"The family portrait session was so fun and relaxed. We ended up with natural, beautiful photos that we'll cherish forever."</p>
+                        <div class="flex items-center">
+                            <img src="assets/images/img_1.webp" alt="Client" class="w-12 h-12 rounded-full object-cover mr-4">
+                            <div>
+                                <h4 class="font-bold text-gray-900">Emily Chen</h4>
+                                <p class="text-xs text-gray-500">Portrait Client</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- 10. Behind the Scenes -->
+    <section class="py-24 bg-[#f9f8f6]">
+        <div class="container mx-auto px-6" data-aos="fade-up">
+            <div class="text-center mb-16">
+                <p class="text-xs tracking-[0.2em] font-semibold text-gray-500 mb-3 uppercase">Candid Moments</p>
+                <h2 class="text-4xl font-bold text-gray-900">Behind the Scenes</h2>
+            </div>
+            
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+                <!-- BTS 1 -->
+                <div class="group overflow-hidden rounded-lg relative aspect-square">
+                    <img src="assets/images/img_37.webp" alt="Camera Setup" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                    <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                        <span class="text-white font-medium">Camera Setup</span>
+                    </div>
+                </div>
+                <!-- BTS 2 -->
+                <div class="group overflow-hidden rounded-lg relative aspect-square">
+                    <img src="assets/images/img_5.webp" alt="On Location" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                    <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                        <span class="text-white font-medium">On Location</span>
+                    </div>
+                </div>
+                <!-- BTS 3 -->
+                <div class="group overflow-hidden rounded-lg relative aspect-square">
+                    <img src="assets/images/img_48.webp" alt="Editing Workspace" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                    <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                        <span class="text-white font-medium">Editing Studio</span>
+                    </div>
+                </div>
+                <!-- BTS 4 -->
+                <div class="group overflow-hidden rounded-lg relative aspect-square">
+                    <img src="assets/images/img_18.webp" alt="Team Collaboration" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                    <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                        <span class="text-white font-medium">Team Collab</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 11. Call to Action -->
+    <section class="cta-bg py-32 relative text-center text-white">
+        <div class="container mx-auto px-6 relative z-10 flex flex-col items-center">
+            <h2 class="text-4xl md:text-5xl font-bold mb-6 max-w-2xl leading-tight">Let's Tell Your Story Through My Lens</h2>
+            <p class="text-lg text-gray-300 mb-10 max-w-lg">Ready to capture some beautiful memories? Reach out and let's create something extraordinary together.</p>
+            <div class="flex flex-col sm:flex-row gap-4">
+                <a href="404.html" class="inline-flex items-center accent-bg text-black font-semibold px-8 py-3 rounded-full hover:opacity-90 transition shadow-lg">
+                    Book a Session
+                </a>
+                <a href="404.html" class="inline-flex items-center bg-transparent border-2 border-white text-white font-semibold px-8 py-3 rounded-full hover:bg-white hover:text-black transition shadow-lg">
+                    Contact Me
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-[#151719] text-white pt-16 pb-8 border-t border-gray-800">
+        <div class="container mx-auto px-6" data-aos="fade-up">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-12">
+                <!-- Column 1: Brand -->
+                <div>
+                    <div class="text-3xl font-bold tracking-tight flex items-center mb-6 text-white">
+                        <img src="assets/images/logo.webp" alt="Stackly" class="h-8 md:h-10 w-auto">
+                    </div>
+                    <p class="text-gray-400 text-sm mb-6 leading-relaxed">
+                        Capturing life, one frame at a time.
+                    </p>
+                    <div class="flex space-x-3">
+                        <a href="404.html" class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center text-gray-300 hover:bg-[#d6a87c] hover:text-white transition"><i class="fab fa-facebook-f"></i></a>
+                        <a href="404.html" class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center text-gray-300 hover:bg-[#d6a87c] hover:text-white transition"><i class="fab fa-twitter"></i></a>
+                        <a href="404.html" class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center text-gray-300 hover:bg-[#d6a87c] hover:text-white transition"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+
+                <!-- Column 2: Quick Links -->
+                <div>
+                    <h4 class="text-sm font-bold mb-6 text-white">Quick Links</h4>
+                    <ul class="space-y-3 text-sm text-gray-400">
+                        <li><a href="index.html" class="hover:text-[#d6a87c] transition">Home</a></li>
+                        <li><a href="about.html" class="accent-color transition">About</a></li>
+                        <li><a href="service.html" class="hover:text-[#d6a87c] transition">Service</a></li>
+                        <li><a href="blog.html" class="hover:text-[#d6a87c] transition">Blog</a></li>
+                        <li><a href="contact.html" class="hover:text-[#d6a87c] transition">Contact</a></li>
+                    </ul>
+                </div>
+
+                <!-- Column 3: Services -->
+                <div>
+                    <h4 class="text-sm font-bold mb-6 text-white">Services</h4>
+                    <ul class="space-y-3 text-sm text-gray-400">
+                        <li><a href="404.html" class="hover:text-[#d6a87c] transition">Wedding Photography</a></li>
+                        <li><a href="404.html" class="hover:text-[#d6a87c] transition">Portrait Sessions</a></li>
+                        <li><a href="404.html" class="hover:text-[#d6a87c] transition">Landscape Photography</a></li>
+                        <li><a href="404.html" class="hover:text-[#d6a87c] transition">Event Coverage</a></li>
+                        <li><a href="404.html" class="hover:text-[#d6a87c] transition">Commercial Photography</a></li>
+                    </ul>
+                </div>
+
+                <!-- Column 4: Contact Info -->
+                <div>
+                    <h4 class="text-sm font-bold mb-6 text-white">Contact Info</h4>
+                    <ul class="space-y-4 text-sm text-gray-400">
+                        <li class="flex items-start">
+                            <i class="fas fa-map-marker-alt mt-1 mr-3 text-gray-300"></i>
+                            <span>MMR Complex, Chinna Thirupathi,<br>near Chinna Muniyappan Kovil,<br>Salem, Tamil Nadu 636008</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-phone-alt mr-3 text-gray-300"></i>
+                            <span>+91 98765 43210</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-envelope mr-3 text-gray-300"></i>
+                            <span>info@stackly.com</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-800 pt-8 flex flex-col md:flex-row justify-between items-center text-xs text-gray-500">
+                <p>&copy; 2025 Stackly. All rights reserved.</p>
+                <div class="mt-4 md:mt-0 flex space-x-4">
+                    <a href="404.html" class="hover:text-[#d6a87c] transition">Privacy Policy</a>
+                    <span>|</span>
+                    <a href="404.html" class="hover:text-[#d6a87c] transition">Terms & Conditions</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script>
+        // Mobile Menu
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+                mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+            const icon = mobileMenuBtn.querySelector('i');
+            if (icon) {
+                if (mobileMenu.classList.contains('hidden')) {
+                    icon.classList.remove('fa-times');
+                    icon.classList.add('fa-bars');
+                } else {
+                    icon.classList.remove('fa-bars');
+                    icon.classList.add('fa-times');
+                }
+            }
+        });
+
+        // Counter Animation
+        const counters = document.querySelectorAll('.counter');
+        const speed = 200;
+
+        const counterObserver = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const counter = entry.target;
+                    const target = +counter.getAttribute('data-target');
+                    
+                    const updateCount = () => {
+                        const count = +counter.innerText;
+                        const inc = target / speed;
+
+                        if (count < target) {
+                            counter.innerText = Math.ceil(count + inc);
+                            setTimeout(updateCount, 10);
+                        } else {
+                            counter.innerText = target;
+                        }
+                    };
+
+                    updateCount();
+                    observer.unobserve(counter);
+                }
+            });
+        }, { threshold: 0.5 });
+
+        counters.forEach(counter => {
+            counterObserver.observe(counter);
+        });
+    </script>
+    <!-- GSAP & AOS Animations -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script>
+        AOS.init({ duration: 800, once: true, offset: 50 });
+        document.addEventListener('DOMContentLoaded', () => {
+            if(window.gsap) {
+                gsap.from(".hero-bg h1", {y: 50, opacity: 0, duration: 1, delay: 0.2});
+                gsap.from(".hero-bg p", {y: 30, opacity: 0, duration: 1, delay: 0.4});
+                gsap.from(".hero-bg a.inline-flex", {y: 20, opacity: 0, duration: 1, delay: 0.6});
+            }
+        });
+    </script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

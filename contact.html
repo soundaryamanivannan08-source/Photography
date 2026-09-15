@@ -1,0 +1,493 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact - Photography Portfolio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+        
+        body { font-family: 'Inter', sans-serif; }
+        
+        .hero-bg {
+            background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.8)), url('assets/images/img_3.webp');
+            background-size: cover; background-position: center;
+        }
+        
+        .cta-bg {
+            background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.8)), url('assets/images/img_24.webp');
+            background-size: cover; background-position: center; background-attachment: fixed;
+        }
+        
+        .accent-color { color: #d6a87c; }
+        .accent-bg { background-color: #d6a87c; }
+        .accent-border { border-color: #d6a87c; }
+        
+        details > summary { list-style: none; }
+        details > summary::-webkit-details-marker { display: none; }
+    </style>
+</head>
+<body class="bg-[#faf9f8] text-gray-800">
+
+    <!-- 1. Hero Section -->
+    <section class="hero-bg min-h-[50vh] relative flex flex-col text-white">
+        <!-- Header/Navigation -->
+    <header class="fixed w-full top-0 left-0 z-50 bg-[#151719]/90 backdrop-blur-md border-b border-white/10 transition-all duration-300">
+<!-- Navigation -->
+        <nav class="container mx-auto px-6 py-6 flex justify-between items-center z-10 text-white">
+            <!-- Left: Logo -->
+            <div class="text-2xl font-bold tracking-tight flex items-center w-1/4">
+                <img src="assets/images/logo.webp" alt="Stackly" class="h-8 md:h-10 w-auto">
+            </div>
+            
+            <!-- Center: Desktop Menu -->
+            <div class="hidden md:flex flex-1 justify-center space-x-8 items-center text-sm font-medium">
+                <a href="index.html" class="text-gray-300 hover:text-[#d6a87c] transition">Home</a>
+                <a href="about.html" class="text-gray-300 hover:text-[#d6a87c] transition">About</a>
+                <a href="service.html" class="text-gray-300 hover:text-[#d6a87c] transition">Service</a>
+                <a href="blog.html" class="text-gray-300 hover:text-[#d6a87c] transition">Blog</a>
+                <a href="contact.html" class="border-b-2 accent-border accent-color pb-1">Contact</a>
+            </div>
+
+            <!-- Right: Login & Mobile Toggle -->
+            <div class="w-1/4 flex justify-end items-center">
+                <a href="login.html" class="hidden md:inline-block border border-white text-white px-6 py-2 rounded-full hover:border-[#d6a87c] hover:text-[#d6a87c] transition text-sm font-medium">Login</a>
+                <button id="mobile-menu-btn" class="md:hidden text-white focus:outline-none ml-4">
+                    <i class="fas fa-bars text-2xl"></i>
+                </button>
+            </div>
+        </nav>
+
+        <!-- Mobile Menu Dropdown -->
+                <div id="mobile-menu" class="hidden md:hidden absolute top-full left-0 w-full h-[calc(100vh-73px)] bg-black/95 backdrop-blur-2xl border-t border-white/10 flex flex-col justify-center items-center z-40">
+            <div class="flex flex-col px-6 py-4 space-y-8 text-center text-xl w-full mb-20">
+                <a href="index.html" class="text-gray-300 hover:text-white transition font-medium">Home</a>
+                <a href="about.html" class="text-gray-300 hover:text-white transition font-medium">About</a>
+                <a href="service.html" class="text-gray-300 hover:text-white transition font-medium">Service</a>
+                <a href="blog.html" class="text-gray-300 hover:text-white transition font-medium">Blog</a>
+                <a href="contact.html" class="accent-color font-medium">Contact</a>
+                <a href="login.html" class="border border-white text-white px-8 py-3 mx-auto rounded-full hover:border-[#d6a87c] hover:text-[#d6a87c] transition inline-block mt-4">Login</a>
+        </div>
+        </div>
+    </header>
+
+        <!-- Hero Content -->
+        <div class="container mx-auto px-6 flex-grow flex flex-col justify-center pb-16 pt-10 text-center items-center">
+            <div class="max-w-3xl">
+                <div class="flex items-center justify-center gap-4 mb-6">
+                    <div class="w-12 h-[1px] accent-bg"></div>
+                    <p class="text-xs tracking-[0.2em] font-semibold text-gray-300 uppercase">Say Hello</p>
+                    <div class="w-12 h-[1px] accent-bg"></div>
+                </div>
+                <h1 class="text-5xl md:text-6xl font-bold leading-tight mb-6 hero-text">Let's Work Together</h1>
+                <p class="text-lg text-gray-300 mb-8 leading-relaxed max-w-2xl mx-auto hero-desc">Whether you have a specific project in mind, or just want to say hi, I'd love to hear from you. Let's create something beautiful.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- 2. The Booking Process -->
+    <section class="py-24 bg-white border-b border-gray-100">
+        <div class="container mx-auto px-6" data-aos="fade-up">
+            <div class="text-center mb-16">
+                <p class="text-xs tracking-[0.2em] font-semibold text-gray-500 mb-3 uppercase">Simple & Seamless</p>
+                <h2 class="text-4xl font-bold text-gray-900">How It Works</h2>
+            </div>
+            
+                        <div class="grid grid-cols-1 md:grid-cols-4 gap-8 relative max-w-6xl mx-auto">
+                <div class="hidden md:block absolute top-10 left-24 right-24 h-0.5 bg-gray-100 z-0" data-aos="fade-in" data-aos-delay="400"></div>
+                
+                <div class="relative z-10 text-center px-4 group cursor-pointer hover:-translate-y-2 transition-transform duration-300" data-aos="fade-up" data-aos-delay="100">
+                    <div class="w-20 h-20 mx-auto rounded-full bg-white border-2 border-gray-100 shadow-sm flex items-center justify-center text-2xl text-gray-400 mb-6 group-hover:border-[#d6a87c] group-hover:bg-[#d6a87c] group-hover:text-white transition-all duration-300 group-hover:scale-110 group-hover:shadow-[0_0_20px_rgba(214,168,124,0.4)]">
+                        <i class="far fa-paper-plane"></i>
+                    </div>
+                    <h4 class="font-bold text-gray-900 mb-2 group-hover:text-[#d6a87c] transition-colors duration-300">1. Reach Out</h4>
+                    <p class="text-sm text-gray-500">Fill out the contact form below with your project details.</p>
+                </div>
+                
+                <div class="relative z-10 text-center px-4 group cursor-pointer hover:-translate-y-2 transition-transform duration-300" data-aos="fade-up" data-aos-delay="200">
+                    <div class="w-20 h-20 mx-auto rounded-full bg-white border-2 border-gray-100 shadow-sm flex items-center justify-center text-2xl text-gray-400 mb-6 group-hover:border-[#d6a87c] group-hover:bg-[#d6a87c] group-hover:text-white transition-all duration-300 group-hover:scale-110 group-hover:shadow-[0_0_20px_rgba(214,168,124,0.4)]">
+                        <i class="far fa-comments"></i>
+                    </div>
+                    <h4 class="font-bold text-gray-900 mb-2 group-hover:text-[#d6a87c] transition-colors duration-300">2. Consultation</h4>
+                    <p class="text-sm text-gray-500">We'll hop on a quick call to discuss your vision and exact needs.</p>
+                </div>
+                
+                <div class="relative z-10 text-center px-4 group cursor-pointer hover:-translate-y-2 transition-transform duration-300" data-aos="fade-up" data-aos-delay="300">
+                    <div class="w-20 h-20 mx-auto rounded-full bg-white border-2 border-gray-100 shadow-sm flex items-center justify-center text-2xl text-gray-400 mb-6 group-hover:border-[#d6a87c] group-hover:bg-[#d6a87c] group-hover:text-white transition-all duration-300 group-hover:scale-110 group-hover:shadow-[0_0_20px_rgba(214,168,124,0.4)]">
+                        <i class="far fa-calendar-check"></i>
+                    </div>
+                    <h4 class="font-bold text-gray-900 mb-2 group-hover:text-[#d6a87c] transition-colors duration-300">3. Secure Date</h4>
+                    <p class="text-sm text-gray-500">Sign the digital contract and pay the retainer to lock in your date.</p>
+                </div>
+                
+                <div class="relative z-10 text-center px-4 group cursor-pointer hover:-translate-y-2 transition-transform duration-300" data-aos="fade-up" data-aos-delay="400">
+                    <div class="w-20 h-20 mx-auto rounded-full bg-white border-2 border-gray-100 shadow-sm flex items-center justify-center text-2xl text-gray-400 mb-6 group-hover:border-[#d6a87c] group-hover:bg-[#d6a87c] group-hover:text-white transition-all duration-300 group-hover:scale-110 group-hover:shadow-[0_0_20px_rgba(214,168,124,0.4)]">
+                        <i class="fas fa-camera"></i>
+                    </div>
+                    <h4 class="font-bold text-gray-900 mb-2 group-hover:text-[#d6a87c] transition-colors duration-300">4. The Shoot</h4>
+                    <p class="text-sm text-gray-500">Relax and enjoy the experience while I capture the magic.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 3. Main Contact Form & Info -->
+    <section class="py-24 bg-[#faf9f8]">
+        <div class="container mx-auto px-6">
+            <div class="flex flex-col lg:flex-row max-w-7xl mx-auto rounded-2xl shadow-xl border border-gray-100 overflow-hidden bg-white" data-aos="fade-up">
+                
+                <!-- Left Side: Contact Information -->
+                <div class="w-full lg:w-5/12 bg-[#151719] text-white p-10 lg:p-16 relative overflow-hidden">
+                    <div class="absolute -bottom-10 -right-10 opacity-10">
+                        <i class="fas fa-camera text-[200px]"></i>
+                    </div>
+                    
+                    <h2 class="text-3xl font-bold mb-8 relative z-10">Get In Touch</h2>
+                    <p class="text-gray-400 mb-12 relative z-10">Fill out the form and my team will get back to you within 24 hours.</p>
+                    
+                    <div class="space-y-8 relative z-10">
+                        <div class="flex items-start">
+                            <div class="w-12 h-12 rounded-full bg-white/10 flex items-center justify-center text-[#d6a87c] mr-4 flex-shrink-0">
+                                <i class="fas fa-phone-alt"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold mb-1 text-sm text-gray-300 uppercase tracking-widest">Phone</h4>
+                                <p class="text-lg font-medium hover:text-[#d6a87c] transition cursor-pointer">+91 98765 43210</p>
+                                <p class="text-lg font-medium hover:text-[#d6a87c] transition cursor-pointer">+1 (555) 987-6543</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start">
+                            <div class="w-12 h-12 rounded-full bg-white/10 flex items-center justify-center text-[#d6a87c] mr-4 flex-shrink-0">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold mb-1 text-sm text-gray-300 uppercase tracking-widest">Email</h4>
+                                <p class="text-lg font-medium hover:text-[#d6a87c] transition cursor-pointer">hello@stackly.com</p>
+                                <p class="text-lg font-medium hover:text-[#d6a87c] transition cursor-pointer">bookings@stackly.com</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="mt-16 relative z-10">
+                        <h4 class="font-bold mb-4 text-sm text-gray-300 uppercase tracking-widest">Follow Me</h4>
+                        <div class="flex space-x-4">
+                            <a href="404.html" class="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center text-white hover:bg-[#d6a87c] hover:text-black transition shadow-lg"><i class="fab fa-instagram"></i></a>
+                            <a href="404.html" class="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center text-white hover:bg-[#d6a87c] hover:text-black transition shadow-lg"><i class="fab fa-facebook-f"></i></a>
+                            
+                            <a href="404.html" class="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center text-white hover:bg-[#d6a87c] hover:text-black transition shadow-lg"><i class="fab fa-pinterest-p"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right Side: Contact Form -->
+                <div class="w-full lg:w-7/12 p-10 lg:p-16">
+                    <form action="404.html" class="space-y-6">
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <div>
+                                <label class="block text-sm font-semibold text-gray-900 mb-2">First Name</label>
+                                <input type="text" placeholder="John" class="w-full bg-[#f9f8f6] border border-gray-200 text-gray-900 px-4 py-3 rounded-lg focus:outline-none focus:border-gray-900 focus:bg-white transition">
+                            </div>
+                            <div>
+                                <label class="block text-sm font-semibold text-gray-900 mb-2">Last Name</label>
+                                <input type="text" placeholder="Doe" class="w-full bg-[#f9f8f6] border border-gray-200 text-gray-900 px-4 py-3 rounded-lg focus:outline-none focus:border-gray-900 focus:bg-white transition">
+                            </div>
+                        </div>
+                        
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <div>
+                                <label class="block text-sm font-semibold text-gray-900 mb-2">Email Address</label>
+                                <input type="email" placeholder="john@example.com" class="w-full bg-[#f9f8f6] border border-gray-200 text-gray-900 px-4 py-3 rounded-lg focus:outline-none focus:border-gray-900 focus:bg-white transition">
+                            </div>
+                            <div>
+                                <label class="block text-sm font-semibold text-gray-900 mb-2">Phone Number</label>
+                                <input type="tel" placeholder="+1 (555) 000-0000" class="w-full bg-[#f9f8f6] border border-gray-200 text-gray-900 px-4 py-3 rounded-lg focus:outline-none focus:border-gray-900 focus:bg-white transition">
+                            </div>
+                        </div>
+                        
+                        <div>
+                            <label class="block text-sm font-semibold text-gray-900 mb-2">Type of Session</label>
+                            <div class="relative">
+                                <select class="w-full bg-[#f9f8f6] border border-gray-200 text-gray-900 px-4 py-3 rounded-lg focus:outline-none focus:border-gray-900 focus:bg-white transition appearance-none">
+                                    <option value="" disabled selected>Select a session type...</option>
+                                    <option value="wedding">Wedding / Elopement</option>
+                                    <option value="portrait">Portrait Session</option>
+                                    <option value="commercial">Commercial / Brand</option>
+                                    <option value="event">Event Coverage</option>
+                                    <option value="other">Other Inquiry</option>
+                                </select>
+                                <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-4 text-gray-500">
+                                    <i class="fas fa-chevron-down text-sm"></i>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div>
+                            <label class="block text-sm font-semibold text-gray-900 mb-2">Your Message</label>
+                            <textarea rows="5" placeholder="Tell me a bit about your vision, location, and dates..." class="w-full bg-[#f9f8f6] border border-gray-200 text-gray-900 px-4 py-3 rounded-lg focus:outline-none focus:border-gray-900 focus:bg-white transition resize-none"></textarea>
+                        </div>
+                        
+                        <button type="submit" class="w-full bg-gray-900 text-white font-bold py-4 rounded-lg hover:bg-[#d6a87c] hover:text-black transition-colors shadow-lg">
+                            Send Message
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 4. Location Map -->
+    <section class="py-24 bg-white border-y border-gray-100">
+        <div class="container mx-auto px-6" data-aos="fade-up">
+            <div class="text-center mb-16">
+                <p class="text-xs tracking-[0.2em] font-semibold text-gray-500 mb-3 uppercase">Where to find us</p>
+                <h2 class="text-4xl font-bold text-gray-900">Our Studio</h2>
+            </div>
+            
+            <div class="max-w-6xl mx-auto rounded-2xl overflow-hidden shadow-xl border border-gray-100 bg-[#faf9f8] p-4">
+                <div class="w-full h-[500px] rounded-xl overflow-hidden">
+                    <iframe src="https://maps.google.com/maps?q=11.6829566,78.1739798&t=&z=17&ie=UTF8&iwloc=&output=embed" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                </div>
+                <div class="mt-8 text-center px-4">
+                    <h3 class="text-2xl font-bold text-gray-900 mb-2">Stackly Photography</h3>
+                    <p class="text-gray-500 font-medium">MMR Complex, Chinna Thirupathi, near Chinna Muniyappan Kovil, Salem, Tamil Nadu 636008</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 5. Meet the Team -->
+    <section class="py-24 bg-[#faf9f8]">
+        <div class="container mx-auto px-6" data-aos="fade-up">
+            <div class="text-center mb-16">
+                <p class="text-xs tracking-[0.2em] font-semibold text-gray-500 mb-3 uppercase">Behind the Inbox</p>
+                <h2 class="text-4xl font-bold text-gray-900">Who You're Talking To</h2>
+            </div>
+            
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-12 max-w-4xl mx-auto">
+                <div class="text-center group bg-white p-8 rounded-2xl shadow-sm hover:shadow-2xl hover:-translate-y-3 transition-all duration-500 cursor-pointer border border-transparent hover:border-gray-100" data-aos="fade-up" data-aos-delay="100">
+                    <div class="w-48 h-48 mx-auto rounded-full overflow-hidden mb-8 border-4 border-white shadow-lg group-hover:shadow-[0_0_25px_rgba(214,168,124,0.4)] group-hover:border-[#d6a87c] transition-all duration-500">
+                        <img src="assets/images/img_44.webp" alt="Sarah - Studio Manager" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+                    </div>
+                    <h3 class="text-2xl font-bold text-gray-900 mb-2 group-hover:text-[#d6a87c] transition-colors duration-300">Sarah Jenkins</h3>
+                    <p class="text-[#d6a87c] font-semibold text-sm mb-4 uppercase tracking-wider">Studio & Booking Manager</p>
+                    <p class="text-gray-600 text-sm leading-relaxed">Sarah will likely be your first point of contact. She handles all scheduling, contracts, and ensures your booking process is entirely stress-free.</p>
+                </div>
+                
+                <div class="text-center group bg-white p-8 rounded-2xl shadow-sm hover:shadow-2xl hover:-translate-y-3 transition-all duration-500 cursor-pointer border border-transparent hover:border-gray-100" data-aos="fade-up" data-aos-delay="200">
+                    <div class="w-48 h-48 mx-auto rounded-full overflow-hidden mb-8 border-4 border-white shadow-lg group-hover:shadow-[0_0_25px_rgba(214,168,124,0.4)] group-hover:border-[#d6a87c] transition-all duration-500">
+                        <img src="assets/images/img_27.webp" alt="Alex - Lead Photographer" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+                    </div>
+                    <h3 class="text-2xl font-bold text-gray-900 mb-2 group-hover:text-[#d6a87c] transition-colors duration-300">Alex Carter</h3>
+                    <p class="text-[#d6a87c] font-semibold text-sm mb-4 uppercase tracking-wider">Lead Photographer</p>
+                    <p class="text-gray-600 text-sm leading-relaxed">Alex leads the creative vision. Once your date is booked, you'll jump on a creative consultation call with him to plan the visual direction.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 6. FAQ Section -->
+    <section class="py-24 bg-white border-t border-gray-100">
+        <div class="container mx-auto px-6 max-w-4xl" data-aos="fade-up">
+            <div class="text-center mb-16">
+                <p class="text-xs tracking-[0.2em] font-semibold text-gray-500 mb-3 uppercase">Good to Know</p>
+                <h2 class="text-4xl font-bold text-gray-900">Booking FAQ</h2>
+            </div>
+            
+            <div class="space-y-3">
+                <details class="group bg-[#faf9f8] border border-gray-200 rounded-lg p-6 [&_summary::-webkit-details-marker]:hidden shadow-sm">
+                    <summary class="flex justify-between items-center font-bold cursor-pointer text-gray-900">
+                        <span>How far in advance should I book?</span>
+                        <span class="transition duration-300 group-open:rotate-180">
+                            <i class="fas fa-chevron-down text-[#d6a87c]"></i>
+                        </span>
+                    </summary>
+                    <div class="text-gray-600 mt-4 text-sm leading-relaxed">
+                        For weddings, I recommend booking 9 to 12 months in advance as prime dates fill up quickly. For portraits and commercial shoots, 3 to 4 weeks is usually sufficient.
+                    </div>
+                </details>
+                
+                <details class="group bg-[#faf9f8] border border-gray-200 rounded-lg p-6 [&_summary::-webkit-details-marker]:hidden shadow-sm">
+                    <summary class="flex justify-between items-center font-bold cursor-pointer text-gray-900">
+                        <span>Do you require a deposit?</span>
+                        <span class="transition duration-300 group-open:rotate-180">
+                            <i class="fas fa-chevron-down text-[#d6a87c]"></i>
+                        </span>
+                    </summary>
+                    <div class="text-gray-600 mt-4 text-sm leading-relaxed">
+                        Yes, a 30% non-refundable retainer is required to secure your date, along with a signed digital contract. The remaining balance is due one week prior to the session.
+                    </div>
+                </details>
+                
+                <details class="group bg-[#faf9f8] border border-gray-200 rounded-lg p-6 [&_summary::-webkit-details-marker]:hidden shadow-sm">
+                    <summary class="flex justify-between items-center font-bold cursor-pointer text-gray-900">
+                        <span>Will we get the raw, unedited files?</span>
+                        <span class="transition duration-300 group-open:rotate-180">
+                            <i class="fas fa-chevron-down text-[#d6a87c]"></i>
+                        </span>
+                    </summary>
+                    <div class="text-gray-600 mt-4 text-sm leading-relaxed">
+                        I do not provide RAW files. Half of the magic happens in the editing room, and delivering RAW files is like a baker giving you a cake that isn't baked yet. You will receive fully edited, high-resolution JPEGs.
+                    </div>
+                </details>
+
+                <details class="group bg-[#faf9f8] border border-gray-200 rounded-lg p-6 [&_summary::-webkit-details-marker]:hidden shadow-sm">
+                    <summary class="flex justify-between items-center font-bold cursor-pointer text-gray-900">
+                        <span>Do you travel for shoots?</span>
+                        <span class="transition duration-300 group-open:rotate-180">
+                            <i class="fas fa-chevron-down text-[#d6a87c]"></i>
+                        </span>
+                    </summary>
+                    <div class="text-gray-600 mt-4 text-sm leading-relaxed">
+                        Yes! I frequently travel domestically and internationally for elopements and commercial work. Travel fees are calculated transparently and added to your custom quote.
+                    </div>
+                </details>
+            </div>
+        </div>
+    </section>
+
+    <!-- 7. Social Community Banner -->
+    <section class="cta-bg py-24 relative text-white overflow-hidden">
+        <div class="container mx-auto px-6 relative z-10 text-center" data-aos="zoom-in">
+            <h2 class="text-4xl md:text-5xl font-bold leading-tight mb-6">Not ready to book yet?</h2>
+            <p class="text-lg text-gray-300 mb-10 leading-relaxed max-w-xl mx-auto">Join the community on Instagram. Follow along for behind-the-scenes content, photography tips, and recent shoots.</p>
+            <a href="404.html" class="inline-flex items-center bg-white text-black font-bold px-8 py-4 rounded-full hover:bg-[#d6a87c] hover:text-black transition shadow-lg">
+                <i class="fab fa-instagram text-xl mr-3"></i> Follow @stackly_photo
+            </a>
+        </div>
+    </section>
+
+    <!-- 8. Footer -->
+    <footer class="bg-[#151719] text-white pt-16 pb-8">
+        <div class="container mx-auto px-6">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-12">
+                <!-- Column 1: Brand -->
+                <div>
+                    <div class="text-3xl font-bold tracking-tight flex items-center mb-6 text-white">
+                        <img src="assets/images/logo.webp" alt="Stackly" class="h-8 md:h-10 w-auto">
+                    </div>
+                    <p class="text-gray-400 text-sm mb-6 leading-relaxed">
+                        Capturing life, one frame at a time.
+                    </p>
+                    <div class="flex space-x-3">
+                        <a href="404.html" class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center text-gray-300 hover:bg-[#d6a87c] hover:text-white transition"><i class="fab fa-facebook-f"></i></a>
+                        <a href="404.html" class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center text-gray-300 hover:bg-[#d6a87c] hover:text-white transition"><i class="fab fa-twitter"></i></a>
+                        <a href="404.html" class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center text-gray-300 hover:bg-[#d6a87c] hover:text-white transition"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+
+                <!-- Column 2: Quick Links -->
+                <div>
+                    <h4 class="text-sm font-bold mb-6 text-white">Quick Links</h4>
+                    <ul class="space-y-3 text-sm text-gray-400">
+                        <li><a href="index.html" class="hover:text-[#d6a87c] transition">Home</a></li>
+                        <li><a href="about.html" class="hover:text-[#d6a87c] transition">About</a></li>
+                        <li><a href="service.html" class="hover:text-[#d6a87c] transition">Service</a></li>
+                        <li><a href="blog.html" class="hover:text-[#d6a87c] transition">Blog</a></li>
+                        <li><a href="contact.html" class="accent-color transition">Contact</a></li>
+                    </ul>
+                </div>
+
+                <!-- Column 3: Services -->
+                <div>
+                    <h4 class="text-sm font-bold mb-6 text-white">Services</h4>
+                    <ul class="space-y-3 text-sm text-gray-400">
+                        <li><a href="404.html" class="hover:text-[#d6a87c] transition">Wedding Photography</a></li>
+                        <li><a href="404.html" class="hover:text-[#d6a87c] transition">Portrait Sessions</a></li>
+                        <li><a href="404.html" class="hover:text-[#d6a87c] transition">Landscape Photography</a></li>
+                        <li><a href="404.html" class="hover:text-[#d6a87c] transition">Event Coverage</a></li>
+                        <li><a href="404.html" class="hover:text-[#d6a87c] transition">Commercial Photography</a></li>
+                    </ul>
+                </div>
+
+                <!-- Column 4: Contact Info -->
+                <div>
+                    <h4 class="text-sm font-bold mb-6 text-white">Contact Info</h4>
+                    <ul class="space-y-4 text-sm text-gray-400">
+                        <li class="flex items-start">
+                            <i class="fas fa-map-marker-alt mt-1 mr-3 text-gray-300"></i>
+                            <span>MMR Complex, Chinna Thirupathi,<br>near Chinna Muniyappan Kovil,<br>Salem, Tamil Nadu 636008</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-phone-alt mr-3 text-gray-300"></i>
+                            <span>+91 98765 43210</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-envelope mr-3 text-gray-300"></i>
+                            <span>info@stackly.com</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-800 pt-8 flex flex-col md:flex-row justify-between items-center text-xs text-gray-500">
+                <p>&copy; 2025 Stackly. All rights reserved.</p>
+                <div class="mt-4 md:mt-0 flex space-x-4">
+                    <a href="404.html" class="hover:text-[#d6a87c] transition">Privacy Policy</a>
+                    <span>|</span>
+                    <a href="404.html" class="hover:text-[#d6a87c] transition">Terms & Conditions</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- GSAP & AOS Animations JS -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script>
+        // Mobile Menu
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+                mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+            const icon = mobileMenuBtn.querySelector('i');
+            if (icon) {
+                if (mobileMenu.classList.contains('hidden')) {
+                    icon.classList.remove('fa-times');
+                    icon.classList.add('fa-bars');
+                } else {
+                    icon.classList.remove('fa-bars');
+                    icon.classList.add('fa-times');
+                }
+            }
+        });
+
+        // Initialize AOS
+        AOS.init({
+            duration: 800,
+            once: true,
+            offset: 50
+        });
+
+        // GSAP Hero Animations
+        document.addEventListener('DOMContentLoaded', () => {
+            if(window.gsap) {
+                gsap.from(".hero-text", {y: 50, opacity: 0, duration: 1, delay: 0.2});
+                gsap.from(".hero-desc", {y: 30, opacity: 0, duration: 1, delay: 0.4});
+            }
+        });
+    </script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

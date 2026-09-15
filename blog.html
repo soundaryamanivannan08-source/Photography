@@ -1,0 +1,573 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog & Journal - Photography Portfolio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+        
+        body { font-family: 'Inter', sans-serif; }
+        
+        .hero-bg {
+            background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.8)), url('assets/images/img_24.webp');
+            background-size: cover; background-position: center;
+        }
+
+        .newsletter-bg {
+            background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.8)), url('assets/images/img_3.webp');
+            background-size: cover; background-position: center; background-attachment: fixed;
+        }
+        
+        .accent-color { color: #d6a87c; }
+        .accent-bg { background-color: #d6a87c; }
+        .accent-border { border-color: #d6a87c; }
+
+        /* Custom scrollbar for horizontal scrolling categories */
+        .hide-scroll::-webkit-scrollbar { display: none; }
+        .hide-scroll { -ms-overflow-style: none; scrollbar-width: none; }
+    </style>
+</head>
+<body class="bg-[#faf9f8] text-gray-800">
+
+    <!-- 1. Hero Section -->
+    <section class="hero-bg min-h-[60vh] relative flex flex-col text-white">
+        <!-- Header/Navigation -->
+    <header class="fixed w-full top-0 left-0 z-50 bg-[#151719]/90 backdrop-blur-md border-b border-white/10 transition-all duration-300">
+<!-- Navigation -->
+        <nav class="container mx-auto px-6 py-6 flex justify-between items-center z-10 text-white">
+            <!-- Left: Logo -->
+            <div class="text-2xl font-bold tracking-tight flex items-center w-1/4">
+                <img src="assets/images/logo.webp" alt="Stackly" class="h-8 md:h-10 w-auto">
+            </div>
+            
+            <!-- Center: Desktop Menu -->
+            <div class="hidden md:flex flex-1 justify-center space-x-8 items-center text-sm font-medium">
+                <a href="index.html" class="text-gray-300 hover:text-[#d6a87c] transition">Home</a>
+                <a href="about.html" class="text-gray-300 hover:text-[#d6a87c] transition">About</a>
+                <a href="service.html" class="text-gray-300 hover:text-[#d6a87c] transition">Service</a>
+                <a href="blog.html" class="border-b-2 accent-border accent-color pb-1">Blog</a>
+                <a href="contact.html" class="text-gray-300 hover:text-[#d6a87c] transition">Contact</a>
+            </div>
+
+            <!-- Right: Login & Mobile Toggle -->
+            <div class="w-1/4 flex justify-end items-center">
+                <a href="login.html" class="hidden md:inline-block border border-white text-white px-6 py-2 rounded-full hover:border-[#d6a87c] hover:text-[#d6a87c] transition text-sm font-medium">Login</a>
+                <button id="mobile-menu-btn" class="md:hidden text-white focus:outline-none ml-4">
+                    <i class="fas fa-bars text-2xl"></i>
+                </button>
+            </div>
+        </nav>
+
+        <!-- Mobile Menu Dropdown -->
+                <div id="mobile-menu" class="hidden md:hidden absolute top-full left-0 w-full h-[calc(100vh-73px)] bg-black/95 backdrop-blur-2xl border-t border-white/10 flex flex-col justify-center items-center z-40">
+            <div class="flex flex-col px-6 py-4 space-y-8 text-center text-xl w-full mb-20">
+                <a href="index.html" class="text-gray-300 hover:text-white transition font-medium">Home</a>
+                <a href="about.html" class="text-gray-300 hover:text-white transition font-medium">About</a>
+                <a href="service.html" class="text-gray-300 hover:text-white transition font-medium">Service</a>
+                <a href="blog.html" class="accent-color font-medium">Blog</a>
+                <a href="contact.html" class="text-gray-300 hover:text-white transition font-medium">Contact</a>
+                <a href="login.html" class="border border-white text-white px-8 py-3 mx-auto rounded-full hover:border-[#d6a87c] hover:text-[#d6a87c] transition inline-block mt-4">Login</a>
+        </div>
+        </div>
+    </header>
+
+        <!-- Hero Content -->
+        <div class="container mx-auto px-6 flex-grow flex flex-col justify-center pb-16 pt-10 text-center items-center">
+            <div class="max-w-3xl">
+                <div class="flex items-center justify-center gap-4 mb-6">
+                    <div class="w-12 h-[1px] accent-bg"></div>
+                    <p class="text-xs tracking-[0.2em] font-semibold text-gray-300 uppercase">Journal & Stories</p>
+                    <div class="w-12 h-[1px] accent-bg"></div>
+                </div>
+                <h1 class="text-5xl md:text-6xl font-bold leading-tight mb-6 hero-text">Photography Insights</h1>
+                <p class="text-lg text-gray-300 mb-8 leading-relaxed max-w-2xl mx-auto hero-desc">Tips, travel diaries, behind-the-scenes stories, and gear reviews directly from my personal journal.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- 2. Browse Categories Section -->
+    <section class="py-12 bg-white border-b border-gray-100">
+        <div class="container mx-auto px-6" data-aos="fade-up">
+            <div class="flex items-center justify-between mb-6">
+                <h3 class="text-lg font-bold text-gray-900">Browse by Topic</h3>
+                <a href="404.html" class="text-sm font-semibold text-gray-500 hover:text-gray-900 transition">View All <i class="fas fa-arrow-right ml-1"></i></a>
+            </div>
+            <!-- Horizontal Scroll on Mobile, Flex on Desktop -->
+            <div class="flex overflow-x-auto hide-scroll gap-4 pb-4">
+                <a href="404.html" class="flex-shrink-0 flex items-center gap-3 bg-[#f9f8f6] px-6 py-4 rounded-xl border border-gray-100 hover:border-[#d6a87c] hover:bg-[#fffdfa] transition-all group">
+                    <div class="w-10 h-10 rounded-full bg-white flex items-center justify-center text-gray-600 group-hover:text-[#d6a87c] shadow-sm"><i class="fas fa-camera"></i></div>
+                    <span class="font-bold text-gray-900">Photography Tips</span>
+                </a>
+                <a href="404.html" class="flex-shrink-0 flex items-center gap-3 bg-[#f9f8f6] px-6 py-4 rounded-xl border border-gray-100 hover:border-[#d6a87c] hover:bg-[#fffdfa] transition-all group">
+                    <div class="w-10 h-10 rounded-full bg-white flex items-center justify-center text-gray-600 group-hover:text-[#d6a87c] shadow-sm"><i class="fas fa-plane"></i></div>
+                    <span class="font-bold text-gray-900">Travel Diaries</span>
+                </a>
+                <a href="404.html" class="flex-shrink-0 flex items-center gap-3 bg-[#f9f8f6] px-6 py-4 rounded-xl border border-gray-100 hover:border-[#d6a87c] hover:bg-[#fffdfa] transition-all group">
+                    <div class="w-10 h-10 rounded-full bg-white flex items-center justify-center text-gray-600 group-hover:text-[#d6a87c] shadow-sm"><i class="fas fa-ring"></i></div>
+                    <span class="font-bold text-gray-900">Wedding Guides</span>
+                </a>
+                <a href="404.html" class="flex-shrink-0 flex items-center gap-3 bg-[#f9f8f6] px-6 py-4 rounded-xl border border-gray-100 hover:border-[#d6a87c] hover:bg-[#fffdfa] transition-all group">
+                    <div class="w-10 h-10 rounded-full bg-white flex items-center justify-center text-gray-600 group-hover:text-[#d6a87c] shadow-sm"><i class="fas fa-cogs"></i></div>
+                    <span class="font-bold text-gray-900">Gear Reviews</span>
+                </a>
+                <a href="404.html" class="flex-shrink-0 flex items-center gap-3 bg-[#f9f8f6] px-6 py-4 rounded-xl border border-gray-100 hover:border-[#d6a87c] hover:bg-[#fffdfa] transition-all group">
+                    <div class="w-10 h-10 rounded-full bg-white flex items-center justify-center text-gray-600 group-hover:text-[#d6a87c] shadow-sm"><i class="fas fa-briefcase"></i></div>
+                    <span class="font-bold text-gray-900">Business Secrets</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 3. Editor's Pick / Featured Post -->
+    <section class="py-24 bg-[#faf9f8]">
+        <div class="container mx-auto px-6" data-aos="fade-up">
+            <div class="flex items-center gap-4 mb-10">
+                <div class="w-12 h-[1px] accent-bg"></div>
+                <p class="text-xs tracking-[0.2em] font-semibold text-gray-500 uppercase">Editor's Pick</p>
+            </div>
+            
+            <div class="flex flex-col lg:flex-row gap-0 bg-white rounded-2xl overflow-hidden shadow-sm border border-gray-100 hover:shadow-xl transition duration-500 group cursor-pointer">
+                <div class="w-full lg:w-3/5 h-72 sm:h-96 lg:h-[550px] overflow-hidden relative">
+                    <img src="assets/images/img_46.webp" alt="Featured Post" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+                    <div class="absolute top-6 left-6 bg-gray-900 text-white text-xs font-bold uppercase tracking-wider px-4 py-2 rounded-full">Photography Tips</div>
+                </div>
+                <div class="w-full lg:w-2/5 p-8 lg:p-14 flex flex-col justify-center relative">
+                    <div class="text-gray-400 text-sm mb-6 flex items-center">
+                        <img src="assets/images/img_21.webp" class="w-8 h-8 rounded-full mr-3 border border-gray-200">
+                        <span class="text-gray-900 font-semibold mr-3">Alex Carter</span>
+                        <span>• Oct 24, 2025 • 8 min read</span>
+                    </div>
+                    <h2 class="text-3xl lg:text-4xl font-bold text-gray-900 mb-6 leading-tight group-hover:text-[#d6a87c] transition">The Ultimate Guide to Golden Hour Photography</h2>
+                    <p class="text-gray-600 mb-8 leading-relaxed text-lg">Discover the secrets to capturing breathtaking images during the most magical time of day. Learn about positioning, camera settings, and how to use warm directional light to your advantage.</p>
+                    <a href="404.html" class="inline-flex items-center text-gray-900 font-bold group-hover:text-[#d6a87c] transition">
+                        Read Full Article <i class="fas fa-arrow-right ml-2 group-hover:translate-x-2 transition-transform"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 4. Latest Articles Grid -->
+    <section class="py-24 bg-white">
+        <div class="container mx-auto px-6" data-aos="fade-up">
+            <div class="flex items-center gap-4 mb-12">
+                <p class="text-xs tracking-[0.2em] font-semibold text-gray-500 uppercase">Recent Stories</p>
+                <div class="w-12 h-[1px] accent-bg"></div>
+            </div>
+
+            <!-- Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 max-w-7xl mx-auto">
+                <!-- Post 1 -->
+                <div class="bg-[#faf9f8] rounded-xl overflow-hidden shadow-sm hover:shadow-xl hover:-translate-y-2 transition-all duration-300 group flex flex-col border border-gray-100">
+                    <div class="h-60 overflow-hidden relative">
+                        <img src="assets/images/img_37.webp" alt="Camera Gear" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+                        <div class="absolute top-4 left-4 bg-white/95 backdrop-blur-sm text-gray-900 text-xs font-bold uppercase tracking-wider px-3 py-1 rounded-full shadow-sm">Gear Reviews</div>
+                    </div>
+                    <div class="p-8 flex flex-col flex-grow">
+                        <p class="text-gray-400 text-xs font-semibold uppercase mb-3 tracking-widest">Oct 15, 2025</p>
+                        <h3 class="text-xl font-bold text-gray-900 mb-4 group-hover:text-[#d6a87c] transition-colors cursor-pointer leading-snug">5 Essential Lenses Every Portrait Photographer Needs</h3>
+                        <p class="text-gray-600 text-sm leading-relaxed mb-6 flex-grow">A deep dive into the glass that makes portraiture pop. From the nifty fifty to the compression master 85mm.</p>
+                        <a href="404.html" class="inline-flex items-center text-sm font-bold text-gray-900 group-hover:text-[#d6a87c] transition">Read More <i class="fas fa-arrow-right ml-2"></i></a>
+                    </div>
+                </div>
+
+                <!-- Post 2 -->
+                <div class="bg-[#faf9f8] rounded-xl overflow-hidden shadow-sm hover:shadow-xl hover:-translate-y-2 transition-all duration-300 group flex flex-col border border-gray-100">
+                    <div class="h-60 overflow-hidden relative">
+                        <img src="assets/images/img_29.webp" alt="Wedding" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+                        <div class="absolute top-4 left-4 bg-white/95 backdrop-blur-sm text-gray-900 text-xs font-bold uppercase tracking-wider px-3 py-1 rounded-full shadow-sm">Weddings</div>
+                    </div>
+                    <div class="p-8 flex flex-col flex-grow">
+                        <p class="text-gray-400 text-xs font-semibold uppercase mb-3 tracking-widest">Oct 02, 2025</p>
+                        <h3 class="text-xl font-bold text-gray-900 mb-4 group-hover:text-[#d6a87c] transition-colors cursor-pointer leading-snug">Capturing Candid Moments at Weddings</h3>
+                        <p class="text-gray-600 text-sm leading-relaxed mb-6 flex-grow">Posed shots are great, but candid moments tell the real story. Here is how to blend in and capture raw emotion.</p>
+                        <a href="404.html" class="inline-flex items-center text-sm font-bold text-gray-900 group-hover:text-[#d6a87c] transition">Read More <i class="fas fa-arrow-right ml-2"></i></a>
+                    </div>
+                </div>
+
+                <!-- Post 3 -->
+                <div class="bg-[#faf9f8] rounded-xl overflow-hidden shadow-sm hover:shadow-xl hover:-translate-y-2 transition-all duration-300 group flex flex-col border border-gray-100">
+                    <div class="h-60 overflow-hidden relative">
+                        <img src="assets/images/img_16.webp" alt="Travel" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+                        <div class="absolute top-4 left-4 bg-white/95 backdrop-blur-sm text-gray-900 text-xs font-bold uppercase tracking-wider px-3 py-1 rounded-full shadow-sm">Travel</div>
+                    </div>
+                    <div class="p-8 flex flex-col flex-grow">
+                        <p class="text-gray-400 text-xs font-semibold uppercase mb-3 tracking-widest">Sep 28, 2025</p>
+                        <h3 class="text-xl font-bold text-gray-900 mb-4 group-hover:text-[#d6a87c] transition-colors cursor-pointer leading-snug">Packing Minimalist Gear for Backpacking</h3>
+                        <p class="text-gray-600 text-sm leading-relaxed mb-6 flex-grow">Traveling light doesn't mean compromising on quality. My exact packing list for two weeks in the Swiss Alps.</p>
+                        <a href="404.html" class="inline-flex items-center text-sm font-bold text-gray-900 group-hover:text-[#d6a87c] transition">Read More <i class="fas fa-arrow-right ml-2"></i></a>
+                    </div>
+                </div>
+
+                <!-- Post 4 -->
+                <div class="bg-[#faf9f8] rounded-xl overflow-hidden shadow-sm hover:shadow-xl hover:-translate-y-2 transition-all duration-300 group flex flex-col border border-gray-100">
+                    <div class="h-60 overflow-hidden relative">
+                        <img src="assets/images/img_48.webp" alt="Tips" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+                        <div class="absolute top-4 left-4 bg-white/95 backdrop-blur-sm text-gray-900 text-xs font-bold uppercase tracking-wider px-3 py-1 rounded-full shadow-sm">Photography Tips</div>
+                    </div>
+                    <div class="p-8 flex flex-col flex-grow">
+                        <p class="text-gray-400 text-xs font-semibold uppercase mb-3 tracking-widest">Sep 15, 2025</p>
+                        <h3 class="text-xl font-bold text-gray-900 mb-4 group-hover:text-[#d6a87c] transition-colors cursor-pointer leading-snug">Mastering Manual Mode: A Beginner's Guide</h3>
+                        <p class="text-gray-600 text-sm leading-relaxed mb-6 flex-grow">Ditch the auto setting. Understand ISO, aperture, and shutter speed to take full creative control of your images.</p>
+                        <a href="404.html" class="inline-flex items-center text-sm font-bold text-gray-900 group-hover:text-[#d6a87c] transition">Read More <i class="fas fa-arrow-right ml-2"></i></a>
+                    </div>
+                </div>
+
+                <!-- Post 5 -->
+                <div class="bg-[#faf9f8] rounded-xl overflow-hidden shadow-sm hover:shadow-xl hover:-translate-y-2 transition-all duration-300 group flex flex-col border border-gray-100">
+                    <div class="h-60 overflow-hidden relative">
+                        <img src="assets/images/fashion.2.webp" alt="Fashion" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+                        <div class="absolute top-4 left-4 bg-white/95 backdrop-blur-sm text-gray-900 text-xs font-bold uppercase tracking-wider px-3 py-1 rounded-full shadow-sm">Fashion</div>
+                    </div>
+                    <div class="p-8 flex flex-col flex-grow">
+                        <p class="text-gray-400 text-xs font-semibold uppercase mb-3 tracking-widest">Sep 05, 2025</p>
+                        <h3 class="text-xl font-bold text-gray-900 mb-4 group-hover:text-[#d6a87c] transition-colors cursor-pointer leading-snug">Lighting Setups for Studio Fashion Photography</h3>
+                        <p class="text-gray-600 text-sm leading-relaxed mb-6 flex-grow">Explore three versatile lighting setups using strobes and softboxes that will elevate your editorial shots.</p>
+                        <a href="404.html" class="inline-flex items-center text-sm font-bold text-gray-900 group-hover:text-[#d6a87c] transition">Read More <i class="fas fa-arrow-right ml-2"></i></a>
+                    </div>
+                </div>
+
+                <!-- Post 6 -->
+                <div class="bg-[#faf9f8] rounded-xl overflow-hidden shadow-sm hover:shadow-xl hover:-translate-y-2 transition-all duration-300 group flex flex-col border border-gray-100">
+                    <div class="h-60 overflow-hidden relative">
+                        <img src="assets/images/img_22.webp" alt="Commercial" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+                        <div class="absolute top-4 left-4 bg-white/95 backdrop-blur-sm text-gray-900 text-xs font-bold uppercase tracking-wider px-3 py-1 rounded-full shadow-sm">Commercial</div>
+                    </div>
+                    <div class="p-8 flex flex-col flex-grow">
+                        <p class="text-gray-400 text-xs font-semibold uppercase mb-3 tracking-widest">Aug 22, 2025</p>
+                        <h3 class="text-xl font-bold text-gray-900 mb-4 group-hover:text-[#d6a87c] transition-colors cursor-pointer leading-snug">Preparing for a High-End Product Shoot</h3>
+                        <p class="text-gray-600 text-sm leading-relaxed mb-6 flex-grow">From storyboarding to styling. See the behind-the-scenes workflow of executing a commercial product campaign.</p>
+                        <a href="404.html" class="inline-flex items-center text-sm font-bold text-gray-900 group-hover:text-[#d6a87c] transition">Read More <i class="fas fa-arrow-right ml-2"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 5. Video Journals / Vlogs -->
+    <section class="py-24 bg-[#151719] text-white">
+        <div class="container mx-auto px-6" data-aos="fade-up">
+            <div class="flex items-center justify-between mb-12">
+                <div>
+                    <div class="flex items-center gap-4 mb-4">
+                        <div class="w-12 h-[1px] accent-bg"></div>
+                        <p class="text-xs tracking-[0.2em] font-semibold text-gray-400 uppercase">Watch</p>
+                    </div>
+                    <h2 class="text-4xl font-bold">Video Journals</h2>
+                </div>
+                <a href="404.html" class="hidden md:inline-block border border-gray-600 text-gray-300 px-6 py-2 rounded-full hover:bg-white hover:text-black transition">Subscribe on YouTube</a>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <!-- Video 1 -->
+                <div class="group relative rounded-2xl overflow-hidden cursor-pointer aspect-video bg-gray-800">
+                    <img src="assets/images/img_52.webp" class="w-full h-full object-cover group-hover:scale-105 transition duration-700 opacity-60 group-hover:opacity-40">
+                    <div class="absolute inset-0 flex flex-col items-center justify-center z-10">
+                        <div class="w-16 h-16 rounded-full bg-white/20 backdrop-blur-md flex items-center justify-center text-white text-2xl group-hover:bg-white group-hover:text-black transition-all duration-300 group-hover:scale-110 mb-4">
+                            <i class="fas fa-play ml-1"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold text-center px-4">My Complete Lightroom Editing Workflow</h3>
+                    </div>
+                </div>
+                <!-- Video 2 -->
+                <div class="group relative rounded-2xl overflow-hidden cursor-pointer aspect-video bg-gray-800">
+                    <img src="assets/images/img_7.webp" class="w-full h-full object-cover group-hover:scale-105 transition duration-700 opacity-60 group-hover:opacity-40">
+                    <div class="absolute inset-0 flex flex-col items-center justify-center z-10">
+                        <div class="w-16 h-16 rounded-full bg-white/20 backdrop-blur-md flex items-center justify-center text-white text-2xl group-hover:bg-white group-hover:text-black transition-all duration-300 group-hover:scale-110 mb-4">
+                            <i class="fas fa-play ml-1"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold text-center px-4">Behind The Scenes: Iceland Elopement</h3>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="mt-8 text-center md:hidden">
+                <a href="404.html" class="inline-block border border-gray-600 text-gray-300 px-6 py-2 rounded-full hover:bg-white hover:text-black transition">Subscribe on YouTube</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 6. Quick Tips / Mini Articles -->
+    <section class="py-24 bg-[#faf9f8]">
+        <div class="container mx-auto px-6" data-aos="fade-up">
+            <div class="flex items-center gap-4 mb-12 justify-center text-center">
+                <div class="w-12 h-[1px] accent-bg"></div>
+                <p class="text-xs tracking-[0.2em] font-semibold text-gray-500 uppercase">Quick Reads</p>
+                <div class="w-12 h-[1px] accent-bg"></div>
+            </div>
+            <h2 class="text-4xl font-bold text-gray-900 text-center mb-16">Expert Tips & Tricks</h2>
+
+                        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Tip 1 -->
+                <div class="flex gap-4 items-start p-5 rounded-xl hover:bg-gray-50 hover:shadow-xl transition-all duration-300 border border-transparent hover:border-gray-100 hover:-translate-y-2 group cursor-pointer bg-white" data-aos="fade-up" data-aos-delay="100">
+                    <div class="w-24 h-24 rounded-lg overflow-hidden flex-shrink-0 shadow-sm group-hover:shadow-md transition-shadow duration-300">
+                        <img src="assets/images/img_47.webp" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                    </div>
+                    <div class="flex flex-col justify-center h-full">
+                        <span class="text-[10px] uppercase font-bold tracking-widest text-[#d6a87c] mb-1">Editing</span>
+                        <h4 class="font-bold text-gray-900 leading-snug group-hover:text-[#d6a87c] transition-colors duration-300 mb-2">How to Fix White Balance Instantly</h4>
+                        <p class="text-xs text-gray-500 line-clamp-2 group-hover:text-gray-700 transition-colors duration-300">A quick 2-minute read on setting custom white balance before you shoot.</p>
+                    </div>
+                </div>
+                <!-- Tip 2 -->
+                <div class="flex gap-4 items-start p-5 rounded-xl hover:bg-gray-50 hover:shadow-xl transition-all duration-300 border border-transparent hover:border-gray-100 hover:-translate-y-2 group cursor-pointer bg-white" data-aos="fade-up" data-aos-delay="200">
+                    <div class="w-24 h-24 rounded-lg overflow-hidden flex-shrink-0 shadow-sm group-hover:shadow-md transition-shadow duration-300">
+                        <img src="assets/images/img_35.webp" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                    </div>
+                    <div class="flex flex-col justify-center h-full">
+                        <span class="text-[10px] uppercase font-bold tracking-widest text-[#d6a87c] mb-1">Gear</span>
+                        <h4 class="font-bold text-gray-900 leading-snug group-hover:text-[#d6a87c] transition-colors duration-300 mb-2">SD Card Speed Classes Explained</h4>
+                        <p class="text-xs text-gray-500 line-clamp-2 group-hover:text-gray-700 transition-colors duration-300">Don't buy the wrong memory card for your 4K video needs. Read this first.</p>
+                    </div>
+                </div>
+                <!-- Tip 3 -->
+                <div class="flex gap-4 items-start p-5 rounded-xl hover:bg-gray-50 hover:shadow-xl transition-all duration-300 border border-transparent hover:border-gray-100 hover:-translate-y-2 group cursor-pointer bg-white" data-aos="fade-up" data-aos-delay="300">
+                    <div class="w-24 h-24 rounded-lg overflow-hidden flex-shrink-0 shadow-sm group-hover:shadow-md transition-shadow duration-300">
+                        <img src="assets/images/img_14.webp" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                    </div>
+                    <div class="flex flex-col justify-center h-full">
+                        <span class="text-[10px] uppercase font-bold tracking-widest text-[#d6a87c] mb-1">Business</span>
+                        <h4 class="font-bold text-gray-900 leading-snug group-hover:text-[#d6a87c] transition-colors duration-300 mb-2">Pricing Your Photography Services</h4>
+                        <p class="text-xs text-gray-500 line-clamp-2 group-hover:text-gray-700 transition-colors duration-300">A straightforward formula to ensure you are profitable from day one.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 7. Premium Presets Promo -->
+    <section class="py-0 bg-white overflow-hidden">
+        <div class="flex flex-col lg:flex-row">
+            <div class="w-full lg:w-1/2 p-12 lg:p-24 flex flex-col justify-center bg-white" data-aos="fade-right">
+                <p class="text-xs tracking-[0.2em] font-semibold text-gray-500 mb-4 uppercase">Digital Assets</p>
+                <h2 class="text-4xl font-bold text-gray-900 mb-6">Get My Signature Look</h2>
+                <p class="text-gray-600 mb-8 leading-relaxed">I've bundled the exact Lightroom presets I use to edit my award-winning wedding and travel photography. Speed up your workflow and achieve stunning, consistent colors with one click.</p>
+                <ul class="mb-8 space-y-3 text-sm text-gray-700 font-medium">
+                    <li><i class="fas fa-check text-green-500 mr-2"></i> 10 Premium Desktop & Mobile Presets</li>
+                    <li><i class="fas fa-check text-green-500 mr-2"></i> Complete Installation Guide</li>
+                    <li><i class="fas fa-check text-green-500 mr-2"></i> Free Updates for Life</li>
+                </ul>
+                <div>
+                    <a href="404.html" class="inline-block bg-gray-900 text-white font-bold px-8 py-3 rounded-full hover:bg-[#d6a87c] hover:text-black transition shadow-lg">Shop Presets Collection</a>
+                </div>
+            </div>
+            <div class="w-full lg:w-1/2 min-h-[400px] lg:min-h-full relative bg-gray-200" data-aos="fade-left">
+                <img src="assets/images/img_50.webp" alt="Lightroom Editing" class="absolute inset-0 w-full h-full object-cover">
+            </div>
+        </div>
+    </section>
+
+    <!-- 8. Newsletter Signup -->
+    <section class="newsletter-bg py-24 relative text-white">
+        <div class="container mx-auto px-6 relative z-10 flex flex-col items-center text-center" data-aos="zoom-in">
+            <div class="w-16 h-16 rounded-full bg-white/10 backdrop-blur-sm flex items-center justify-center text-2xl mb-6">
+                <i class="far fa-envelope"></i>
+            </div>
+            <h2 class="text-4xl font-bold mb-4">Never Miss an Update</h2>
+            <p class="text-lg text-gray-300 mb-10 max-w-lg">Join 10,000+ photographers receiving free weekly tips, tutorials, and exclusive discounts on my presets.</p>
+            
+            <form action="404.html" class="w-full max-w-md relative flex shadow-2xl">
+                <input type="email" placeholder="Enter your email address" class="w-full bg-white text-gray-900 px-6 py-4 rounded-l-full focus:outline-none placeholder-gray-400">
+                <button type="submit" class="bg-[#d6a87c] text-black font-bold px-8 py-4 rounded-r-full hover:bg-white hover:text-[#d6a87c] transition-colors border-2 border-[#d6a87c]">
+                    Subscribe
+                </button>
+            </form>
+            <p class="text-xs text-gray-400 mt-4">No spam, unsubscribe at any time.</p>
+        </div>
+    </section>
+
+    <!-- 9. Instagram Social Wall -->
+    <section class="py-24 bg-white">
+        <div class="container mx-auto px-6 mb-12 text-center" data-aos="fade-up">
+            <div class="flex items-center gap-4 mb-4 justify-center">
+                <div class="w-12 h-[1px] accent-bg"></div>
+                <p class="text-xs tracking-[0.2em] font-semibold text-gray-500 uppercase">Community</p>
+                <div class="w-12 h-[1px] accent-bg"></div>
+            </div>
+            <h2 class="text-4xl font-bold text-gray-900 mb-6">Join Me on Instagram</h2>
+            <a href="404.html" class="inline-flex items-center text-[#d6a87c] font-bold hover:text-gray-900 transition">
+                <i class="fab fa-instagram text-xl mr-2"></i> @stackly_photo
+            </a>
+        </div>
+        
+        <!-- IG Grid (Seamless) -->
+        <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 w-full" data-aos="fade-up">
+            <a href="404.html" class="relative group aspect-square overflow-hidden bg-gray-900 block">
+                <img src="assets/images/img_28.webp" class="w-full h-full object-cover group-hover:scale-110 group-hover:opacity-50 transition duration-500">
+                <div class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition duration-300 text-white gap-4">
+                    <span class="flex items-center"><i class="fas fa-heart mr-1"></i> 2.4k</span>
+                    <span class="flex items-center"><i class="fas fa-comment mr-1"></i> 142</span>
+                </div>
+            </a>
+            <a href="404.html" class="relative group aspect-square overflow-hidden bg-gray-900 block">
+                <img src="assets/images/img_15.webp" class="w-full h-full object-cover group-hover:scale-110 group-hover:opacity-50 transition duration-500">
+                <div class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition duration-300 text-white gap-4">
+                    <span class="flex items-center"><i class="fas fa-heart mr-1"></i> 1.8k</span>
+                    <span class="flex items-center"><i class="fas fa-comment mr-1"></i> 89</span>
+                </div>
+            </a>
+            <a href="404.html" class="relative group aspect-square overflow-hidden bg-gray-900 block">
+                <img src="assets/images/img_36.webp" class="w-full h-full object-cover group-hover:scale-110 group-hover:opacity-50 transition duration-500">
+                <div class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition duration-300 text-white gap-4">
+                    <span class="flex items-center"><i class="fas fa-heart mr-1"></i> 3.2k</span>
+                    <span class="flex items-center"><i class="fas fa-comment mr-1"></i> 210</span>
+                </div>
+            </a>
+            <a href="404.html" class="relative group aspect-square overflow-hidden bg-gray-900 block">
+                <img src="assets/images/img_20.webp" class="w-full h-full object-cover group-hover:scale-110 group-hover:opacity-50 transition duration-500">
+                <div class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition duration-300 text-white gap-4">
+                    <span class="flex items-center"><i class="fas fa-heart mr-1"></i> 1.1k</span>
+                    <span class="flex items-center"><i class="fas fa-comment mr-1"></i> 45</span>
+                </div>
+            </a>
+            <a href="404.html" class="relative group aspect-square overflow-hidden bg-gray-900 block hidden md:block">
+                <img src="assets/images/fashion.2.webp" class="w-full h-full object-cover group-hover:scale-110 group-hover:opacity-50 transition duration-500">
+                <div class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition duration-300 text-white gap-4">
+                    <span class="flex items-center"><i class="fas fa-heart mr-1"></i> 4.5k</span>
+                    <span class="flex items-center"><i class="fas fa-comment mr-1"></i> 321</span>
+                </div>
+            </a>
+            <a href="404.html" class="relative group aspect-square overflow-hidden bg-gray-900 block hidden lg:block">
+                <img src="assets/images/img_6.webp" class="w-full h-full object-cover group-hover:scale-110 group-hover:opacity-50 transition duration-500">
+                <div class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition duration-300 text-white gap-4">
+                    <span class="flex items-center"><i class="fas fa-heart mr-1"></i> 5.6k</span>
+                    <span class="flex items-center"><i class="fas fa-comment mr-1"></i> 412</span>
+                </div>
+            </a>
+        </div>
+    </section>
+
+    <!-- 10. Footer -->
+    <footer class="bg-[#151719] text-white pt-16 pb-8 border-t border-gray-800">
+        <div class="container mx-auto px-6">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-12">
+                <!-- Column 1: Brand -->
+                <div>
+                    <div class="text-3xl font-bold tracking-tight flex items-center mb-6 text-white">
+                        <img src="assets/images/logo.webp" alt="Stackly" class="h-8 md:h-10 w-auto">
+                    </div>
+                    <p class="text-gray-400 text-sm mb-6 leading-relaxed">
+                        Capturing life, one frame at a time.
+                    </p>
+                    <div class="flex space-x-3">
+                        <a href="404.html" class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center text-gray-300 hover:bg-[#d6a87c] hover:text-white transition"><i class="fab fa-facebook-f"></i></a>
+                        <a href="404.html" class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center text-gray-300 hover:bg-[#d6a87c] hover:text-white transition"><i class="fab fa-twitter"></i></a>
+                        <a href="404.html" class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center text-gray-300 hover:bg-[#d6a87c] hover:text-white transition"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+
+                <!-- Column 2: Quick Links -->
+                <div>
+                    <h4 class="text-sm font-bold mb-6 text-white">Quick Links</h4>
+                    <ul class="space-y-3 text-sm text-gray-400">
+                        <li><a href="index.html" class="hover:text-[#d6a87c] transition">Home</a></li>
+                        <li><a href="about.html" class="hover:text-[#d6a87c] transition">About</a></li>
+                        <li><a href="service.html" class="hover:text-[#d6a87c] transition">Service</a></li>
+                        <li><a href="blog.html" class="accent-color transition">Blog</a></li>
+                        <li><a href="contact.html" class="hover:text-[#d6a87c] transition">Contact</a></li>
+                    </ul>
+                </div>
+
+                <!-- Column 3: Services -->
+                <div>
+                    <h4 class="text-sm font-bold mb-6 text-white">Services</h4>
+                    <ul class="space-y-3 text-sm text-gray-400">
+                        <li><a href="404.html" class="hover:text-[#d6a87c] transition">Wedding Photography</a></li>
+                        <li><a href="404.html" class="hover:text-[#d6a87c] transition">Portrait Sessions</a></li>
+                        <li><a href="404.html" class="hover:text-[#d6a87c] transition">Landscape Photography</a></li>
+                        <li><a href="404.html" class="hover:text-[#d6a87c] transition">Event Coverage</a></li>
+                        <li><a href="404.html" class="hover:text-[#d6a87c] transition">Commercial Photography</a></li>
+                    </ul>
+                </div>
+
+                <!-- Column 4: Contact Info -->
+                <div>
+                    <h4 class="text-sm font-bold mb-6 text-white">Contact Info</h4>
+                    <ul class="space-y-4 text-sm text-gray-400">
+                        <li class="flex items-start">
+                            <i class="fas fa-map-marker-alt mt-1 mr-3 text-gray-300"></i>
+                            <span>MMR Complex, Chinna Thirupathi,<br>near Chinna Muniyappan Kovil,<br>Salem, Tamil Nadu 636008</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-phone-alt mr-3 text-gray-300"></i>
+                            <span>+91 98765 43210</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-envelope mr-3 text-gray-300"></i>
+                            <span>info@stackly.com</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-800 pt-8 flex flex-col md:flex-row justify-between items-center text-xs text-gray-500">
+                <p>&copy; 2025 Stackly. All rights reserved.</p>
+                <div class="mt-4 md:mt-0 flex space-x-4">
+                    <a href="404.html" class="hover:text-[#d6a87c] transition">Privacy Policy</a>
+                    <span>|</span>
+                    <a href="404.html" class="hover:text-[#d6a87c] transition">Terms & Conditions</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- GSAP & AOS Animations JS -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script>
+        // Mobile Menu
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+                mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+            const icon = mobileMenuBtn.querySelector('i');
+            if (icon) {
+                if (mobileMenu.classList.contains('hidden')) {
+                    icon.classList.remove('fa-times');
+                    icon.classList.add('fa-bars');
+                } else {
+                    icon.classList.remove('fa-bars');
+                    icon.classList.add('fa-times');
+                }
+            }
+        });
+
+        // Initialize AOS
+        AOS.init({
+            duration: 800,
+            once: true,
+            offset: 50
+        });
+
+        // GSAP Hero Animations
+        document.addEventListener('DOMContentLoaded', () => {
+            if(window.gsap) {
+                gsap.from(".hero-text", {y: 50, opacity: 0, duration: 1, delay: 0.2});
+                gsap.from(".hero-desc", {y: 30, opacity: 0, duration: 1, delay: 0.4});
+            }
+        });
+    </script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

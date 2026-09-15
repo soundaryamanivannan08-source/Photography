@@ -1,0 +1,657 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Dashboard - Photography Portfolio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+        body { font-family: 'Inter', sans-serif; background-color: #faf9f8; }
+        .accent-color { color: #d6a87c; }
+        .accent-bg { background-color: #d6a87c; }
+        .sidebar-active { background-color: #2d3136; border-left-width: 4px; border-color: #d6a87c; color: white; }
+        .sidebar-inactive { color: #9ca3af; border-left-width: 4px; border-color: transparent; }
+        .sidebar-inactive:hover { background-color: #1f2226; color: white; }
+    </style>
+</head>
+<body class="text-gray-800 flex h-screen overflow-hidden">
+
+    <!-- Mobile Sidebar Overlay -->
+    <div id="sidebar-overlay" class="fixed inset-0 bg-black/50 z-20 hidden lg:hidden"></div>
+
+    <!-- Sidebar -->
+    <aside id="sidebar" class="bg-[#151719] w-64 flex flex-col fixed inset-y-0 left-0 transform -translate-x-full lg:translate-x-0 lg:static z-30 transition-transform duration-300 ease-in-out">
+        <div class="h-16 flex items-center px-6 border-b border-gray-800 flex-shrink-0">
+            <a href="index.html" class="text-2xl font-bold tracking-tight flex items-center text-white">
+                <img src="assets/images/logo.webp" alt="Stackly" class="h-8 md:h-10 w-auto">
+            </a>
+            <!-- Close button for mobile -->
+            <button id="close-sidebar" class="ml-auto text-gray-400 hover:text-white lg:hidden">
+                <i class="fas fa-times text-xl"></i>
+            </button>
+        </div>
+        
+        <div class="p-6">
+            <p class="text-xs font-bold text-gray-500 uppercase tracking-widest mb-4">Client Menu</p>
+            <nav class="space-y-1">
+                <a href="404.html" class="sidebar-link sidebar-active flex items-center px-4 py-3 rounded-r-lg transition" data-target="dashboard-section">
+                    <i class="fas fa-home w-5 mr-3"></i> Overview
+                </a>
+                <a href="404.html" class="sidebar-link sidebar-inactive flex items-center px-4 py-3 rounded-r-lg transition" data-target="bookings-section">
+                    <i class="far fa-calendar-alt w-5 mr-3"></i> My Bookings
+                </a>
+                <a href="404.html" class="sidebar-link sidebar-inactive flex items-center px-4 py-3 rounded-r-lg transition" data-target="galleries-section">
+                    <i class="far fa-images w-5 mr-3"></i> My Galleries
+                </a>
+                                <a href="404.html" class="sidebar-link sidebar-inactive flex items-center px-4 py-3 rounded-r-lg transition" data-target="invoices-section">
+                    <i class="fas fa-file-invoice-dollar w-5 mr-3"></i> Invoices
+                </a>
+                                <a href="404.html" class="sidebar-link sidebar-inactive flex items-center px-4 py-3 rounded-r-lg transition" data-target="contracts-section">
+                    <i class="fas fa-file-signature w-5 mr-3"></i> Contracts
+                </a>
+                <a href="404.html" class="sidebar-link sidebar-inactive flex items-center px-4 py-3 rounded-r-lg transition" data-target="moodboards-section">
+                    <i class="fas fa-palette w-5 mr-3"></i> Mood Boards
+                </a>
+                <a href="404.html" class="sidebar-link sidebar-inactive flex items-center px-4 py-3 rounded-r-lg transition" data-target="shop-section">
+                    <i class="fas fa-shopping-bag w-5 mr-3"></i> Print Store
+                </a>
+                <a href="404.html" class="sidebar-link sidebar-inactive flex items-center px-4 py-3 rounded-r-lg transition" data-target="settings-section">
+                    <i class="fas fa-cog w-5 mr-3"></i> Settings
+                </a>
+            </nav>
+        </div>
+        
+        <div class="mt-auto p-6 border-t border-gray-800">
+            <a href="login.html" class="flex items-center text-gray-400 hover:text-white transition w-full px-4 py-2">
+                <i class="fas fa-sign-out-alt w-5 mr-3"></i> Log Out
+            </a>
+        </div>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="flex-1 flex flex-col h-screen overflow-hidden">
+        
+        <!-- Navbar -->
+        <header class="h-16 bg-white border-b border-gray-200 flex items-center justify-between px-6 z-10 flex-shrink-0">
+            <div class="flex items-center">
+                <button id="open-sidebar" class="text-gray-500 hover:text-gray-900 focus:outline-none lg:hidden mr-4">
+                    <i class="fas fa-bars text-xl"></i>
+                </button>
+                <h2 id="page-title" class="text-xl font-bold text-gray-900 hidden sm:block">Overview</h2>
+            </div>
+            
+            <div class="flex items-center space-x-4">
+                <button class="relative text-gray-500 hover:text-gray-900 transition">
+                    <i class="far fa-bell text-xl"></i>
+                    <span class="absolute top-0 right-0 -mt-1 -mr-1 flex h-3 w-3">
+                        <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-red-400 opacity-75"></span>
+                        <span class="relative inline-flex rounded-full h-3 w-3 bg-red-500"></span>
+                    </span>
+                </button>
+                <div class="h-8 w-px bg-gray-200 mx-2"></div>
+                <div class="flex items-center cursor-pointer">
+                    <img src="assets/images/img_44.webp" alt="User" class="h-9 w-9 rounded-full object-cover border border-gray-200">
+                    <div class="ml-3 hidden md:block">
+                        <p class="text-sm font-semibold text-gray-900">Emma Watson</p>
+                        <p class="text-xs text-gray-500">Client</p>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <!-- Dynamic Content Sections -->
+        <div class="flex-1 overflow-y-auto p-6 md:p-8">
+            
+            <!-- SECTION: OVERVIEW -->
+            <div id="dashboard-section" class="content-section block animate-fade-in">
+                <div class="flex flex-col md:flex-row justify-between items-start md:items-center mb-8">
+                    <div>
+                        <h3 class="text-2xl font-bold text-gray-900">Welcome back, Emma!</h3>
+                        <p class="text-gray-500 mt-1">Here is a quick overview of your photography sessions.</p>
+                    </div>
+                    <button class="mt-4 md:mt-0 bg-gray-900 text-white px-6 py-2.5 rounded-lg text-sm font-bold hover:bg-[#d6a87c] hover:text-black transition shadow-md">
+                        Book New Session
+                    </button>
+                </div>
+                
+                                <!-- Stat Cards -->
+                <div class="grid grid-cols-1 md:grid-cols-4 gap-6 mb-8">
+                    <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-100 flex items-center">
+                        <div class="w-12 h-12 rounded-full bg-blue-50 text-blue-500 flex items-center justify-center text-xl mr-4">
+                            <i class="far fa-calendar-check"></i>
+                        </div>
+                        <div>
+                            <p class="text-sm text-gray-500 font-semibold mb-1">Upcoming Shoots</p>
+                            <h4 class="text-2xl font-bold text-gray-900">1</h4>
+                        </div>
+                    </div>
+                    <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-100 flex items-center">
+                        <div class="w-12 h-12 rounded-full bg-green-50 text-green-500 flex items-center justify-center text-xl mr-4">
+                            <i class="far fa-images"></i>
+                        </div>
+                        <div>
+                            <p class="text-sm text-gray-500 font-semibold mb-1">Delivered Galleries</p>
+                            <h4 class="text-2xl font-bold text-gray-900">2</h4>
+                        </div>
+                    </div>
+                    <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-100 flex items-center">
+                        <div class="w-12 h-12 rounded-full bg-orange-50 text-orange-500 flex items-center justify-center text-xl mr-4">
+                            <i class="fas fa-file-invoice-dollar"></i>
+                        </div>
+                        <div>
+                            <p class="text-sm text-gray-500 font-semibold mb-1">Unpaid Invoices</p>
+                            <h4 class="text-2xl font-bold text-gray-900">0</h4>
+                        </div>
+                    </div>
+                    <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-100 flex items-center">
+                        <div class="w-12 h-12 rounded-full bg-red-50 text-red-500 flex items-center justify-center text-xl mr-4">
+                            <i class="fas fa-file-signature"></i>
+                        </div>
+                        <div>
+                            <p class="text-sm text-gray-500 font-semibold mb-1">Pending Contracts</p>
+                            <h4 class="text-2xl font-bold text-gray-900">1</h4>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- SECTION: BOOKINGS -->
+            <div id="bookings-section" class="content-section hidden animate-fade-in">
+                <div class="flex justify-between items-center mb-6">
+                    <h3 class="text-2xl font-bold text-gray-900">My Bookings</h3>
+                    <button class="bg-gray-900 text-white px-5 py-2 rounded-lg text-sm font-bold hover:bg-[#d6a87c] hover:text-black transition shadow-md">
+                        + New Booking
+                    </button>
+                </div>
+                
+                <div class="bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden">
+                    <div class="overflow-x-auto">
+                        <table class="w-full text-left border-collapse">
+                            <thead>
+                                <tr class="bg-[#faf9f8] border-b border-gray-100 text-xs uppercase tracking-wider text-gray-500 font-bold">
+                                    <th class="px-6 py-4">Session Type</th>
+                                    <th class="px-6 py-4">Date & Time</th>
+                                    <th class="px-6 py-4">Location</th>
+                                    <th class="px-6 py-4">Status</th>
+                                    <th class="px-6 py-4 text-right">Action</th>
+                                </tr>
+                            </thead>
+                            <tbody class="text-sm text-gray-700">
+                                <tr class="border-b border-gray-50 hover:bg-gray-50">
+                                    <td class="px-6 py-4 font-semibold text-gray-900">Autumn Portrait Session</td>
+                                    <td class="px-6 py-4">Oct 24, 2025<br><span class="text-xs text-gray-500">3:00 PM</span></td>
+                                    <td class="px-6 py-4">Central Park, NY</td>
+                                    <td class="px-6 py-4">
+                                        <span class="bg-blue-100 text-blue-700 px-3 py-1 rounded-full text-xs font-bold">Upcoming</span>
+                                    </td>
+                                    <td class="px-6 py-4 text-right">
+                                        <button class="text-gray-400 hover:text-gray-900"><i class="fas fa-ellipsis-v"></i></button>
+                                    </td>
+                                </tr>
+                                                                <tr class="border-b border-gray-50 hover:bg-gray-50">
+                                    <td class="px-6 py-4 font-semibold text-gray-900">Engagement Shoot</td>
+                                    <td class="px-6 py-4">Sep 10, 2025<br><span class="text-xs text-gray-500">4:30 PM</span></td>
+                                    <td class="px-6 py-4">Brooklyn Bridge</td>
+                                    <td class="px-6 py-4">
+                                        <span class="bg-green-100 text-green-700 px-3 py-1 rounded-full text-xs font-bold">Completed</span>
+                                    </td>
+                                    <td class="px-6 py-4 text-right">
+                                        <button class="text-gray-400 hover:text-gray-900"><i class="fas fa-ellipsis-v"></i></button>
+                                    </td>
+                                </tr>
+                                <tr class="border-b border-gray-50 hover:bg-gray-50">
+                                    <td class="px-6 py-4 font-semibold text-gray-900">Studio Headshots</td>
+                                    <td class="px-6 py-4">May 12, 2024<br><span class="text-xs text-gray-500">10:00 AM</span></td>
+                                    <td class="px-6 py-4">Downtown Studio</td>
+                                    <td class="px-6 py-4">
+                                        <span class="bg-green-100 text-green-700 px-3 py-1 rounded-full text-xs font-bold">Completed</span>
+                                    </td>
+                                    <td class="px-6 py-4 text-right">
+                                        <button class="text-gray-400 hover:text-gray-900"><i class="fas fa-ellipsis-v"></i></button>
+                                    </td>
+                                </tr>
+                                <tr class="border-b border-gray-50 hover:bg-gray-50">
+                                    <td class="px-6 py-4 font-semibold text-gray-900">Family Reunion</td>
+                                    <td class="px-6 py-4">Jul 04, 2023<br><span class="text-xs text-gray-500">2:00 PM</span></td>
+                                    <td class="px-6 py-4">Central Park, NY</td>
+                                    <td class="px-6 py-4">
+                                        <span class="bg-gray-100 text-gray-700 px-3 py-1 rounded-full text-xs font-bold">Archived</span>
+                                    </td>
+                                    <td class="px-6 py-4 text-right">
+                                        <button class="text-gray-400 hover:text-gray-900"><i class="fas fa-ellipsis-v"></i></button>
+                                    </td>
+                                </tr>
+                                <tr class="hover:bg-gray-50">
+                                    <td class="px-6 py-4 font-semibold text-gray-900">Studio Headshots</td>
+                                    <td class="px-6 py-4">Jan 15, 2025<br><span class="text-xs text-gray-500">10:00 AM</span></td>
+                                    <td class="px-6 py-4">Stackly Studio HQ</td>
+                                    <td class="px-6 py-4">
+                                        <span class="bg-green-100 text-green-700 px-3 py-1 rounded-full text-xs font-bold">Completed</span>
+                                    </td>
+                                    <td class="px-6 py-4 text-right">
+                                        <button class="text-gray-400 hover:text-gray-900"><i class="fas fa-ellipsis-v"></i></button>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <!-- SECTION: GALLERIES -->
+            <div id="galleries-section" class="content-section hidden animate-fade-in">
+                <h3 class="text-2xl font-bold text-gray-900 mb-6">My Galleries</h3>
+                
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <!-- Gallery 1 -->
+                    <div class="bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden group cursor-pointer">
+                        <div class="h-48 overflow-hidden relative">
+                            <img src="assets/images/img_32.webp" alt="Engagement" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                            <div class="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition duration-300 flex items-center justify-center">
+                                <span class="bg-white text-gray-900 font-bold px-4 py-2 rounded-full text-sm">View Photos</span>
+                            </div>
+                        </div>
+                        <div class="p-5 flex justify-between items-center">
+                            <div>
+                                <h4 class="font-bold text-gray-900 text-lg">Engagement Shoot</h4>
+                                <p class="text-sm text-gray-500">Sep 10, 2025 â€¢ 150 Photos</p>
+                            </div>
+                            <button class="text-gray-400 hover:text-[#d6a87c]"><i class="fas fa-download"></i></button>
+                        </div>
+                    </div>
+                    <!-- Gallery 2 -->
+                    <div class="bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden group cursor-pointer">
+                        <div class="h-48 overflow-hidden relative">
+                            <img src="assets/images/img_53.webp" alt="Headshots" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                            <div class="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition duration-300 flex items-center justify-center">
+                                <span class="bg-white text-gray-900 font-bold px-4 py-2 rounded-full text-sm">View Photos</span>
+                            </div>
+                        </div>
+                    <!-- Gallery 3 -->
+                    <div class="bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden group cursor-pointer">
+                        <div class="h-48 overflow-hidden relative">
+                            <img src="assets/images/img_45.webp" alt="Family Reunion" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                            <div class="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition duration-300 flex items-center justify-center">
+                                <span class="bg-white text-gray-900 font-bold px-4 py-2 rounded-full text-sm">View Photos</span>
+                            </div>
+                        </div>
+                        <div class="p-5 flex justify-between items-center">
+                            <div>
+                                <h4 class="font-bold text-gray-900 text-lg">Family Reunion</h4>
+                                <p class="text-sm text-gray-500">Jul 04, 2023 &bull; 210 Photos</p>
+                            </div>
+                            <button class="text-gray-400 hover:text-[#d6a87c]"><i class="fas fa-download"></i></button>
+                        </div>
+                    </div>
+                    <!-- Gallery 4 -->
+                    <div class="bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden group cursor-pointer">
+                        <div class="h-48 overflow-hidden relative">
+                            <img src="assets/images/img_12.webp" alt="Travel Portraits" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                            <div class="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition duration-300 flex items-center justify-center">
+                                <span class="bg-white text-gray-900 font-bold px-4 py-2 rounded-full text-sm">View Photos</span>
+                            </div>
+                        </div>
+                        <div class="p-5 flex justify-between items-center">
+                            <div>
+                                <h4 class="font-bold text-gray-900 text-lg">Travel Portraits</h4>
+                                <p class="text-sm text-gray-500">Mar 22, 2023 &bull; 45 Photos</p>
+                            </div>
+                            <button class="text-gray-400 hover:text-[#d6a87c]"><i class="fas fa-download"></i></button>
+                        </div>
+                    </div>
+                </div>
+                        <div class="p-5 flex justify-between items-center">
+                            <div>
+                                <h4 class="font-bold text-gray-900 text-lg">Studio Headshots</h4>
+                                <p class="text-sm text-gray-500">Jan 15, 2025 â€¢ 35 Photos</p>
+                            </div>
+                            <button class="text-gray-400 hover:text-[#d6a87c]"><i class="fas fa-download"></i></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- SECTION: INVOICES -->
+            <div id="invoices-section" class="content-section hidden animate-fade-in">
+                <h3 class="text-2xl font-bold text-gray-900 mb-6">Invoices & Payments</h3>
+                <div class="bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden">
+                    <div class="overflow-x-auto">
+                        <table class="w-full text-left border-collapse">
+                            <thead>
+                                <tr class="bg-[#faf9f8] border-b border-gray-100 text-xs uppercase tracking-wider text-gray-500 font-bold">
+                                    <th class="px-6 py-4">Invoice #</th>
+                                    <th class="px-6 py-4">Description</th>
+                                    <th class="px-6 py-4">Date</th>
+                                    <th class="px-6 py-4">Amount</th>
+                                    <th class="px-6 py-4">Status</th>
+                                    <th class="px-6 py-4 text-right">Download</th>
+                                </tr>
+                            </thead>
+                            <tbody class="text-sm text-gray-700">
+                                <tr class="border-b border-gray-50 hover:bg-gray-50">
+                                    <td class="px-6 py-4 font-semibold text-gray-900">INV-2025-089</td>
+                                    <td class="px-6 py-4">Autumn Portrait Session (Deposit)</td>
+                                    <td class="px-6 py-4">Sep 15, 2025</td>
+                                    <td class="px-6 py-4 font-semibold">$150.00</td>
+                                    <td class="px-6 py-4">
+                                        <span class="bg-green-100 text-green-700 px-3 py-1 rounded-full text-xs font-bold">Paid</span>
+                                    </td>
+                                    <td class="px-6 py-4 text-right">
+                                        <button class="text-gray-400 hover:text-gray-900"><i class="fas fa-file-pdf text-lg"></i></button>
+                                    </td>
+                                </tr>
+                                <tr class="hover:bg-gray-50">
+                                    <td class="px-6 py-4 font-semibold text-gray-900">INV-2025-042</td>
+                                    <td class="px-6 py-4">Engagement Shoot (Full)</td>
+                                    <td class="px-6 py-4">Aug 20, 2025</td>
+                                    <td class="px-6 py-4 font-semibold">$500.00</td>
+                                    <td class="px-6 py-4">
+                                        <span class="bg-green-100 text-green-700 px-3 py-1 rounded-full text-xs font-bold">Paid</span>
+                                    </td>
+                                    <td class="px-6 py-4 text-right">
+                                        <button class="text-gray-400 hover:text-gray-900"><i class="fas fa-file-pdf text-lg"></i></button>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+                        <!-- SECTION: CONTRACTS -->
+            <div id="contracts-section" class="content-section hidden animate-fade-in">
+                <div class="flex justify-between items-center mb-6">
+                    <h3 class="text-2xl font-bold text-gray-900">Legal & Contracts</h3>
+                    <button class="bg-white border border-gray-200 text-gray-700 px-4 py-2 rounded-lg text-sm font-bold hover:bg-gray-50 transition shadow-sm">
+                        <i class="fas fa-filter mr-2"></i> Filter
+                    </button>
+                </div>
+                <div class="bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden">
+                    <div class="overflow-x-auto">
+                        <table class="w-full text-left border-collapse">
+                            <thead>
+                                <tr class="bg-[#faf9f8] border-b border-gray-100 text-xs uppercase tracking-wider text-gray-500 font-bold">
+                                    <th class="px-6 py-4">Document Title</th>
+                                    <th class="px-6 py-4">Event Date</th>
+                                    <th class="px-6 py-4">Status</th>
+                                    <th class="px-6 py-4 text-right">Action</th>
+                                </tr>
+                            </thead>
+                            <tbody class="text-sm text-gray-700">
+                                <tr class="border-b border-gray-50 hover:bg-gray-50">
+                                    <td class="px-6 py-4 font-semibold text-gray-900"><i class="fas fa-file-contract text-[#d6a87c] mr-2"></i> Autumn Portrait Contract</td>
+                                    <td class="px-6 py-4">Oct 24, 2025</td>
+                                    <td class="px-6 py-4">
+                                        <span class="bg-green-100 text-green-700 px-3 py-1 rounded-full text-xs font-bold">Signed</span>
+                                    </td>
+                                    <td class="px-6 py-4 text-right">
+                                        <button class="text-gray-400 hover:text-gray-900 mr-3"><i class="fas fa-download"></i> PDF</button>
+                                    </td>
+                                </tr>
+                                <tr class="border-b border-gray-50 hover:bg-gray-50">
+                                    <td class="px-6 py-4 font-semibold text-gray-900"><i class="fas fa-file-contract text-gray-400 mr-2"></i> Wedding Photography Agreement</td>
+                                    <td class="px-6 py-4">Dec 15, 2025</td>
+                                    <td class="px-6 py-4">
+                                        <span class="bg-red-100 text-red-700 px-3 py-1 rounded-full text-xs font-bold">Signature Required</span>
+                                    </td>
+                                    <td class="px-6 py-4 text-right">
+                                        <button class="bg-gray-900 text-white px-4 py-1.5 rounded text-xs font-bold hover:bg-[#d6a87c] hover:text-black transition">Sign Now</button>
+                                    </td>
+                                </tr>
+                                <tr class="border-b border-gray-50 hover:bg-gray-50">
+                                    <td class="px-6 py-4 font-semibold text-gray-900"><i class="fas fa-file-contract text-[#d6a87c] mr-2"></i> Engagement Model Release</td>
+                                    <td class="px-6 py-4">Sep 10, 2025</td>
+                                    <td class="px-6 py-4">
+                                        <span class="bg-green-100 text-green-700 px-3 py-1 rounded-full text-xs font-bold">Signed</span>
+                                    </td>
+                                    <td class="px-6 py-4 text-right">
+                                        <button class="text-gray-400 hover:text-gray-900 mr-3"><i class="fas fa-download"></i> PDF</button>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+                        <!-- SECTION: MOOD BOARDS -->
+            <div id="moodboards-section" class="content-section hidden animate-fade-in">
+                <div class="flex justify-between items-center mb-6">
+                    <div>
+                        <h3 class="text-2xl font-bold text-gray-900">Shoot Inspiration & Mood Boards</h3>
+                        <p class="text-gray-500 mt-1">Collaborate on the creative direction for your upcoming sessions.</p>
+                    </div>
+                    <button class="bg-gray-900 text-white px-5 py-2 rounded-lg text-sm font-bold hover:bg-[#d6a87c] hover:text-black transition shadow-md hidden sm:block">
+                        <i class="fas fa-plus mr-2"></i> New Board
+                    </button>
+                </div>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <!-- Mood Board 1 -->
+                    <div class="bg-white rounded-xl shadow-sm border border-gray-100 p-5 group cursor-pointer hover:border-[#d6a87c] transition-all">
+                        <div class="grid grid-cols-2 gap-2 h-40 mb-4 rounded-lg overflow-hidden">
+                            <img src="assets/images/img_32.webp" class="w-full h-full object-cover">
+                            <div class="grid grid-rows-2 gap-2">
+                                <img src="assets/images/img_45.webp" class="w-full h-full object-cover">
+                                <img src="assets/images/img_12.webp" class="w-full h-full object-cover">
+                            </div>
+                        </div>
+                        <h4 class="font-bold text-gray-900 text-lg mb-1">Autumn Vibe Check</h4>
+                        <p class="text-sm text-gray-500 mb-3">12 Pins • Shared with Logesh</p>
+                        <div class="flex items-center text-[#d6a87c] text-sm font-semibold">
+                            <i class="fas fa-comments mr-2"></i> 3 comments
+                        </div>
+                    </div>
+
+                    <!-- Mood Board 2 -->
+                    <div class="bg-white rounded-xl shadow-sm border border-gray-100 p-5 group cursor-pointer hover:border-[#d6a87c] transition-all">
+                        <div class="grid grid-cols-2 gap-2 h-40 mb-4 rounded-lg overflow-hidden">
+                            <div class="bg-[#faf9f8] w-full h-full flex items-center justify-center text-gray-300">
+                                <i class="fas fa-image text-3xl"></i>
+                            </div>
+                            <div class="grid grid-rows-2 gap-2">
+                                <div class="bg-[#faf9f8] w-full h-full flex items-center justify-center text-gray-300">
+                                    <i class="fas fa-image"></i>
+                                </div>
+                                <div class="bg-[#faf9f8] w-full h-full flex items-center justify-center text-gray-300">
+                                    <i class="fas fa-image"></i>
+                                </div>
+                            </div>
+                        </div>
+                        <h4 class="font-bold text-gray-900 text-lg mb-1">Studio Headshots Ideas</h4>
+                        <p class="text-sm text-gray-500 mb-3">0 Pins • Private</p>
+                        <div class="flex items-center text-gray-400 text-sm font-semibold">
+                            Start pinning ideas <i class="fas fa-arrow-right ml-1"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- SECTION: SHOP -->
+            <div id="shop-section" class="content-section hidden animate-fade-in">
+                <div class="flex justify-between items-center mb-6">
+                    <div>
+                        <h3 class="text-2xl font-bold text-gray-900">Print Store</h3>
+                        <p class="text-gray-500 mt-1">Order high-quality prints, canvases, and albums directly from your galleries.</p>
+                    </div>
+                    <button class="bg-gray-900 text-white px-5 py-2 rounded-lg text-sm font-bold hover:bg-[#d6a87c] hover:text-black transition shadow-md">
+                        <i class="fas fa-shopping-cart mr-2"></i> Cart (0)
+                    </button>
+                </div>
+                
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <!-- Product 1 -->
+                    <div class="bg-white rounded-xl shadow-sm border border-gray-100 p-5 group hover:shadow-xl hover:-translate-y-2 transition-all duration-300">
+                        <div class="bg-[#faf9f8] h-48 rounded-lg mb-4 flex items-center justify-center overflow-hidden">
+                            <i class="fas fa-image text-6xl text-gray-200 group-hover:scale-110 transition duration-500"></i>
+                        </div>
+                        <h4 class="font-bold text-gray-900 text-lg">Fine Art Prints</h4>
+                        <p class="text-sm text-gray-500 mb-4">Matte or glossy finish. Available in various sizes.</p>
+                        <div class="flex justify-between items-center">
+                            <span class="font-bold text-gray-900">From </span>
+                            <button class="text-[#d6a87c] font-bold text-sm hover:text-gray-900">Customize <i class="fas fa-arrow-right ml-1"></i></button>
+                        </div>
+                    </div>
+                    <!-- Product 2 -->
+                    <div class="bg-white rounded-xl shadow-sm border border-gray-100 p-5 group hover:shadow-xl hover:-translate-y-2 transition-all duration-300">
+                        <div class="bg-[#faf9f8] h-48 rounded-lg mb-4 flex items-center justify-center overflow-hidden relative">
+                            <span class="absolute top-2 left-2 bg-[#d6a87c] text-white text-[10px] font-bold uppercase tracking-wider px-2 py-1 rounded">Bestseller</span>
+                            <i class="fas fa-book-open text-6xl text-gray-200 group-hover:scale-110 transition duration-500"></i>
+                        </div>
+                        <h4 class="font-bold text-gray-900 text-lg">Premium Layflat Album</h4>
+                        <p class="text-sm text-gray-500 mb-4">Handcrafted leather or linen cover photo album.</p>
+                        <div class="flex justify-between items-center">
+                            <span class="font-bold text-gray-900">From </span>
+                            <button class="text-[#d6a87c] font-bold text-sm hover:text-gray-900">Design <i class="fas fa-arrow-right ml-1"></i></button>
+                        </div>
+                    </div>
+                    <!-- Product 3 -->
+                    <div class="bg-white rounded-xl shadow-sm border border-gray-100 p-5 group hover:shadow-xl hover:-translate-y-2 transition-all duration-300">
+                        <div class="bg-[#faf9f8] h-48 rounded-lg mb-4 flex items-center justify-center overflow-hidden">
+                            <i class="fas fa-border-all text-6xl text-gray-200 group-hover:scale-110 transition duration-500"></i>
+                        </div>
+                        <h4 class="font-bold text-gray-900 text-lg">Gallery Canvas Wrap</h4>
+                        <p class="text-sm text-gray-500 mb-4">Ready-to-hang museum quality canvas prints.</p>
+                        <div class="flex justify-between items-center">
+                            <span class="font-bold text-gray-900">From </span>
+                            <button class="text-[#d6a87c] font-bold text-sm hover:text-gray-900">Customize <i class="fas fa-arrow-right ml-1"></i></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- SECTION: SETTINGS -->
+            <div id="settings-section" class="content-section hidden animate-fade-in">
+                <h3 class="text-2xl font-bold text-gray-900 mb-6">Profile Settings</h3>
+                <div class="bg-white rounded-xl shadow-sm border border-gray-100 p-8 max-w-3xl">
+                    <form>
+                        <div class="flex items-center mb-8">
+                            <img src="assets/images/img_45.webp" alt="Avatar" class="w-20 h-20 rounded-full object-cover border-2 border-gray-100 mr-6">
+                            <div>
+                                <button type="button" class="bg-white border border-gray-200 text-gray-700 px-4 py-2 rounded-lg text-sm font-bold hover:bg-gray-50 transition shadow-sm mb-2">Change Avatar</button>
+                                <p class="text-xs text-gray-500">JPG, GIF or PNG. Max size of 800K</p>
+                            </div>
+                        </div>
+
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+                            <div>
+                                <label class="block text-sm font-semibold text-gray-900 mb-2">First Name</label>
+                                <input type="text" value="Emma" class="w-full bg-[#faf9f8] border border-gray-200 text-gray-900 px-4 py-2.5 rounded-lg focus:outline-none focus:border-gray-900 focus:bg-white transition">
+                            </div>
+                            <div>
+                                <label class="block text-sm font-semibold text-gray-900 mb-2">Last Name</label>
+                                <input type="text" value="Watson" class="w-full bg-[#faf9f8] border border-gray-200 text-gray-900 px-4 py-2.5 rounded-lg focus:outline-none focus:border-gray-900 focus:bg-white transition">
+                            </div>
+                        </div>
+
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+                            <div>
+                                <label class="block text-sm font-semibold text-gray-900 mb-2">Email Address</label>
+                                <input type="email" value="emma@example.com" class="w-full bg-[#faf9f8] border border-gray-200 text-gray-900 px-4 py-2.5 rounded-lg focus:outline-none focus:border-gray-900 focus:bg-white transition">
+                            </div>
+                            <div>
+                                <label class="block text-sm font-semibold text-gray-900 mb-2">Phone Number</label>
+                                <input type="tel" value="+91 98765 43210" class="w-full bg-[#faf9f8] border border-gray-200 text-gray-900 px-4 py-2.5 rounded-lg focus:outline-none focus:border-gray-900 focus:bg-white transition">
+                            </div>
+                        </div>
+
+                        <div class="border-t border-gray-100 pt-6">
+                            <button type="submit" class="bg-gray-900 text-white font-bold px-6 py-3 rounded-lg hover:bg-[#d6a87c] hover:text-black transition-colors shadow-lg">
+                                Save Changes
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <style>
+        .animate-fade-in {
+            animation: fadeIn 0.4s ease-in-out;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+
+    <script>
+        // Sidebar Navigation Logic
+        const links = document.querySelectorAll('.sidebar-link');
+        const sections = document.querySelectorAll('.content-section');
+        const pageTitle = document.getElementById('page-title');
+
+        links.forEach(link => {
+            link.addEventListener('click', (e) => {
+                e.preventDefault();
+                
+                // Update Classes for links
+                links.forEach(l => {
+                    l.classList.remove('sidebar-active');
+                    l.classList.add('sidebar-inactive');
+                });
+                link.classList.remove('sidebar-inactive');
+                link.classList.add('sidebar-active');
+
+                // Hide all sections, show target
+                const targetId = link.getAttribute('data-target');
+                sections.forEach(s => s.classList.add('hidden'));
+                document.getElementById(targetId).classList.remove('hidden');
+
+                // Update page title
+                pageTitle.textContent = link.innerText.trim();
+
+                // On mobile, close sidebar after clicking a link
+                if(window.innerWidth < 1024) {
+                    closeSidebar();
+                }
+            });
+        });
+
+        // Mobile Sidebar Toggle
+        const sidebar = document.getElementById('sidebar');
+        const overlay = document.getElementById('sidebar-overlay');
+        const openBtn = document.getElementById('open-sidebar');
+        const closeBtn = document.getElementById('close-sidebar');
+
+        function openSidebar() {
+            sidebar.classList.remove('-translate-x-full');
+            overlay.classList.remove('hidden');
+        }
+
+        function closeSidebar() {
+            sidebar.classList.add('-translate-x-full');
+            overlay.classList.add('hidden');
+        }
+
+        openBtn.addEventListener('click', openSidebar);
+        closeBtn.addEventListener('click', closeSidebar);
+        overlay.addEventListener('click', closeSidebar);
+    </script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
