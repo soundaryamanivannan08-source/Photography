@@ -40,7 +40,7 @@
         <nav class="container mx-auto px-6 py-6 flex justify-between items-center z-10 text-white">
             <!-- Left: Logo -->
             <div class="text-2xl font-bold tracking-tight flex items-center w-1/4">
-                <img src="assets/images/logo.webp" alt="Stackly" class="h-8 md:h-10 w-auto">
+                <a href="index.html" class="hover:opacity-80 transition-opacity"><img src="assets/images/logo.webp" alt="Stackly" class="h-8 md:h-10 w-auto"></a>
             </div>
             
             <!-- Center: Desktop Menu -->
@@ -185,33 +185,33 @@
 
                 <!-- Right Side: Contact Form -->
                 <div class="w-full lg:w-7/12 p-10 lg:p-16">
-                    <form action="404.html" class="space-y-6">
+                                        <form id="contactForm" class="space-y-6">
                         <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                             <div>
                                 <label class="block text-sm font-semibold text-gray-900 mb-2">First Name</label>
-                                <input type="text" placeholder="John" class="w-full bg-[#f9f8f6] border border-gray-200 text-gray-900 px-4 py-3 rounded-lg focus:outline-none focus:border-gray-900 focus:bg-white transition">
+                                <input type="text" id="firstName" placeholder="John" class="w-full bg-[#f9f8f6] border border-gray-200 text-gray-900 px-4 py-3 rounded-lg focus:outline-none focus:border-gray-900 focus:bg-white transition" required>
                             </div>
                             <div>
                                 <label class="block text-sm font-semibold text-gray-900 mb-2">Last Name</label>
-                                <input type="text" placeholder="Doe" class="w-full bg-[#f9f8f6] border border-gray-200 text-gray-900 px-4 py-3 rounded-lg focus:outline-none focus:border-gray-900 focus:bg-white transition">
+                                <input type="text" id="lastName" placeholder="Doe" class="w-full bg-[#f9f8f6] border border-gray-200 text-gray-900 px-4 py-3 rounded-lg focus:outline-none focus:border-gray-900 focus:bg-white transition" required>
                             </div>
                         </div>
                         
                         <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                             <div>
                                 <label class="block text-sm font-semibold text-gray-900 mb-2">Email Address</label>
-                                <input type="email" placeholder="john@example.com" class="w-full bg-[#f9f8f6] border border-gray-200 text-gray-900 px-4 py-3 rounded-lg focus:outline-none focus:border-gray-900 focus:bg-white transition">
+                                <input type="email" id="email" placeholder="john@example.com" class="w-full bg-[#f9f8f6] border border-gray-200 text-gray-900 px-4 py-3 rounded-lg focus:outline-none focus:border-gray-900 focus:bg-white transition" required>
                             </div>
                             <div>
                                 <label class="block text-sm font-semibold text-gray-900 mb-2">Phone Number</label>
-                                <input type="tel" placeholder="+1 (555) 000-0000" class="w-full bg-[#f9f8f6] border border-gray-200 text-gray-900 px-4 py-3 rounded-lg focus:outline-none focus:border-gray-900 focus:bg-white transition">
+                                <input type="tel" id="phone" placeholder="+1 (555) 000-0000" class="w-full bg-[#f9f8f6] border border-gray-200 text-gray-900 px-4 py-3 rounded-lg focus:outline-none focus:border-gray-900 focus:bg-white transition">
                             </div>
                         </div>
                         
                         <div>
                             <label class="block text-sm font-semibold text-gray-900 mb-2">Type of Session</label>
                             <div class="relative">
-                                <select class="w-full bg-[#f9f8f6] border border-gray-200 text-gray-900 px-4 py-3 rounded-lg focus:outline-none focus:border-gray-900 focus:bg-white transition appearance-none">
+                                <select id="sessionType" class="w-full bg-[#f9f8f6] border border-gray-200 text-gray-900 px-4 py-3 rounded-lg focus:outline-none focus:border-gray-900 focus:bg-white transition appearance-none" required>
                                     <option value="" disabled selected>Select a session type...</option>
                                     <option value="wedding">Wedding / Elopement</option>
                                     <option value="portrait">Portrait Session</option>
@@ -227,8 +227,10 @@
                         
                         <div>
                             <label class="block text-sm font-semibold text-gray-900 mb-2">Your Message</label>
-                            <textarea rows="5" placeholder="Tell me a bit about your vision, location, and dates..." class="w-full bg-[#f9f8f6] border border-gray-200 text-gray-900 px-4 py-3 rounded-lg focus:outline-none focus:border-gray-900 focus:bg-white transition resize-none"></textarea>
+                            <textarea id="message" rows="5" placeholder="Tell me a bit about your vision, location, and dates..." class="w-full bg-[#f9f8f6] border border-gray-200 text-gray-900 px-4 py-3 rounded-lg focus:outline-none focus:border-gray-900 focus:bg-white transition resize-none" required></textarea>
                         </div>
+                        
+                        <p id="formError" class="text-red-500 text-sm font-semibold hidden bg-red-50 px-4 py-3 rounded-lg border border-red-200"></p>
                         
                         <button type="submit" class="w-full bg-gray-900 text-white font-bold py-4 rounded-lg hover:bg-[#d6a87c] hover:text-black transition-colors shadow-lg">
                             Send Message
@@ -367,7 +369,7 @@
                 <!-- Column 1: Brand -->
                 <div>
                     <div class="text-3xl font-bold tracking-tight flex items-center mb-6 text-white">
-                        <img src="assets/images/logo.webp" alt="Stackly" class="h-8 md:h-10 w-auto">
+                        <a href="index.html" class="hover:opacity-80 transition-opacity"><img src="assets/images/logo.webp" alt="Stackly" class="h-8 md:h-10 w-auto"></a>
                     </div>
                     <p class="text-gray-400 text-sm mb-6 leading-relaxed">
                         Capturing life, one frame at a time.
@@ -471,8 +473,39 @@
             }
         });
     </script>
+    <!-- Contact Form Validation Script -->
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const contactForm = document.getElementById('contactForm');
+            if (contactForm) {
+                contactForm.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    
+                    const firstName = document.getElementById('firstName').value.trim();
+                    const lastName = document.getElementById('lastName').value.trim();
+                    const email = document.getElementById('email').value.trim();
+                    const sessionType = document.getElementById('sessionType').value;
+                    const message = document.getElementById('message').value.trim();
+                    const formError = document.getElementById('formError');
+                    
+                    const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                    
+                    if (!firstName || !lastName || !email || !sessionType || !message || !emailPattern.test(email)) {
+                        formError.textContent = "Please fill in the required fields with valid details.";
+                        formError.classList.remove('hidden');
+                    } else {
+                        formError.classList.add('hidden');
+                        window.location.href = "404.html";
+                    }
+                });
+            }
+        });
+    </script>
 </body>
 </html>
+
+
+
 
 
 

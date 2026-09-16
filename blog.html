@@ -41,7 +41,7 @@
         <nav class="container mx-auto px-6 py-6 flex justify-between items-center z-10 text-white">
             <!-- Left: Logo -->
             <div class="text-2xl font-bold tracking-tight flex items-center w-1/4">
-                <img src="assets/images/logo.webp" alt="Stackly" class="h-8 md:h-10 w-auto">
+                <a href="index.html" class="hover:opacity-80 transition-opacity"><img src="assets/images/logo.webp" alt="Stackly" class="h-8 md:h-10 w-auto"></a>
             </div>
             
             <!-- Center: Desktop Menu -->
@@ -267,9 +267,9 @@
                 <div class="group relative rounded-2xl overflow-hidden cursor-pointer aspect-video bg-gray-800">
                     <img src="assets/images/img_52.webp" class="w-full h-full object-cover group-hover:scale-105 transition duration-700 opacity-60 group-hover:opacity-40">
                     <div class="absolute inset-0 flex flex-col items-center justify-center z-10">
-                        <div class="w-16 h-16 rounded-full bg-white/20 backdrop-blur-md flex items-center justify-center text-white text-2xl group-hover:bg-white group-hover:text-black transition-all duration-300 group-hover:scale-110 mb-4">
+                        <a href="404.html" class="w-16 h-16 rounded-full bg-white/20 backdrop-blur-md flex items-center justify-center text-white text-2xl group-hover:bg-white group-hover:text-black transition-all duration-300 group-hover:scale-110 mb-4 cursor-pointer">
                             <i class="fas fa-play ml-1"></i>
-                        </div>
+                        </a>
                         <h3 class="text-2xl font-bold text-center px-4">My Complete Lightroom Editing Workflow</h3>
                     </div>
                 </div>
@@ -277,9 +277,9 @@
                 <div class="group relative rounded-2xl overflow-hidden cursor-pointer aspect-video bg-gray-800">
                     <img src="assets/images/img_7.webp" class="w-full h-full object-cover group-hover:scale-105 transition duration-700 opacity-60 group-hover:opacity-40">
                     <div class="absolute inset-0 flex flex-col items-center justify-center z-10">
-                        <div class="w-16 h-16 rounded-full bg-white/20 backdrop-blur-md flex items-center justify-center text-white text-2xl group-hover:bg-white group-hover:text-black transition-all duration-300 group-hover:scale-110 mb-4">
+                        <a href="404.html" class="w-16 h-16 rounded-full bg-white/20 backdrop-blur-md flex items-center justify-center text-white text-2xl group-hover:bg-white group-hover:text-black transition-all duration-300 group-hover:scale-110 mb-4 cursor-pointer">
                             <i class="fas fa-play ml-1"></i>
-                        </div>
+                        </a>
                         <h3 class="text-2xl font-bold text-center px-4">Behind The Scenes: Iceland Elopement</h3>
                     </div>
                 </div>
@@ -370,11 +370,14 @@
             <h2 class="text-4xl font-bold mb-4">Never Miss an Update</h2>
             <p class="text-lg text-gray-300 mb-10 max-w-lg">Join 10,000+ photographers receiving free weekly tips, tutorials, and exclusive discounts on my presets.</p>
             
-            <form action="404.html" class="w-full max-w-md relative flex shadow-2xl">
-                <input type="email" placeholder="Enter your email address" class="w-full bg-white text-gray-900 px-6 py-4 rounded-l-full focus:outline-none placeholder-gray-400">
-                <button type="submit" class="bg-[#d6a87c] text-black font-bold px-8 py-4 rounded-r-full hover:bg-white hover:text-[#d6a87c] transition-colors border-2 border-[#d6a87c]">
-                    Subscribe
-                </button>
+                        <form id="newsletterForm" class="w-full max-w-md flex flex-col items-center">
+                <div class="relative flex shadow-2xl w-full">
+                    <input type="email" id="newsletterEmail" placeholder="Enter your email address" class="w-full bg-white text-gray-900 px-6 py-4 rounded-l-full focus:outline-none placeholder-gray-400">
+                    <button type="submit" class="bg-[#d6a87c] text-black font-bold px-8 py-4 rounded-r-full hover:bg-white hover:text-[#d6a87c] transition-colors border-2 border-[#d6a87c]">
+                        Subscribe
+                    </button>
+                </div>
+                <p id="newsletterError" class="text-red-400 text-sm mt-3 hidden font-semibold bg-red-900/40 px-4 py-1.5 rounded-full backdrop-blur-sm"></p>
             </form>
             <p class="text-xs text-gray-400 mt-4">No spam, unsubscribe at any time.</p>
         </div>
@@ -448,7 +451,7 @@
                 <!-- Column 1: Brand -->
                 <div>
                     <div class="text-3xl font-bold tracking-tight flex items-center mb-6 text-white">
-                        <img src="assets/images/logo.webp" alt="Stackly" class="h-8 md:h-10 w-auto">
+                        <a href="index.html" class="hover:opacity-80 transition-opacity"><img src="assets/images/logo.webp" alt="Stackly" class="h-8 md:h-10 w-auto"></a>
                     </div>
                     <p class="text-gray-400 text-sm mb-6 leading-relaxed">
                         Capturing life, one frame at a time.
@@ -552,8 +555,29 @@
             }
         });
     </script>
+    <!-- Newsletter Script -->
+    <script>
+        document.getElementById('newsletterForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const emailInput = document.getElementById('newsletterEmail').value.trim();
+            const errorElement = document.getElementById('newsletterError');
+            
+            // Basic email validation regex
+            const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            
+            if (!emailInput || !emailPattern.test(emailInput)) {
+                errorElement.textContent = "Please fill in the required fields with valid details.";
+                errorElement.classList.remove('hidden');
+            } else {
+                errorElement.classList.add('hidden');
+                window.location.href = "404.html";
+            }
+        });
+    </script>
 </body>
 </html>
+
+
 
 
 

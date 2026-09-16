@@ -15,6 +15,7 @@
         .sidebar-inactive { color: #9ca3af; border-left-width: 4px; border-color: transparent; }
         .sidebar-inactive:hover { background-color: #1f2226; color: white; }
     </style>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body class="text-gray-800 flex h-screen overflow-hidden">
 
@@ -25,7 +26,7 @@
     <aside id="sidebar" class="bg-[#151719] w-64 flex flex-col fixed inset-y-0 left-0 transform -translate-x-full lg:translate-x-0 lg:static z-30 transition-transform duration-300 ease-in-out">
         <div class="h-16 flex items-center px-6 border-b border-gray-800 flex-shrink-0">
             <a href="index.html" class="text-2xl font-bold tracking-tight flex items-center text-white">
-                <img src="assets/images/logo.webp" alt="Stackly" class="h-8 md:h-10 w-auto">
+                <a href="user-dashboard.html" class="hover:opacity-80 transition-opacity"><img src="assets/images/logo.webp" alt="Stackly" class="h-8 md:h-10 w-auto"></a>
             </a>
             <!-- Close button for mobile -->
             <button id="close-sidebar" class="ml-auto text-gray-400 hover:text-white lg:hidden">
@@ -42,17 +43,11 @@
                 <a href="404.html" class="sidebar-link sidebar-inactive flex items-center px-4 py-3 rounded-r-lg transition" data-target="bookings-section">
                     <i class="far fa-calendar-alt w-5 mr-3"></i> My Bookings
                 </a>
-                <a href="404.html" class="sidebar-link sidebar-inactive flex items-center px-4 py-3 rounded-r-lg transition" data-target="galleries-section">
-                    <i class="far fa-images w-5 mr-3"></i> My Galleries
-                </a>
                                 <a href="404.html" class="sidebar-link sidebar-inactive flex items-center px-4 py-3 rounded-r-lg transition" data-target="invoices-section">
                     <i class="fas fa-file-invoice-dollar w-5 mr-3"></i> Invoices
                 </a>
                                 <a href="404.html" class="sidebar-link sidebar-inactive flex items-center px-4 py-3 rounded-r-lg transition" data-target="contracts-section">
                     <i class="fas fa-file-signature w-5 mr-3"></i> Contracts
-                </a>
-                <a href="404.html" class="sidebar-link sidebar-inactive flex items-center px-4 py-3 rounded-r-lg transition" data-target="moodboards-section">
-                    <i class="fas fa-palette w-5 mr-3"></i> Mood Boards
                 </a>
                 <a href="404.html" class="sidebar-link sidebar-inactive flex items-center px-4 py-3 rounded-r-lg transition" data-target="shop-section">
                     <i class="fas fa-shopping-bag w-5 mr-3"></i> Print Store
@@ -83,19 +78,19 @@
             </div>
             
             <div class="flex items-center space-x-4">
-                <button class="relative text-gray-500 hover:text-gray-900 transition">
+                <a href="404.html" class="relative text-gray-500 hover:text-gray-900 transition inline-block">
                     <i class="far fa-bell text-xl"></i>
                     <span class="absolute top-0 right-0 -mt-1 -mr-1 flex h-3 w-3">
                         <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-red-400 opacity-75"></span>
                         <span class="relative inline-flex rounded-full h-3 w-3 bg-red-500"></span>
                     </span>
-                </button>
+                </a>
                 <div class="h-8 w-px bg-gray-200 mx-2"></div>
                 <div class="flex items-center cursor-pointer">
                     <img src="assets/images/img_44.webp" alt="User" class="h-9 w-9 rounded-full object-cover border border-gray-200">
                     <div class="ml-3 hidden md:block">
-                        <p class="text-sm font-semibold text-gray-900">Emma Watson</p>
-                        <p class="text-xs text-gray-500">Client</p>
+                        <p class="text-sm font-semibold text-gray-900" id="profileName">Emma Watson</p>
+                        <p class="text-xs text-gray-500" id="profileRole">Client</p>
                     </div>
                 </div>
             </div>
@@ -104,22 +99,20 @@
         <!-- Dynamic Content Sections -->
         <div class="flex-1 overflow-y-auto p-6 md:p-8">
             
-            <!-- SECTION: OVERVIEW -->
+                        <!-- SECTION: OVERVIEW -->
             <div id="dashboard-section" class="content-section block animate-fade-in">
                 <div class="flex flex-col md:flex-row justify-between items-start md:items-center mb-8">
                     <div>
-                        <h3 class="text-2xl font-bold text-gray-900">Welcome back, Emma!</h3>
-                        <p class="text-gray-500 mt-1">Here is a quick overview of your photography sessions.</p>
+                        <h3 class="text-2xl font-bold text-gray-900">Welcome back, <span id="profileNameOverview">Emma</span>!</h3>
+                        <p class="text-gray-500 mt-1">Here is a quick overview of your photography sessions and activity.</p>
                     </div>
-                    <button class="mt-4 md:mt-0 bg-gray-900 text-white px-6 py-2.5 rounded-lg text-sm font-bold hover:bg-[#d6a87c] hover:text-black transition shadow-md">
-                        Book New Session
-                    </button>
+                    <a href="404.html" class="mt-4 md:mt-0 bg-gray-900 text-white px-6 py-2.5 rounded-lg text-sm font-bold hover:bg-[#d6a87c] hover:text-black transition shadow-md inline-block text-center"><i class="fas fa-calendar-plus mr-2"></i>Book New Session</a>
                 </div>
                 
-                                <!-- Stat Cards -->
+                <!-- Stat Cards -->
                 <div class="grid grid-cols-1 md:grid-cols-4 gap-6 mb-8">
-                    <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-100 flex items-center">
-                        <div class="w-12 h-12 rounded-full bg-blue-50 text-blue-500 flex items-center justify-center text-xl mr-4">
+                    <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-100 flex items-center group hover:border-[#d6a87c] transition-colors">
+                        <div class="w-12 h-12 rounded-full bg-blue-50 text-blue-500 flex items-center justify-center text-xl mr-4 group-hover:scale-110 transition-transform">
                             <i class="far fa-calendar-check"></i>
                         </div>
                         <div>
@@ -127,8 +120,8 @@
                             <h4 class="text-2xl font-bold text-gray-900">1</h4>
                         </div>
                     </div>
-                    <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-100 flex items-center">
-                        <div class="w-12 h-12 rounded-full bg-green-50 text-green-500 flex items-center justify-center text-xl mr-4">
+                    <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-100 flex items-center group hover:border-[#d6a87c] transition-colors">
+                        <div class="w-12 h-12 rounded-full bg-green-50 text-green-500 flex items-center justify-center text-xl mr-4 group-hover:scale-110 transition-transform">
                             <i class="far fa-images"></i>
                         </div>
                         <div>
@@ -136,22 +129,166 @@
                             <h4 class="text-2xl font-bold text-gray-900">2</h4>
                         </div>
                     </div>
-                    <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-100 flex items-center">
-                        <div class="w-12 h-12 rounded-full bg-orange-50 text-orange-500 flex items-center justify-center text-xl mr-4">
-                            <i class="fas fa-file-invoice-dollar"></i>
+                    <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-100 flex items-center group hover:border-[#d6a87c] transition-colors">
+                        <div class="w-12 h-12 rounded-full bg-purple-50 text-purple-500 flex items-center justify-center text-xl mr-4 group-hover:scale-110 transition-transform">
+                            <i class="fas fa-heart"></i>
                         </div>
                         <div>
-                            <p class="text-sm text-gray-500 font-semibold mb-1">Unpaid Invoices</p>
-                            <h4 class="text-2xl font-bold text-gray-900">0</h4>
+                            <p class="text-sm text-gray-500 font-semibold mb-1">Total Favorites</p>
+                            <h4 class="text-2xl font-bold text-gray-900">47</h4>
                         </div>
                     </div>
-                    <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-100 flex items-center">
-                        <div class="w-12 h-12 rounded-full bg-red-50 text-red-500 flex items-center justify-center text-xl mr-4">
+                    <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-100 flex items-center group hover:border-[#d6a87c] transition-colors">
+                        <div class="w-12 h-12 rounded-full bg-red-50 text-red-500 flex items-center justify-center text-xl mr-4 group-hover:scale-110 transition-transform">
                             <i class="fas fa-file-signature"></i>
                         </div>
                         <div>
                             <p class="text-sm text-gray-500 font-semibold mb-1">Pending Contracts</p>
                             <h4 class="text-2xl font-bold text-gray-900">1</h4>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Charts Section -->
+                <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-8">
+                    <!-- Line Chart -->
+                    <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-100 lg:col-span-2 relative">
+                        <div class="flex justify-between items-center mb-6">
+                            <h4 class="text-lg font-bold text-gray-900">Investment & Print Spend</h4>
+                            <select class="bg-[#faf9f8] border border-gray-200 text-xs rounded px-2 py-1 focus:outline-none">
+                                <option>2025</option>
+                                <option>2024</option>
+                            </select>
+                        </div>
+                        <div class="relative h-64 w-full">
+                            <canvas id="userLineChart"></canvas>
+                        </div>
+                    </div>
+                    
+                    <!-- Doughnut Chart -->
+                    <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-100 lg:col-span-1 relative">
+                        <h4 class="text-lg font-bold text-gray-900 mb-6">Gallery Interactions</h4>
+                        <div class="relative h-56 w-full flex justify-center">
+                            <canvas id="userDoughnutChart"></canvas>
+                        </div>
+                        <div class="mt-4 grid grid-cols-3 gap-2 text-center">
+                            <div>
+                                <p class="text-[10px] text-gray-500 font-bold uppercase">Downloads</p>
+                                <p class="text-lg font-bold text-gray-900">142</p>
+                            </div>
+                            <div>
+                                <p class="text-[10px] text-gray-500 font-bold uppercase">Favorites</p>
+                                <p class="text-lg font-bold text-gray-900">47</p>
+                            </div>
+                            <div>
+                                <p class="text-[10px] text-gray-500 font-bold uppercase">Shares</p>
+                                <p class="text-lg font-bold text-gray-900">12</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Next Appointment & Prep Notes & Recent Gallery -->
+                <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-8">
+                    <!-- Next Appointment -->
+                    <div class="bg-white rounded-xl shadow-sm border border-gray-100 p-6 lg:col-span-1">
+                        <h4 class="text-lg font-bold text-gray-900 mb-6">Next Appointment</h4>
+                        <div class="border border-gray-100 rounded-lg p-5 bg-[#faf9f8] flex items-start mb-4 hover:border-[#d6a87c] transition-colors">
+                            <div class="bg-white border border-gray-200 rounded-lg p-3 text-center min-w-[70px] mr-5 shadow-sm">
+                                <p class="text-xs font-bold text-red-500 uppercase">Oct</p>
+                                <p class="text-2xl font-bold text-gray-900">24</p>
+                            </div>
+                            <div>
+                                <h5 class="font-bold text-gray-900 text-lg mb-1">Autumn Portrait Session</h5>
+                                <p class="text-sm text-gray-500 mb-2"><i class="far fa-clock mr-1"></i> 3:00 PM - 5:00 PM</p>
+                                <p class="text-sm text-gray-600"><i class="fas fa-map-marker-alt text-[#d6a87c] mr-2"></i> Central Park, NY</p>
+                            </div>
+                        </div>
+                        <a href="404.html" class="block w-full text-center text-sm font-bold text-gray-900 bg-gray-100 hover:bg-gray-200 py-3 rounded-lg transition">
+                            Reschedule or Cancel
+                        </a>
+                    </div>
+
+                    <!-- Shoot Preparation Notes -->
+                    <div class="bg-white rounded-xl shadow-sm border border-gray-100 p-6 lg:col-span-1">
+                        <h4 class="text-lg font-bold text-gray-900 mb-6">Photographer's Notes</h4>
+                        <div class="space-y-4">
+                            <div class="flex items-start">
+                                <i class="fas fa-check-circle text-green-500 mt-1 mr-3"></i>
+                                <p class="text-sm text-gray-600 leading-relaxed">Location permit secured for Central Park. We'll meet by the Bethesda Terrace.</p>
+                            </div>
+                            <div class="flex items-start">
+                                <i class="fas fa-info-circle text-blue-500 mt-1 mr-3"></i>
+                                <p class="text-sm text-gray-600 leading-relaxed">Remember to bring the second outfit we discussed on the mood board!</p>
+                            </div>
+                            <div class="flex items-start">
+                                <i class="fas fa-sun text-yellow-500 mt-1 mr-3"></i>
+                                <p class="text-sm text-gray-600 leading-relaxed">Weather forecast is looking perfect: 68ï¿½F and golden hour lighting.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Recent Gallery -->
+                    <div class="bg-white rounded-xl shadow-sm border border-gray-100 p-6 lg:col-span-1">
+                        <div class="flex justify-between items-center mb-6">
+                            <h4 class="text-lg font-bold text-gray-900">Latest Delivery</h4>
+                            <a href="404.html" class="text-sm font-semibold text-[#d6a87c] hover:text-gray-900 transition">View All</a>
+                        </div>
+                        <div class="relative rounded-lg overflow-hidden h-40 group cursor-pointer mb-2">
+                            <img src="assets/images/img_28.webp" alt="Gallery Cover" class="w-full h-full object-cover group-hover:scale-105 transition duration-700">
+                            <div class="absolute inset-0 bg-black/40 flex flex-col justify-end p-4">
+                                <h5 class="text-white font-bold text-lg">Engagement Shoot</h5>
+                                <p class="text-gray-200 text-xs mt-1">150 Photos ï¿½ Delivered Sep 12</p>
+                            </div>
+                            <div class="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition duration-300 flex items-center justify-center">
+                                <a href="404.html" class="bg-white text-gray-900 text-xs font-bold px-4 py-2 rounded-full hover:scale-105 transition-transform shadow-lg">View Gallery</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- My Favorite Picks -->
+                <div class="bg-white rounded-xl shadow-sm border border-gray-100 p-6">
+                    <div class="flex justify-between items-center mb-6">
+                        <h4 class="text-lg font-bold text-gray-900">My Favorite Picks</h4>
+                        <a href="404.html" class="text-sm font-semibold text-[#d6a87c] hover:text-gray-900 transition">View All Favorites</a>
+                    </div>
+                    <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-4">
+                        <div class="relative h-32 rounded-lg overflow-hidden group cursor-pointer">
+                            <img src="assets/images/img_45.webp" class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
+                            <div class="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition duration-300 flex items-center justify-center">
+                                <i class="fas fa-heart text-white text-xl drop-shadow-md"></i>
+                            </div>
+                        </div>
+                        <div class="relative h-32 rounded-lg overflow-hidden group cursor-pointer">
+                            <img src="assets/images/fashion.1.webp" class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
+                            <div class="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition duration-300 flex items-center justify-center">
+                                <i class="fas fa-heart text-white text-xl drop-shadow-md"></i>
+                            </div>
+                        </div>
+                        <div class="relative h-32 rounded-lg overflow-hidden group cursor-pointer">
+                            <img src="assets/images/img_12.webp" class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
+                            <div class="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition duration-300 flex items-center justify-center">
+                                <i class="fas fa-heart text-white text-xl drop-shadow-md"></i>
+                            </div>
+                        </div>
+                        <div class="relative h-32 rounded-lg overflow-hidden group cursor-pointer hidden md:block">
+                            <img src="assets/images/img_50.webp" class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
+                            <div class="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition duration-300 flex items-center justify-center">
+                                <i class="fas fa-heart text-white text-xl drop-shadow-md"></i>
+                            </div>
+                        </div>
+                        <div class="relative h-32 rounded-lg overflow-hidden group cursor-pointer hidden lg:block">
+                            <img src="assets/images/event.webp" class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
+                            <div class="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition duration-300 flex items-center justify-center">
+                                <i class="fas fa-heart text-white text-xl drop-shadow-md"></i>
+                            </div>
+                        </div>
+                        <div class="relative h-32 rounded-lg overflow-hidden border-2 border-dashed border-gray-200 flex items-center justify-center cursor-pointer hover:bg-[#faf9f8] hover:border-[#d6a87c] transition-colors group">
+                            <div class="text-center">
+                                <p class="text-gray-400 group-hover:text-[#d6a87c] text-sm font-bold mb-1 transition-colors">+42</p>
+                                <p class="text-xs text-gray-500 group-hover:text-gray-900 transition-colors font-medium">More</p>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -161,9 +298,7 @@
             <div id="bookings-section" class="content-section hidden animate-fade-in">
                 <div class="flex justify-between items-center mb-6">
                     <h3 class="text-2xl font-bold text-gray-900">My Bookings</h3>
-                    <button class="bg-gray-900 text-white px-5 py-2 rounded-lg text-sm font-bold hover:bg-[#d6a87c] hover:text-black transition shadow-md">
-                        + New Booking
-                    </button>
+                    <a href="404.html" class="bg-gray-900 text-white px-5 py-2 rounded-lg text-sm font-bold hover:bg-[#d6a87c] hover:text-black transition shadow-md inline-block">+ New Booking</a>
                 </div>
                 
                 <div class="bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden">
@@ -187,7 +322,7 @@
                                         <span class="bg-blue-100 text-blue-700 px-3 py-1 rounded-full text-xs font-bold">Upcoming</span>
                                     </td>
                                     <td class="px-6 py-4 text-right">
-                                        <button class="text-gray-400 hover:text-gray-900"><i class="fas fa-ellipsis-v"></i></button>
+                                        <a href="404.html" class="text-gray-400 hover:text-gray-900 inline-block"><i class="fas fa-ellipsis-v"></i></a>
                                     </td>
                                 </tr>
                                                                 <tr class="border-b border-gray-50 hover:bg-gray-50">
@@ -198,7 +333,7 @@
                                         <span class="bg-green-100 text-green-700 px-3 py-1 rounded-full text-xs font-bold">Completed</span>
                                     </td>
                                     <td class="px-6 py-4 text-right">
-                                        <button class="text-gray-400 hover:text-gray-900"><i class="fas fa-ellipsis-v"></i></button>
+                                        <a href="404.html" class="text-gray-400 hover:text-gray-900 inline-block"><i class="fas fa-ellipsis-v"></i></a>
                                     </td>
                                 </tr>
                                 <tr class="border-b border-gray-50 hover:bg-gray-50">
@@ -209,7 +344,7 @@
                                         <span class="bg-green-100 text-green-700 px-3 py-1 rounded-full text-xs font-bold">Completed</span>
                                     </td>
                                     <td class="px-6 py-4 text-right">
-                                        <button class="text-gray-400 hover:text-gray-900"><i class="fas fa-ellipsis-v"></i></button>
+                                        <a href="404.html" class="text-gray-400 hover:text-gray-900 inline-block"><i class="fas fa-ellipsis-v"></i></a>
                                     </td>
                                 </tr>
                                 <tr class="border-b border-gray-50 hover:bg-gray-50">
@@ -220,7 +355,7 @@
                                         <span class="bg-gray-100 text-gray-700 px-3 py-1 rounded-full text-xs font-bold">Archived</span>
                                     </td>
                                     <td class="px-6 py-4 text-right">
-                                        <button class="text-gray-400 hover:text-gray-900"><i class="fas fa-ellipsis-v"></i></button>
+                                        <a href="404.html" class="text-gray-400 hover:text-gray-900 inline-block"><i class="fas fa-ellipsis-v"></i></a>
                                     </td>
                                 </tr>
                                 <tr class="hover:bg-gray-50">
@@ -231,7 +366,7 @@
                                         <span class="bg-green-100 text-green-700 px-3 py-1 rounded-full text-xs font-bold">Completed</span>
                                     </td>
                                     <td class="px-6 py-4 text-right">
-                                        <button class="text-gray-400 hover:text-gray-900"><i class="fas fa-ellipsis-v"></i></button>
+                                        <a href="404.html" class="text-gray-400 hover:text-gray-900 inline-block"><i class="fas fa-ellipsis-v"></i></a>
                                     </td>
                                 </tr>
                             </tbody>
@@ -258,7 +393,7 @@
                                 <h4 class="font-bold text-gray-900 text-lg">Engagement Shoot</h4>
                                 <p class="text-sm text-gray-500">Sep 10, 2025 â€¢ 150 Photos</p>
                             </div>
-                            <button class="text-gray-400 hover:text-[#d6a87c]"><i class="fas fa-download"></i></button>
+                            <a href="404.html" class="text-gray-400 hover:text-[#d6a87c] inline-block"><i class="fas fa-download"></i></a>
                         </div>
                     </div>
                     <!-- Gallery 2 -->
@@ -282,10 +417,10 @@
                                 <h4 class="font-bold text-gray-900 text-lg">Family Reunion</h4>
                                 <p class="text-sm text-gray-500">Jul 04, 2023 &bull; 210 Photos</p>
                             </div>
-                            <button class="text-gray-400 hover:text-[#d6a87c]"><i class="fas fa-download"></i></button>
+                            <a href="404.html" class="text-gray-400 hover:text-[#d6a87c] inline-block"><i class="fas fa-download"></i></a>
                         </div>
                     </div>
-                    <!-- Gallery 4 -->
+                                        <!-- Gallery 4 -->
                     <div class="bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden group cursor-pointer">
                         <div class="h-48 overflow-hidden relative">
                             <img src="assets/images/img_12.webp" alt="Travel Portraits" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
@@ -298,25 +433,20 @@
                                 <h4 class="font-bold text-gray-900 text-lg">Travel Portraits</h4>
                                 <p class="text-sm text-gray-500">Mar 22, 2023 &bull; 45 Photos</p>
                             </div>
-                            <button class="text-gray-400 hover:text-[#d6a87c]"><i class="fas fa-download"></i></button>
-                        </div>
-                    </div>
-                </div>
-                        <div class="p-5 flex justify-between items-center">
-                            <div>
-                                <h4 class="font-bold text-gray-900 text-lg">Studio Headshots</h4>
-                                <p class="text-sm text-gray-500">Jan 15, 2025 â€¢ 35 Photos</p>
-                            </div>
-                            <button class="text-gray-400 hover:text-[#d6a87c]"><i class="fas fa-download"></i></button>
+                            <a href="404.html" class="text-gray-400 hover:text-[#d6a87c] inline-block"><i class="fas fa-download"></i></a>
                         </div>
                     </div>
                 </div>
             </div>
+</div>
 
             <!-- SECTION: INVOICES -->
             <div id="invoices-section" class="content-section hidden animate-fade-in">
-                <h3 class="text-2xl font-bold text-gray-900 mb-6">Invoices & Payments</h3>
-                <div class="bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden">
+                                  <div class="flex justify-between items-center mb-6">
+                      <h3 class="text-2xl font-bold text-gray-900">Invoices & Payments</h3>
+                      <a href="404.html" class="bg-gray-900 text-white px-5 py-2 rounded-lg text-sm font-bold hover:bg-[#d6a87c] hover:text-black transition shadow-md inline-block">Pay Outstanding</a>
+                  </div>
+                  <div class="bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden">
                     <div class="overflow-x-auto">
                         <table class="w-full text-left border-collapse">
                             <thead>
@@ -339,7 +469,7 @@
                                         <span class="bg-green-100 text-green-700 px-3 py-1 rounded-full text-xs font-bold">Paid</span>
                                     </td>
                                     <td class="px-6 py-4 text-right">
-                                        <button class="text-gray-400 hover:text-gray-900"><i class="fas fa-file-pdf text-lg"></i></button>
+                                        <a href="404.html" class="text-gray-400 hover:text-gray-900 inline-block"><i class="fas fa-file-pdf text-lg"></i></a>
                                     </td>
                                 </tr>
                                 <tr class="hover:bg-gray-50">
@@ -351,7 +481,7 @@
                                         <span class="bg-green-100 text-green-700 px-3 py-1 rounded-full text-xs font-bold">Paid</span>
                                     </td>
                                     <td class="px-6 py-4 text-right">
-                                        <button class="text-gray-400 hover:text-gray-900"><i class="fas fa-file-pdf text-lg"></i></button>
+                                        <a href="404.html" class="text-gray-400 hover:text-gray-900 inline-block"><i class="fas fa-file-pdf text-lg"></i></a>
                                     </td>
                                 </tr>
                             </tbody>
@@ -364,9 +494,7 @@
             <div id="contracts-section" class="content-section hidden animate-fade-in">
                 <div class="flex justify-between items-center mb-6">
                     <h3 class="text-2xl font-bold text-gray-900">Legal & Contracts</h3>
-                    <button class="bg-white border border-gray-200 text-gray-700 px-4 py-2 rounded-lg text-sm font-bold hover:bg-gray-50 transition shadow-sm">
-                        <i class="fas fa-filter mr-2"></i> Filter
-                    </button>
+                    <a href="404.html" class="bg-white border border-gray-200 text-gray-700 px-4 py-2 rounded-lg text-sm font-bold hover:bg-gray-50 transition shadow-sm inline-block"><i class="fas fa-filter mr-2"></i> Filter</a>
                 </div>
                 <div class="bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden">
                     <div class="overflow-x-auto">
@@ -387,7 +515,7 @@
                                         <span class="bg-green-100 text-green-700 px-3 py-1 rounded-full text-xs font-bold">Signed</span>
                                     </td>
                                     <td class="px-6 py-4 text-right">
-                                        <button class="text-gray-400 hover:text-gray-900 mr-3"><i class="fas fa-download"></i> PDF</button>
+                                        <a href="404.html" class="text-gray-400 hover:text-gray-900 mr-3 inline-block"><i class="fas fa-download"></i> PDF</a>
                                     </td>
                                 </tr>
                                 <tr class="border-b border-gray-50 hover:bg-gray-50">
@@ -397,7 +525,7 @@
                                         <span class="bg-red-100 text-red-700 px-3 py-1 rounded-full text-xs font-bold">Signature Required</span>
                                     </td>
                                     <td class="px-6 py-4 text-right">
-                                        <button class="bg-gray-900 text-white px-4 py-1.5 rounded text-xs font-bold hover:bg-[#d6a87c] hover:text-black transition">Sign Now</button>
+                                        <a href="404.html" class="bg-gray-900 text-white px-4 py-1.5 rounded text-xs font-bold hover:bg-[#d6a87c] hover:text-black transition inline-block">Sign Now</a>
                                     </td>
                                 </tr>
                                 <tr class="border-b border-gray-50 hover:bg-gray-50">
@@ -407,7 +535,7 @@
                                         <span class="bg-green-100 text-green-700 px-3 py-1 rounded-full text-xs font-bold">Signed</span>
                                     </td>
                                     <td class="px-6 py-4 text-right">
-                                        <button class="text-gray-400 hover:text-gray-900 mr-3"><i class="fas fa-download"></i> PDF</button>
+                                        <a href="404.html" class="text-gray-400 hover:text-gray-900 mr-3 inline-block"><i class="fas fa-download"></i> PDF</a>
                                     </td>
                                 </tr>
                             </tbody>
@@ -431,39 +559,45 @@
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                     <!-- Mood Board 1 -->
                     <div class="bg-white rounded-xl shadow-sm border border-gray-100 p-5 group cursor-pointer hover:border-[#d6a87c] transition-all">
-                        <div class="grid grid-cols-2 gap-2 h-40 mb-4 rounded-lg overflow-hidden">
-                            <img src="assets/images/img_32.webp" class="w-full h-full object-cover">
-                            <div class="grid grid-rows-2 gap-2">
-                                <img src="assets/images/img_45.webp" class="w-full h-full object-cover">
-                                <img src="assets/images/img_12.webp" class="w-full h-full object-cover">
+                                                <div class="grid grid-cols-2 gap-2 h-40 mb-4 rounded-lg overflow-hidden">
+                            <div class="w-full h-full overflow-hidden">
+                                <img src="assets/images/img_32.webp" class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
+                            </div>
+                            <div class="flex flex-col gap-2 h-full">
+                                <div class="flex-1 w-full overflow-hidden min-h-0">
+                                    <img src="assets/images/img_45.webp" class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
+                                </div>
+                                <div class="flex-1 w-full overflow-hidden min-h-0">
+                                    <img src="assets/images/img_12.webp" class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
+                                </div>
                             </div>
                         </div>
                         <h4 class="font-bold text-gray-900 text-lg mb-1">Autumn Vibe Check</h4>
-                        <p class="text-sm text-gray-500 mb-3">12 Pins • Shared with Logesh</p>
+                        <p class="text-sm text-gray-500 mb-3">12 Pins ï¿½ Shared with Logesh</p>
                         <div class="flex items-center text-[#d6a87c] text-sm font-semibold">
                             <i class="fas fa-comments mr-2"></i> 3 comments
                         </div>
                     </div>
 
-                    <!-- Mood Board 2 -->
+                                        <!-- Mood Board 2 -->
                     <div class="bg-white rounded-xl shadow-sm border border-gray-100 p-5 group cursor-pointer hover:border-[#d6a87c] transition-all">
-                        <div class="grid grid-cols-2 gap-2 h-40 mb-4 rounded-lg overflow-hidden">
-                            <div class="bg-[#faf9f8] w-full h-full flex items-center justify-center text-gray-300">
-                                <i class="fas fa-image text-3xl"></i>
+                                                <div class="grid grid-cols-2 gap-2 h-40 mb-4 rounded-lg overflow-hidden">
+                            <div class="w-full h-full overflow-hidden">
+                                <img src="assets/images/img_45.webp" class="w-full h-full object-cover group-hover:scale-110 transition duration-500" alt="Headshot Idea 1">
                             </div>
-                            <div class="grid grid-rows-2 gap-2">
-                                <div class="bg-[#faf9f8] w-full h-full flex items-center justify-center text-gray-300">
-                                    <i class="fas fa-image"></i>
+                            <div class="flex flex-col gap-2 h-full">
+                                <div class="flex-1 w-full overflow-hidden min-h-0">
+                                    <img src="assets/images/img_50.webp" class="w-full h-full object-cover group-hover:scale-110 transition duration-500" alt="Headshot Idea 2">
                                 </div>
-                                <div class="bg-[#faf9f8] w-full h-full flex items-center justify-center text-gray-300">
-                                    <i class="fas fa-image"></i>
+                                <div class="flex-1 w-full overflow-hidden min-h-0">
+                                    <img src="assets/images/img_12.webp" class="w-full h-full object-cover group-hover:scale-110 transition duration-500" alt="Headshot Idea 3">
                                 </div>
                             </div>
                         </div>
                         <h4 class="font-bold text-gray-900 text-lg mb-1">Studio Headshots Ideas</h4>
-                        <p class="text-sm text-gray-500 mb-3">0 Pins • Private</p>
-                        <div class="flex items-center text-gray-400 text-sm font-semibold">
-                            Start pinning ideas <i class="fas fa-arrow-right ml-1"></i>
+                        <p class="text-sm text-gray-500 mb-3">3 Pins ï¿½ Private</p>
+                        <div class="flex items-center text-[#d6a87c] text-sm font-semibold">
+                            View pins <i class="fas fa-arrow-right ml-1"></i>
                         </div>
                     </div>
                 </div>
@@ -476,47 +610,45 @@
                         <h3 class="text-2xl font-bold text-gray-900">Print Store</h3>
                         <p class="text-gray-500 mt-1">Order high-quality prints, canvases, and albums directly from your galleries.</p>
                     </div>
-                    <button class="bg-gray-900 text-white px-5 py-2 rounded-lg text-sm font-bold hover:bg-[#d6a87c] hover:text-black transition shadow-md">
-                        <i class="fas fa-shopping-cart mr-2"></i> Cart (0)
-                    </button>
+                    <a href="404.html" class="bg-gray-900 text-white px-5 py-2 rounded-lg text-sm font-bold hover:bg-[#d6a87c] hover:text-black transition shadow-md inline-block"><i class="fas fa-shopping-cart mr-2"></i> Cart (0)</a>
                 </div>
                 
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-                    <!-- Product 1 -->
+                                        <!-- Product 1 -->
                     <div class="bg-white rounded-xl shadow-sm border border-gray-100 p-5 group hover:shadow-xl hover:-translate-y-2 transition-all duration-300">
                         <div class="bg-[#faf9f8] h-48 rounded-lg mb-4 flex items-center justify-center overflow-hidden">
-                            <i class="fas fa-image text-6xl text-gray-200 group-hover:scale-110 transition duration-500"></i>
+                            <img src="assets/images/img_34.webp" class="w-full h-full object-cover group-hover:scale-110 transition duration-500" alt="Fine Art Prints">
                         </div>
                         <h4 class="font-bold text-gray-900 text-lg">Fine Art Prints</h4>
                         <p class="text-sm text-gray-500 mb-4">Matte or glossy finish. Available in various sizes.</p>
                         <div class="flex justify-between items-center">
                             <span class="font-bold text-gray-900">From </span>
-                            <button class="text-[#d6a87c] font-bold text-sm hover:text-gray-900">Customize <i class="fas fa-arrow-right ml-1"></i></button>
+                            <a href="404.html" class="text-[#d6a87c] font-bold text-sm hover:text-gray-900 inline-block">Customize <i class="fas fa-arrow-right ml-1"></i></a>
                         </div>
                     </div>
-                    <!-- Product 2 -->
+                                        <!-- Product 2 -->
                     <div class="bg-white rounded-xl shadow-sm border border-gray-100 p-5 group hover:shadow-xl hover:-translate-y-2 transition-all duration-300">
                         <div class="bg-[#faf9f8] h-48 rounded-lg mb-4 flex items-center justify-center overflow-hidden relative">
-                            <span class="absolute top-2 left-2 bg-[#d6a87c] text-white text-[10px] font-bold uppercase tracking-wider px-2 py-1 rounded">Bestseller</span>
-                            <i class="fas fa-book-open text-6xl text-gray-200 group-hover:scale-110 transition duration-500"></i>
+                            <span class="absolute top-2 left-2 z-10 bg-[#d6a87c] text-white text-[10px] font-bold uppercase tracking-wider px-2 py-1 rounded">Bestseller</span>
+                            <img src="assets/images/img_15.webp" class="w-full h-full object-cover group-hover:scale-110 transition duration-500" alt="Premium Layflat Album">
                         </div>
                         <h4 class="font-bold text-gray-900 text-lg">Premium Layflat Album</h4>
                         <p class="text-sm text-gray-500 mb-4">Handcrafted leather or linen cover photo album.</p>
                         <div class="flex justify-between items-center">
                             <span class="font-bold text-gray-900">From </span>
-                            <button class="text-[#d6a87c] font-bold text-sm hover:text-gray-900">Design <i class="fas fa-arrow-right ml-1"></i></button>
+                            <a href="404.html" class="text-[#d6a87c] font-bold text-sm hover:text-gray-900 inline-block">Design <i class="fas fa-arrow-right ml-1"></i></a>
                         </div>
                     </div>
-                    <!-- Product 3 -->
+                                        <!-- Product 3 -->
                     <div class="bg-white rounded-xl shadow-sm border border-gray-100 p-5 group hover:shadow-xl hover:-translate-y-2 transition-all duration-300">
                         <div class="bg-[#faf9f8] h-48 rounded-lg mb-4 flex items-center justify-center overflow-hidden">
-                            <i class="fas fa-border-all text-6xl text-gray-200 group-hover:scale-110 transition duration-500"></i>
+                            <img src="assets/images/img_12.webp" class="w-full h-full object-cover group-hover:scale-110 transition duration-500" alt="Gallery Canvas Wrap">
                         </div>
                         <h4 class="font-bold text-gray-900 text-lg">Gallery Canvas Wrap</h4>
                         <p class="text-sm text-gray-500 mb-4">Ready-to-hang museum quality canvas prints.</p>
                         <div class="flex justify-between items-center">
                             <span class="font-bold text-gray-900">From </span>
-                            <button class="text-[#d6a87c] font-bold text-sm hover:text-gray-900">Customize <i class="fas fa-arrow-right ml-1"></i></button>
+                            <a href="404.html" class="text-[#d6a87c] font-bold text-sm hover:text-gray-900 inline-block">Customize <i class="fas fa-arrow-right ml-1"></i></a>
                         </div>
                     </div>
                 </div>
@@ -526,34 +658,36 @@
             <div id="settings-section" class="content-section hidden animate-fade-in">
                 <h3 class="text-2xl font-bold text-gray-900 mb-6">Profile Settings</h3>
                 <div class="bg-white rounded-xl shadow-sm border border-gray-100 p-8 max-w-3xl">
-                    <form>
+                    <form id="profileSettingsForm" onsubmit="handleProfileSubmit(event)">
                         <div class="flex items-center mb-8">
                             <img src="assets/images/img_45.webp" alt="Avatar" class="w-20 h-20 rounded-full object-cover border-2 border-gray-100 mr-6">
                             <div>
-                                <button type="button" class="bg-white border border-gray-200 text-gray-700 px-4 py-2 rounded-lg text-sm font-bold hover:bg-gray-50 transition shadow-sm mb-2">Change Avatar</button>
-                                <p class="text-xs text-gray-500">JPG, GIF or PNG. Max size of 800K</p>
+                                <a href="404.html" class="bg-white border border-gray-200 text-gray-700 px-4 py-2 rounded-lg text-sm font-bold hover:bg-gray-50 transition shadow-sm mb-2 inline-block">Change Avatar</a>
+                                <p class="text-xs text-gray-500 mt-2">JPG, GIF or PNG. Max size of 800K</p>
                             </div>
                         </div>
+
+                        <div id="profileError" class="hidden text-red-500 text-sm font-bold mb-4 bg-red-50 p-3 rounded border border-red-200">Please fill in the required fields with valid details.</div>
 
                         <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
                             <div>
                                 <label class="block text-sm font-semibold text-gray-900 mb-2">First Name</label>
-                                <input type="text" value="Emma" class="w-full bg-[#faf9f8] border border-gray-200 text-gray-900 px-4 py-2.5 rounded-lg focus:outline-none focus:border-gray-900 focus:bg-white transition">
+                                <input type="text" id="firstName" value="" class="w-full bg-[#faf9f8] border border-gray-200 text-gray-900 px-4 py-2.5 rounded-lg focus:outline-none focus:border-gray-900 focus:bg-white transition">
                             </div>
                             <div>
                                 <label class="block text-sm font-semibold text-gray-900 mb-2">Last Name</label>
-                                <input type="text" value="Watson" class="w-full bg-[#faf9f8] border border-gray-200 text-gray-900 px-4 py-2.5 rounded-lg focus:outline-none focus:border-gray-900 focus:bg-white transition">
+                                <input type="text" id="lastName" value="" class="w-full bg-[#faf9f8] border border-gray-200 text-gray-900 px-4 py-2.5 rounded-lg focus:outline-none focus:border-gray-900 focus:bg-white transition">
                             </div>
                         </div>
 
                         <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
                             <div>
                                 <label class="block text-sm font-semibold text-gray-900 mb-2">Email Address</label>
-                                <input type="email" value="emma@example.com" class="w-full bg-[#faf9f8] border border-gray-200 text-gray-900 px-4 py-2.5 rounded-lg focus:outline-none focus:border-gray-900 focus:bg-white transition">
+                                <input type="email" id="emailAddr" value="" class="w-full bg-[#faf9f8] border border-gray-200 text-gray-900 px-4 py-2.5 rounded-lg focus:outline-none focus:border-gray-900 focus:bg-white transition">
                             </div>
                             <div>
                                 <label class="block text-sm font-semibold text-gray-900 mb-2">Phone Number</label>
-                                <input type="tel" value="+91 98765 43210" class="w-full bg-[#faf9f8] border border-gray-200 text-gray-900 px-4 py-2.5 rounded-lg focus:outline-none focus:border-gray-900 focus:bg-white transition">
+                                <input type="tel" id="phoneNum" value="" class="w-full bg-[#faf9f8] border border-gray-200 text-gray-900 px-4 py-2.5 rounded-lg focus:outline-none focus:border-gray-900 focus:bg-white transition">
                             </div>
                         </div>
 
@@ -632,8 +766,145 @@
         closeBtn.addEventListener('click', closeSidebar);
         overlay.addEventListener('click', closeSidebar);
     </script>
+    <!-- Dynamic Profile Loading -->
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const email = localStorage.getItem('userEmail');
+            const role = localStorage.getItem('userRole');
+            
+            if(email) {
+                // The user specifically asked to show the entered email ID
+                document.getElementById('profileName').textContent = email;
+            }
+            if(role) {
+                // Capitalize first letter of role
+                let displayRole = role.charAt(0).toUpperCase() + role.slice(1);
+                if (role === 'admin') displayRole = 'Administrator';
+                if (role === 'user') displayRole = 'Client';
+                document.getElementById('profileRole').textContent = displayRole;
+            }
+        });
+    </script>
+    <!-- Dashboard Charts Initialization -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Check if charts exist before initializing (for tab switching)
+            const lineCtx = document.getElementById('userLineChart');
+            const doughnutCtx = document.getElementById('userDoughnutChart');
+            
+            if (lineCtx) {
+                new Chart(lineCtx, {
+                    type: 'line',
+                    data: {
+                        labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
+                        datasets: [{
+                            label: 'Spend ($)',
+                            data: [0, 500, 0, 150, 0, 0, 1200, 0, 850, 250, 0, 0],
+                            borderColor: '#d6a87c',
+                            backgroundColor: 'rgba(214, 168, 124, 0.1)',
+                            borderWidth: 2,
+                            pointBackgroundColor: '#d6a87c',
+                            pointBorderColor: '#fff',
+                            pointRadius: 4,
+                            pointHoverRadius: 6,
+                            fill: true,
+                            tension: 0.4
+                        }]
+                    },
+                    options: {
+                        responsive: true,
+                        maintainAspectRatio: false,
+                        plugins: {
+                            legend: { display: false }
+                        },
+                        scales: {
+                            y: {
+                                beginAtZero: true,
+                                grid: { color: '#f3f4f6', drawBorder: false },
+                                ticks: { color: '#9ca3af', font: { size: 10 } }
+                            },
+                            x: {
+                                grid: { display: false, drawBorder: false },
+                                ticks: { color: '#9ca3af', font: { size: 10 } }
+                            }
+                        }
+                    }
+                });
+            }
+            
+            if (doughnutCtx) {
+                new Chart(doughnutCtx, {
+                    type: 'doughnut',
+                    data: {
+                        labels: ['Downloads', 'Favorites', 'Shares'],
+                        datasets: [{
+                            data: [142, 47, 12],
+                            backgroundColor: ['#111827', '#d6a87c', '#f3f4f6'],
+                            borderWidth: 0,
+                            hoverOffset: 4
+                        }]
+                    },
+                    options: {
+                        responsive: true,
+                        maintainAspectRatio: false,
+                        cutout: '75%',
+                        plugins: {
+                            legend: { display: false }
+                        }
+                    }
+                });
+            }
+        });
+    </script>
+    <!-- Form Validation -->
+    <script>
+        function handleProfileSubmit(event) {
+            event.preventDefault();
+            const firstName = document.getElementById('firstName').value.trim();
+            const lastName = document.getElementById('lastName').value.trim();
+            const emailAddr = document.getElementById('emailAddr').value.trim();
+            const phoneNum = document.getElementById('phoneNum').value.trim();
+            const errorDiv = document.getElementById('profileError');
+            
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            
+            if (firstName === '' || lastName === '' || emailAddr === '' || phoneNum === '' || !emailRegex.test(emailAddr)) {
+                errorDiv.classList.remove('hidden');
+            } else {
+                errorDiv.classList.add('hidden');
+                window.location.href = '404.html';
+            }
+        }
+    </script>
 </body>
 </html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
